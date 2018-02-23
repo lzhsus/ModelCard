@@ -39,8 +39,7 @@
     // Do any additional setup after loading the view.
 }
 -(void)done:(UIButton *)sender{
-    ModelImageController *model = [[ModelImageController alloc]init];
-    [self.navigationController pushViewController:model animated:YES];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
