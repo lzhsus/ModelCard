@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "work_tab.png",
+      "filename" : "icon_circular_n~iphone.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "work_tab@2x.png",
+      "filename" : "icon_circular_n~iphone@2x.png",
       "scale" : "2x"
     },
     {

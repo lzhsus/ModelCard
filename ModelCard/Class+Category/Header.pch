@@ -1,0 +1,57 @@
+//
+//  Header.pch
+//  ModelCard
+//
+//  Created by iMac on 2018/2/23.
+//  Copyright © 2018年 Asher. All rights reserved.
+//
+
+#ifndef Header_pch
+#define Header_pch
+
+/** 项目头文件 */
+#import "Oneyian.h"
+#import "UIView+CornerRadius.h"
+#import "UIColor+Category.h"
+/** 约束 */
+#define Width [UIScreen mainScreen].bounds.size.width
+#define Height [UIScreen mainScreen].bounds.size.height
+#define SafeArea(Max,Min) (Height==812.f ? Max : Min)
+#define XHeight SafeArea(Height-145,Height)
+#define XBottom SafeArea(34,0)
+#define NavigationTop SafeArea(88,64)
+#define TabBarBottom SafeArea(83,49)
+
+#define MarkWidth(x) (x/1080.f) * Width
+#define MarkHeight(x) (x/1920.f) * (Height < 568.f ? 568.f : XHeight)
+#define MarkSize (Height == 667.f ? 1 : 667.f/XHeight)
+#define MarkFont(x) (Height == 480.f ? x*3/8/MarkSize*1.19 : x*3/8/MarkSize)
+/** info */
+#define SystemVersion [[UIDevice currentDevice] systemVersion]
+#define AppVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+#define SystemLanguage [NSLocale preferredLanguages].firstObject
+/** 获取系统对象 */
+#define YApplication [UIApplication sharedApplication]
+#define YAWindow [UIApplication sharedApplication].delegate.window
+#define YADelegate [AppDelegate shareAppDelegate]
+#define YADefaults [NSUserDefaults standardUserDefaults]
+#define YANotification [NSNotificationCenter defaultCenter]
+#define NSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
+/** 空值判断 */
+#define isStringEmpty(a) ([a isEqual:[NSNull null]] || a == nil || [a isEqualToString:@""])
+#define isObjectEmpty(a) ([a isEqual:[NSNull null]] || a == nil)
+#define isArrayEmpty(a) ([a isEqual:[NSNull null]] || a == nil || a.count == 0)
+/** 主题色 */
+#define ThemeColor [UIColor colorHex:@"#E7586E"]
+#define BackgroundColor [UIColor colorHex:@"#f7f7f7"]
+#define ClearColor [UIColor clearColor]
+/** 调试 */
+#ifdef __OBJC__
+#ifdef DEBUG
+#define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define NSLog(...)
+#endif
+#endif
+
+#endif /* Header_pch */

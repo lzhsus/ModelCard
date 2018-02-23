@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "TalentPool_tab_select.png",
+      "filename" : "icon_pool_h~iphone.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "TalentPool_tab_select@2x.png",
+      "filename" : "icon_pool_h~iphone@2x.png",
       "scale" : "2x"
     },
     {

@@ -18,7 +18,8 @@
     if (self = [super init]) {
         //这里会把 navigationItem.title 和 tabBarItem.title 同时设置
         self.title = @"人才库";
-        self.view.backgroundColor = [UIColor yellowColor];
+        self.view.backgroundColor = BackgroundColor;
+        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:ThemeColor} forState:UIControlStateSelected];
         self.tabBarItem.image = [UIImage imageOriginalImageName:@"TalentPool_tab"];
         self.tabBarItem.selectedImage = [UIImage imageOriginalImageName:@"TalentPool_tab_select"];
     }

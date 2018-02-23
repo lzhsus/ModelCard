@@ -18,7 +18,8 @@
     if (self = [super init]) {
         //这里会把 navigationItem.title 和 tabBarItem.title 同时设置
         self.title = @"我的";
-        self.view.backgroundColor = [UIColor greenColor];
+        self.view.backgroundColor = BackgroundColor;
+        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:ThemeColor} forState:UIControlStateSelected];
         self.tabBarItem.image = [UIImage imageOriginalImageName:@"mine_tab"];
         self.tabBarItem.selectedImage = [UIImage imageOriginalImageName:@"mine_tab_select"];
     }

@@ -20,6 +20,10 @@
 		22F60AEA203E694B00FC9CC3 /* TalentPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F60AE9203E694B00FC9CC3 /* TalentPool.m */; };
 		22F60AED203E696200FC9CC3 /* Mine.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F60AEC203E696200FC9CC3 /* Mine.m */; };
 		88516AF1203FAD2B00A9F133 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF0203FAD2B00A9F133 /* UIImage+Category.m */; };
+		88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF4203FB1C100A9F133 /* UIButton+Category.m */; };
+		88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF5203FB1C100A9F133 /* UIView+CornerRadius.m */; };
+		88516AFB203FB1C100A9F133 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF8203FB1C100A9F133 /* UIColor+Category.m */; };
+		88516AFE203FB20400A9F133 /* Oneyian.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AFD203FB20400A9F133 /* Oneyian.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,15 @@
 		22F60AEC203E696200FC9CC3 /* Mine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine.m; sourceTree = "<group>"; };
 		88516AEF203FAD2B00A9F133 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		88516AF0203FAD2B00A9F133 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		88516AF2203FB0C600A9F133 /* Header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.pch; sourceTree = "<group>"; };
+		88516AF3203FB1C100A9F133 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
+		88516AF4203FB1C100A9F133 /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
+		88516AF5203FB1C100A9F133 /* UIView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CornerRadius.m"; sourceTree = "<group>"; };
+		88516AF6203FB1C100A9F133 /* UIView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CornerRadius.h"; sourceTree = "<group>"; };
+		88516AF7203FB1C100A9F133 /* UIButton+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
+		88516AF8203FB1C100A9F133 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
+		88516AFC203FB20400A9F133 /* Oneyian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Oneyian.h; sourceTree = "<group>"; };
+		88516AFD203FB20400A9F133 /* Oneyian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Oneyian.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,8 +251,17 @@
 		88516AEE203FAD0E00A9F133 /* Class+Category */ = {
 			isa = PBXGroup;
 			children = (
+				88516AFC203FB20400A9F133 /* Oneyian.h */,
+				88516AFD203FB20400A9F133 /* Oneyian.m */,
 				88516AEF203FAD2B00A9F133 /* UIImage+Category.h */,
 				88516AF0203FAD2B00A9F133 /* UIImage+Category.m */,
+				88516AF7203FB1C100A9F133 /* UIButton+Category.h */,
+				88516AF4203FB1C100A9F133 /* UIButton+Category.m */,
+				88516AF3203FB1C100A9F133 /* UIColor+Category.h */,
+				88516AF8203FB1C100A9F133 /* UIColor+Category.m */,
+				88516AF6203FB1C100A9F133 /* UIView+CornerRadius.h */,
+				88516AF5203FB1C100A9F133 /* UIView+CornerRadius.m */,
+				88516AF2203FB0C600A9F133 /* Header.pch */,
 			);
 			path = "Class+Category";
 			sourceTree = "<group>";
@@ -315,15 +337,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2281AEB9203EC83D00412003 /* SegmentView.m in Sources */,
+				88516AFB203FB1C100A9F133 /* UIColor+Category.m in Sources */,
 				22F60AE7203E693900FC9CC3 /* Work.m in Sources */,
 				88516AF1203FAD2B00A9F133 /* UIImage+Category.m in Sources */,
 				2281AEB0203EB2C800412003 /* Home.m in Sources */,
 				2281AEB6203EC7D300412003 /* VerticalVersion.m in Sources */,
 				22F60AED203E696200FC9CC3 /* Mine.m in Sources */,
 				22F60AEA203E694B00FC9CC3 /* TalentPool.m in Sources */,
+				88516AFE203FB20400A9F133 /* Oneyian.m in Sources */,
 				2281AEAD203EB29B00412003 /* ModelCard.m in Sources */,
 				22F60AC5203E675A00FC9CC3 /* main.m in Sources */,
+				88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */,
 				2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */,
+				88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */,
 				22F60AB7203E675A00FC9CC3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +477,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ModelCard/Class+Category/Header.pch";
 				INFOPLIST_FILE = ModelCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Asher.ModelCard;
@@ -464,6 +492,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ModelCard/Class+Category/Header.pch";
 				INFOPLIST_FILE = ModelCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Asher.ModelCard;

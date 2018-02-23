@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "moderCard_tab_select.png",
+      "filename" : "icon_home_s~iphone.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "moderCard_tab_select@2x.png",
+      "filename" : "icon_home_s~iphone@2x.png",
       "scale" : "2x"
     },
     {

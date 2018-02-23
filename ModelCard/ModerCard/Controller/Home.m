@@ -11,7 +11,7 @@
 #import "UIImage+Category.h"
 
 #define HeadImgHeight 180
-#define Width [UIScreen mainScreen].bounds.size.width
+
 @interface Home ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) UIImageView *HeadImgView; //!< 头部图像
 @end
@@ -21,7 +21,7 @@
     if (self = [super init]) {
         //这里会把 navigationItem.title 和 tabBarItem.title 同时设置
         self.title = @"模卡";
-        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
+        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:ThemeColor} forState:UIControlStateSelected];
         self.tabBarItem.image = [UIImage imageOriginalImageName:@"moderCard_tab"];
         self.tabBarItem.selectedImage = [UIImage imageOriginalImageName:@"moderCard_tab_select"];
     }
@@ -39,7 +39,7 @@
 //    //设置 导航条上title的字体
 //    self.navigationController.navigationBar.titleTextAttributes = dic;
     
-    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
     //设置tableView 的delegate
