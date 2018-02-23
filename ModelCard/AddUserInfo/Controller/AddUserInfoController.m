@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"添加个人资料";
+    self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -28,9 +29,8 @@
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];
     [self.navigationItem setRightBarButtonItem:right];
     
-    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.view.backgroundColor = ThemeColor;
-    tableView.backgroundColor = self.view.backgroundColor;
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NavigationTop, Width, Height-NavigationTop) style:UITableViewStylePlain];
+    tableView.backgroundColor = [UIColor colorHex:@"#3A3538"];
     tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -48,13 +48,22 @@
     return 9;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [UITableViewCell new];
-    cell.backgroundColor = [UIColor blackColor];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
-}
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row < 8) {
+        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+        cell.selectionStyle = 0;
+        cell.backgroundColor = ThemeColor;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"测试";
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        cell.detailTextLabel.text = @"啊";
+        cell.detailTextLabel.textColor = [UIColor whiteColor];
+        return cell;
+    }else{
+        UITableViewCell *cell = [UITableViewCell new];
+        cell.selectionStyle = 0;
+        cell.backgroundColor = ThemeColor;
+        return cell;
+    }
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];

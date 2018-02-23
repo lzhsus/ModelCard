@@ -27,6 +27,7 @@
 		88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B02203FB66000A9F133 /* AddUserInfoController.m */; };
 		88516B06203FBC1900A9F133 /* ModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B05203FBC1900A9F133 /* ModelImageController.m */; };
 		88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */; };
+		88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B0B20400F0E00A9F133 /* YAScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		88516B05203FBC1900A9F133 /* ModelImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelImageController.m; sourceTree = "<group>"; };
 		88516B07203FFECC00A9F133 /* UIDevice+YADevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+YADevice.h"; sourceTree = "<group>"; };
 		88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+YADevice.m"; sourceTree = "<group>"; };
+		88516B0B20400F0E00A9F133 /* YAScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAScrollView.m; sourceTree = "<group>"; };
+		88516B0C20400F0E00A9F133 /* YAScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAScrollView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +284,7 @@
 		88516AFF203FB61D00A9F133 /* AddUserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				88516B0A20400F0700A9F133 /* View */,
 				88516B00203FB62C00A9F133 /* Controller */,
 			);
 			path = AddUserInfo;
@@ -295,6 +299,15 @@
 				88516B05203FBC1900A9F133 /* ModelImageController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		88516B0A20400F0700A9F133 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88516B0C20400F0E00A9F133 /* YAScrollView.h */,
+				88516B0B20400F0E00A9F133 /* YAScrollView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +389,7 @@
 				22F60AED203E696200FC9CC3 /* Mine.m in Sources */,
 				22F60AEA203E694B00FC9CC3 /* TalentPool.m in Sources */,
 				88516AFE203FB20400A9F133 /* Oneyian.m in Sources */,
+				88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */,
 				2281AEAD203EB29B00412003 /* ModelCard.m in Sources */,
 				88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */,
 				88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */,
