@@ -7,6 +7,9 @@
 //
 
 #import "ModelImageController.h"
+#import "UIDevice+YADevice.h"
+#import "AppDelegate.h"
+#import "AddUserInfoController.h"
 
 @interface ModelImageController ()
 
@@ -16,6 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    //允许转成横屏
+    appDelegate.allowRotation = YES;
+    //调用横屏代码
+    [UIDevice switchNewOrientation:UIInterfaceOrientationLandscapeRight];
+    
     self.view.backgroundColor = BackgroundColor;
     self.title = @"编辑";
     
@@ -25,21 +34,22 @@
     [done setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [done setTitle:@"完成" forState:UIControlStateHighlighted];
     [done addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightDone = [[UIBarButtonItem alloc]initWithCustomView:done];
+    [self.view addSubview:done];
     
-    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(44, 0, 44, 44)];
     [edit setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [edit setTitle:@"编辑" forState:UIControlStateNormal];
     [edit setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [edit setTitle:@"编辑" forState:UIControlStateHighlighted];
     [edit addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightEdit = [[UIBarButtonItem alloc]initWithCustomView:edit];
-    
-    [self.navigationItem setRightBarButtonItems:@[rightDone,rightEdit]];
+    [self.view addSubview:edit];
     // Do any additional setup after loading the view.
 }
 -(void)done:(UIButton *)sender{
-    
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appDelegate.allowRotation = NO;
+    [UIDevice switchNewOrientation:UIInterfaceOrientationPortrait];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

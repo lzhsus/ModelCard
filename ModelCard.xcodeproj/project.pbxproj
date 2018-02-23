@@ -26,6 +26,7 @@
 		88516AFE203FB20400A9F133 /* Oneyian.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AFD203FB20400A9F133 /* Oneyian.m */; };
 		88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B02203FB66000A9F133 /* AddUserInfoController.m */; };
 		88516B06203FBC1900A9F133 /* ModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B05203FBC1900A9F133 /* ModelImageController.m */; };
+		88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		88516B02203FB66000A9F133 /* AddUserInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddUserInfoController.m; sourceTree = "<group>"; };
 		88516B04203FBC1900A9F133 /* ModelImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelImageController.h; sourceTree = "<group>"; };
 		88516B05203FBC1900A9F133 /* ModelImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelImageController.m; sourceTree = "<group>"; };
+		88516B07203FFECC00A9F133 /* UIDevice+YADevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+YADevice.h"; sourceTree = "<group>"; };
+		88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+YADevice.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +261,7 @@
 		88516AEE203FAD0E00A9F133 /* Class+Category */ = {
 			isa = PBXGroup;
 			children = (
+				88516AF2203FB0C600A9F133 /* Header.pch */,
 				88516AFC203FB20400A9F133 /* Oneyian.h */,
 				88516AFD203FB20400A9F133 /* Oneyian.m */,
 				88516AEF203FAD2B00A9F133 /* UIImage+Category.h */,
@@ -268,7 +272,8 @@
 				88516AF8203FB1C100A9F133 /* UIColor+Category.m */,
 				88516AF6203FB1C100A9F133 /* UIView+CornerRadius.h */,
 				88516AF5203FB1C100A9F133 /* UIView+CornerRadius.m */,
-				88516AF2203FB0C600A9F133 /* Header.pch */,
+				88516B07203FFECC00A9F133 /* UIDevice+YADevice.h */,
+				88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */,
 			);
 			path = "Class+Category";
 			sourceTree = "<group>";
@@ -373,6 +378,7 @@
 				88516AFE203FB20400A9F133 /* Oneyian.m in Sources */,
 				2281AEAD203EB29B00412003 /* ModelCard.m in Sources */,
 				88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */,
+				88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */,
 				22F60AC5203E675A00FC9CC3 /* main.m in Sources */,
 				88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */,
 				2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */,

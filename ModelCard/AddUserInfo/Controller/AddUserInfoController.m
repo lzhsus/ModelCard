@@ -29,7 +29,8 @@
     [self.navigationItem setRightBarButtonItem:right];
     
     UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    tableView.backgroundColor = BackgroundColor;
+    self.view.backgroundColor = [UIColor blackColor];
+    tableView.backgroundColor = self.view.backgroundColor;
     tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -40,7 +41,8 @@
 }
 -(void)rightBtn:(UIButton *)sender{
     ModelImageController *model = [[ModelImageController alloc]init];
-    [self.navigationController pushViewController:model animated:YES];
+    model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:model animated:YES completion:nil];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 9;

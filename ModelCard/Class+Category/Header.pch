@@ -30,13 +30,6 @@
 #define SystemVersion [[UIDevice currentDevice] systemVersion]
 #define AppVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define SystemLanguage [NSLocale preferredLanguages].firstObject
-/** 获取系统对象 */
-#define YApplication [UIApplication sharedApplication]
-#define YAWindow [UIApplication sharedApplication].delegate.window
-#define YADelegate [AppDelegate shareAppDelegate]
-#define YADefaults [NSUserDefaults standardUserDefaults]
-#define YANotification [NSNotificationCenter defaultCenter]
-#define NSStringFormat(format,...) [NSString stringWithFormat:format,##__VA_ARGS__]
 /** 空值判断 */
 #define isStringEmpty(a) ([a isEqual:[NSNull null]] || a == nil || [a isEqualToString:@""])
 #define isObjectEmpty(a) ([a isEqual:[NSNull null]] || a == nil)
