@@ -37,6 +37,8 @@
     UINavigationController * navi4 = [[UINavigationController alloc]initWithRootViewController:mine];
     
     UITabBarController * tab = [[UITabBarController alloc]init];
+    [tab.tabBar setBackgroundColor:[UIColor colorHex:@"#272528"]];
+    [tab.tabBar setBackgroundImage:[UIImage new]];
     
     [tab addChildViewController:navi1];
     [tab addChildViewController:navi2];

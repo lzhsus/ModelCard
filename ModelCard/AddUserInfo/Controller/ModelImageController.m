@@ -25,7 +25,7 @@
     //调用横屏代码
     [UIDevice switchNewOrientation:UIInterfaceOrientationLandscapeRight];
     
-    self.view.backgroundColor = BackgroundColor;
+    self.view.backgroundColor = ThemeColor;
     self.title = @"编辑";
     
     UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];

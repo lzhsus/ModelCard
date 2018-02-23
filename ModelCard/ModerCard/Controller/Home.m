@@ -22,7 +22,8 @@
     if (self = [super init]) {
         //这里会把 navigationItem.title 和 tabBarItem.title 同时设置
         self.title = @"模卡";
-        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:ThemeColor} forState:UIControlStateSelected];
+        self.navigationItem.title = @"买萌模卡";
+        [self.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorHex:@"#E7586E"]} forState:UIControlStateSelected];
         self.tabBarItem.image = [UIImage imageOriginalImageName:@"moderCard_tab"];
         self.tabBarItem.selectedImage = [UIImage imageOriginalImageName:@"moderCard_tab_select"];
     }
@@ -41,21 +42,15 @@
 //    self.navigationController.navigationBar.titleTextAttributes = dic;
     
     UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
-    //设置tableView 的delegate
     tableView.delegate = self;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.backgroundColor = ThemeColor;
     [self.view addSubview:tableView];
-    //    self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.HeadImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Width, HeadImgHeight)];
     self.HeadImgView.image = [UIImage imageNamed:@"eee"];
-    
-    [tableView addSubview:self.HeadImgView];
-    
-    // 与图像高度一样防止数据被遮挡
-    tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Width, HeadImgHeight)];
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.tableHeaderView = self.HeadImgView;
 }
 // 每组多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -106,7 +101,7 @@
         [cell.contentView addSubview:instructionsLabel];
     }
     if (indexPath.row == 0) {
-        titleLabel.textColor = [UIColor redColor];
+        titleLabel.textColor = [UIColor colorHex:@"#E7586E"];
         titleLabel.text = @"[ 模特卡 ]";
         instructionsLabel.text = @"专业模特让你获得更多通告机会";
     }else if (indexPath.row == 1){
@@ -150,7 +145,7 @@
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 110;
+    return 120;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

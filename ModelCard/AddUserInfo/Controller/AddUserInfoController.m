@@ -29,7 +29,7 @@
     [self.navigationItem setRightBarButtonItem:right];
     
     UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = ThemeColor;
     tableView.backgroundColor = self.view.backgroundColor;
     tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     tableView.delegate = self;
@@ -49,6 +49,7 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [UITableViewCell new];
+    cell.backgroundColor = [UIColor blackColor];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
