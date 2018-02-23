@@ -23,11 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = _titleName;
-    //左边
-    UIBarButtonItem *leftItem1 = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"zuojiantou"] style:UIBarButtonItemStylePlain target:self action:@selector(barButtonClick)];
-    
-    self.navigationItem.leftBarButtonItems = @[leftItem1];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = BackgroundColor;
     [self createVc];
 }
 -(void)barButtonClick{

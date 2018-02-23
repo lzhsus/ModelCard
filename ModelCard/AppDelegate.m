@@ -36,7 +36,6 @@
     Mine * mine = [[Mine alloc]init];
     UINavigationController * navi4 = [[UINavigationController alloc]initWithRootViewController:mine];
     
-    
     UITabBarController * tab = [[UITabBarController alloc]init];
     
     [tab addChildViewController:navi1];
@@ -44,12 +43,22 @@
     [tab addChildViewController:navi3];
     [tab addChildViewController:navi4];
 
-    
     self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];
+    
+    /** 全局UINavigationBar */
+    
+    
+    UINavigationBar * navigationBar = [UINavigationBar appearance];
+    UIImage *allBack = [[UIImage imageNamed:@"zuojiantou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    navigationBar.backIndicatorImage = allBack;
+    navigationBar.backIndicatorTransitionMaskImage = allBack;
+    [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17.0]}];
+    [navigationBar setShadowImage:[UIImage new]];
+    [navigationBar setBarTintColor:[UIColor blackColor]];
+    [navigationBar setTintColor:[UIColor clearColor]];
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

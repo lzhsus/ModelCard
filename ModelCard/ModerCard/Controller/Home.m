@@ -9,6 +9,7 @@
 #import "Home.h"
 #import "ModelCard.h"
 #import "UIImage+Category.h"
+#import "AddUserInfoController.h"
 
 #define HeadImgHeight 180
 
@@ -75,7 +76,7 @@
     if (imageView == nil) {
         imageView = [[UIImageView alloc]init];
         imageView.tag = 101;
-        imageView.frame =CGRectMake(0, 0, self.view.frame.size.width, 120);
+        imageView.frame =CGRectMake(0, 0, Width, 120);
         imageView.backgroundColor = [UIColor redColor];
         imageView.image = [UIImage imageNamed:@"work_home1" ];
         [cell.contentView addSubview:imageView];
@@ -85,7 +86,7 @@
     if (titleLabel == nil){ //如果 cell中没有我们自己定义的 这个Label， 那么我就创建一个添加到cell中
         titleLabel = [[UILabel alloc]init];
         titleLabel.tag = 100;
-        titleLabel.frame = CGRectMake(100, 20, cell.frame.size.width-100, 30);
+        titleLabel.frame = CGRectMake(0, 20,Width, 30);
         //        label.font = [UIFont italicSystemFontOfSize:36];
         
         titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -96,7 +97,7 @@
     if (instructionsLabel == nil){ //如果 cell中没有我们自己定义的 这个Label， 那么我就创建一个添加到cell中
         instructionsLabel = [[UILabel alloc]init];
         instructionsLabel.tag = 103;
-        instructionsLabel.frame = CGRectMake(100, 55, cell.frame.size.width-100, 30);
+        instructionsLabel.frame = CGRectMake(0, 55, Width, 30);
         instructionsLabel.font = [UIFont italicSystemFontOfSize:10];
         
         instructionsLabel.textAlignment = NSTextAlignmentCenter;
@@ -129,14 +130,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(indexPath.row == 0){
-        ModelCard *ModelCardVC = [[ModelCard alloc]init];
-        ModelCardVC.titleName = @"模特卡";
-        ModelCardVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:ModelCardVC animated:YES];
+    switch (indexPath.row) {
+        case 0:{
+                ModelCard *ModelCardVC = [[ModelCard alloc]init];
+                ModelCardVC.titleName = @"模特卡";
+                ModelCardVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:ModelCardVC animated:YES];
+            }
+            break;
+        case 1:{
+            AddUserInfoController *add = [[AddUserInfoController alloc]init];
+            add.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:add animated:YES];
+        }
+            break;
+            
+        default:
+            break;
     }
-  
-    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 110;

@@ -24,6 +24,8 @@
 		88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF5203FB1C100A9F133 /* UIView+CornerRadius.m */; };
 		88516AFB203FB1C100A9F133 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF8203FB1C100A9F133 /* UIColor+Category.m */; };
 		88516AFE203FB20400A9F133 /* Oneyian.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AFD203FB20400A9F133 /* Oneyian.m */; };
+		88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B02203FB66000A9F133 /* AddUserInfoController.m */; };
+		88516B06203FBC1900A9F133 /* ModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B05203FBC1900A9F133 /* ModelImageController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,10 @@
 		88516AF8203FB1C100A9F133 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		88516AFC203FB20400A9F133 /* Oneyian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Oneyian.h; sourceTree = "<group>"; };
 		88516AFD203FB20400A9F133 /* Oneyian.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Oneyian.m; sourceTree = "<group>"; };
+		88516B01203FB66000A9F133 /* AddUserInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddUserInfoController.h; sourceTree = "<group>"; };
+		88516B02203FB66000A9F133 /* AddUserInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddUserInfoController.m; sourceTree = "<group>"; };
+		88516B04203FBC1900A9F133 /* ModelImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelImageController.h; sourceTree = "<group>"; };
+		88516B05203FBC1900A9F133 /* ModelImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelImageController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,7 @@
 		22F60AB4203E675A00FC9CC3 /* ModelCard */ = {
 			isa = PBXGroup;
 			children = (
+				88516AFF203FB61D00A9F133 /* AddUserInfo */,
 				88516AEE203FAD0E00A9F133 /* Class+Category */,
 				22F60ACE203E67FA00FC9CC3 /* PersonalCenter */,
 				22F60ACD203E67AD00FC9CC3 /* TalentPool */,
@@ -266,6 +273,25 @@
 			path = "Class+Category";
 			sourceTree = "<group>";
 		};
+		88516AFF203FB61D00A9F133 /* AddUserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				88516B00203FB62C00A9F133 /* Controller */,
+			);
+			path = AddUserInfo;
+			sourceTree = "<group>";
+		};
+		88516B00203FB62C00A9F133 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				88516B01203FB66000A9F133 /* AddUserInfoController.h */,
+				88516B02203FB66000A9F133 /* AddUserInfoController.m */,
+				88516B04203FBC1900A9F133 /* ModelImageController.h */,
+				88516B05203FBC1900A9F133 /* ModelImageController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,9 +372,11 @@
 				22F60AEA203E694B00FC9CC3 /* TalentPool.m in Sources */,
 				88516AFE203FB20400A9F133 /* Oneyian.m in Sources */,
 				2281AEAD203EB29B00412003 /* ModelCard.m in Sources */,
+				88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */,
 				22F60AC5203E675A00FC9CC3 /* main.m in Sources */,
 				88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */,
 				2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */,
+				88516B06203FBC1900A9F133 /* ModelImageController.m in Sources */,
 				88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */,
 				22F60AB7203E675A00FC9CC3 /* AppDelegate.m in Sources */,
 			);
@@ -476,7 +504,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2D55A4E449;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ModelCard/Class+Category/Header.pch";
 				INFOPLIST_FILE = ModelCard/Info.plist;
@@ -491,7 +521,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2D55A4E449;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ModelCard/Class+Category/Header.pch";
 				INFOPLIST_FILE = ModelCard/Info.plist;

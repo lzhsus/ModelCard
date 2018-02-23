@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "zuojiantou.png",
+      "filename" : "back~iphone.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "back~iphone@2x.png",
       "scale" : "2x"
     },
     {
