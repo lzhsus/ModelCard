@@ -51,7 +51,7 @@
     self.view.backgroundColor = ThemeColor;
     self.title = @"编辑";
     
-    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(44, 20, 44, 44)];
+    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(20, 0, 44, 64)];
     [done setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [done setTitle:@"完成" forState:UIControlStateNormal];
     [done setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
@@ -59,11 +59,11 @@
     [done addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:done];
     
-    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(100, 20, 44, 44)];
+    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(100, 0, 44, 64)];
     [edit setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [edit setTitle:@"编辑" forState:UIControlStateNormal];
+    [edit setTitle:@"保存" forState:UIControlStateNormal];
     [edit setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [edit setTitle:@"编辑" forState:UIControlStateHighlighted];
+    [edit setTitle:@"保存" forState:UIControlStateHighlighted];
     [edit addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:edit];
     // Do any additional setup after loading the view.
@@ -91,7 +91,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)edit:(UIButton *)sender{
-    UIImageWriteToSavedPhotosAlbum([self screenShotView:self.BackView], self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否保存到相册" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImageWriteToSavedPhotosAlbum([self screenShotView:self.BackView], self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
     NSString *status = nil;
@@ -100,7 +105,7 @@
     }else{
         status = @"保存失败";
     }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:status preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:status message:@"" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
 }
