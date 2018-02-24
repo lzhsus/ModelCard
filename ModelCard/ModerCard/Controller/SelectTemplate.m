@@ -1,18 +1,19 @@
 //
-//  HorizontalVersion.m
+//  SelectTemplate.m
 //  ModelCard
 //
-//  Created by chenkanghua on 2018/2/22.
+//  Created by chenkanghua on 2018/2/23.
 //  Copyright © 2018年 Asher. All rights reserved.
 //
 
-#import "HorizontalVersion.h"
 #import "SelectTemplate.h"
-@interface HorizontalVersion ()<UITableViewDataSource, UITableViewDelegate>
+
+@interface SelectTemplate ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation HorizontalVersion{
+@implementation SelectTemplate
+{
     UIImageView*imageView;
 }
 
@@ -20,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-40) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
     //设置tableView 的delegate
@@ -28,7 +29,7 @@
     [self.view addSubview:tableView];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 9;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -57,6 +58,14 @@
         imageView.image = [UIImage imageNamed:@"01-H-03-10-1" ];
     }else if (indexPath.section == 3){
         imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+    }else if (indexPath.section == 4){
+        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+    }else if (indexPath.section == 5){
+        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+    }else if (indexPath.section == 6){
+        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+    }else if (indexPath.section == 7){
+        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
     }else {
         imageView.image = [UIImage imageNamed:@"01-H-01-10-2" ];
     }
@@ -65,15 +74,23 @@
 //设置分区头的 文本内容
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"浮层式资料栏";
+        return @"12图① - 9竖图3横图";
     }else if (section == 1){
-        return @"环绕式资料栏";
+        return @"13图② - 13竖图";
     }else if (section == 2){
-        return @"插入式资料栏";
+        return @"11图① - 5竖图6方图";
     }else if (section == 3){
-        return @"底部式资料栏";
+        return @"10图① - 7竖图3横图";
+    }else if (section == 4){
+        return @"10图② - 10竖图";
+    }else if (section == 5){
+        return @"10图③ - 10竖图";
+    }else if (section == 6){
+        return @"9图① - 9竖图";
+    }else if (section == 7){
+        return @"9图② - 9竖图";
     }else{
-        return @"侧边式资料栏";
+        return @"7图① - 7竖图";
     }
     
 }
@@ -87,35 +104,19 @@
 // 选中每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //    switch (indexPath.row) {
-    //        case 0:{
-    SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
-    SelectTemplateVC.titleName = @"模特卡";
-    //            SelectTemplateVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:SelectTemplateVC animated:YES];
-    //        }
-    //            break;
-    
-    
-    //        default:
-    //            break;
-    //    }
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    //    switch (indexPath.row) {
+//    //        case 0:{
+//    SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
+//    SelectTemplateVC.titleName = @"模特卡";
+//    //            SelectTemplateVC.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:SelectTemplateVC animated:YES];
+//    //        }
+//    //            break;
+//
+//
+//    //        default:
+//    //            break;
+//    //    }
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
 @end
-

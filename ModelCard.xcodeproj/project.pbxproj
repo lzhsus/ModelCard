@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2252A7FC204165310030618B /* SelectTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2252A7FB204165310030618B /* SelectTemplate.m */; };
 		2281AEAD203EB29B00412003 /* ModelCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2281AEAC203EB29B00412003 /* ModelCard.m */; };
 		2281AEB0203EB2C800412003 /* Home.m in Sources */ = {isa = PBXBuildFile; fileRef = 2281AEAF203EB2C800412003 /* Home.m */; };
 		2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2281AEB2203EC7A900412003 /* HorizontalVersion.m */; };
@@ -104,6 +105,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2252A7FA204165300030618B /* SelectTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTemplate.h; sourceTree = "<group>"; };
+		2252A7FB204165310030618B /* SelectTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTemplate.m; sourceTree = "<group>"; };
 		2281AEAB203EB29B00412003 /* ModelCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelCard.h; sourceTree = "<group>"; };
 		2281AEAC203EB29B00412003 /* ModelCard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelCard.m; sourceTree = "<group>"; };
 		2281AEAE203EB2C800412003 /* Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				2281AEB2203EC7A900412003 /* HorizontalVersion.m */,
 				2281AEB4203EC7D300412003 /* VerticalVersion.h */,
 				2281AEB5203EC7D300412003 /* VerticalVersion.m */,
+				2252A7FA204165300030618B /* SelectTemplate.h */,
+				2252A7FB204165310030618B /* SelectTemplate.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -703,6 +708,7 @@
 				88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */,
 				22F60AC5203E675A00FC9CC3 /* main.m in Sources */,
 				88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */,
+				2252A7FC204165310030618B /* SelectTemplate.m in Sources */,
 				2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */,
 				88516B06203FBC1900A9F133 /* ModelImageController.m in Sources */,
 				88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */,
