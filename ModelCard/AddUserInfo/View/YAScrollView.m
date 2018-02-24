@@ -37,11 +37,14 @@
     }
     return self;
 }
-
 -(void)touchInView:(UITapGestureRecognizer *)touch{
     if (touch.state == UIGestureRecognizerStateEnded) {
         [self.YADelegate touchInScrollView:self];
     }
+}
+-(void)setNewImage:(UIImage *)aImage{
+    self.imageView.image = aImage;
+    [self setAutoContentSize:aImage];
 }
 -(void)setNewFrame:(CGRect)aRect animated:(BOOL)Aanimated{
     if ((aRect.size.width && aRect.size.height) != 0) {

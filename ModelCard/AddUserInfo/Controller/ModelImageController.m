@@ -13,7 +13,7 @@
 #import "YAScrollView.h"
 #import "UIButton+Category.h"
 
-@interface ModelImageController ()<YAScrollViewDelegate>
+@interface ModelImageController ()<YAScrollViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UIView * BackView;
 
 @property (nonatomic,strong) NSArray * rectArray;
@@ -135,7 +135,6 @@
     changeButton.hidden = YES;
     [self.BackView addSubview:changeButton];
     self.changeButton = changeButton;
-    
 }
 #pragma mark  =========== 导航栏View按钮 ==========
 -(void)sliderChanged:(UISlider *)sender{
@@ -253,8 +252,16 @@
     }
 }
 -(void)changeImage:(UIButton *)sender{
-    NSLog(@"%ld",sender.tag);
-    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    YAScrollView *view = (YAScrollView *)[self.BackView viewWithTag:self.changeButton.tag];
+    [view setNewImage:info[UIImagePickerControllerOriginalImage]];
 }
 #pragma mark  =========== 数据解析 ==========
 -(NSMutableArray *)selectArray{

@@ -16,5 +16,5 @@
 @property (nonatomic,weak) id<YAScrollViewDelegate> YADelegate;
 -(instancetype)initWithFrame:(CGRect)aRect Image:(UIImage*)aImage;
 -(void)setNewFrame:(CGRect)aRect animated:(BOOL)Aanimated;
-
+-(void)setNewImage:(UIImage *)aImage;
 @end

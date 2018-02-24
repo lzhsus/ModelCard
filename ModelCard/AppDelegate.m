@@ -58,7 +58,7 @@
     [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17.0]}];
     [navigationBar setShadowImage:[UIImage new]];
     [navigationBar setBarTintColor:[UIColor blackColor]];
-    [navigationBar setTintColor:[UIColor clearColor]];
+    [navigationBar setTintColor:[UIColor whiteColor]];
     return YES;
 }
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window{
