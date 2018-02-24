@@ -11,13 +11,16 @@
 #import "AppDelegate.h"
 #import "AddUserInfoController.h"
 #import "YAScrollView.h"
+#import "UIButton+Category.h"
 
-@interface ModelImageController ()
+@interface ModelImageController ()<YAScrollViewDelegate>
 @property (nonatomic,strong) UIView * BackView;
 
 @property (nonatomic,strong) NSArray * rectArray;
 @property (nonatomic,strong) NSMutableArray * selectArray;
 @property (nonatomic,strong) NSDictionary * modelDictionary;
+
+@property (nonatomic,strong) UIButton * changeButton;
 @end
 
 @implementation ModelImageController
@@ -27,12 +30,19 @@
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.allowRotation = YES;
     [UIDevice switchNewOrientation:UIInterfaceOrientationLandscapeRight];
-    
     self.view.backgroundColor = [UIColor colorWithRed:0.23 green:0.21 blue:0.22 alpha:1.00];
-    self.title = @"编辑";
     
     UIView *NavigationView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Width, 64)];
     NavigationView.backgroundColor = ThemeColor;
+    
+    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake((NavigationView.frame.size.width-50)/2, 12, 50, 20)];
+    title.text = @"编辑";
+    title.textColor = [UIColor whiteColor];
+    title.textAlignment = NSTextAlignmentCenter;
+    
+    UIImageView *titleImage = [[UIImageView alloc]initWithFrame:CGRectMake((NavigationView.frame.size.width-150)/2, 37, 150, 15)];
+    titleImage.image = [UIImage imageNamed:@"middle_tip_icon"];
+    titleImage.contentMode = UIViewContentModeScaleAspectFit;
     
     UIButton *back = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 64)];
     [back setImage:[UIImage imageNamed:@"zuojiantou"] forState:UIControlStateNormal];
@@ -41,24 +51,26 @@
     UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(NavigationView.frame.size.width - 64, 0, 44, 64)];
     [done setTitleColor:[UIColor colorHex:@"#E7586E"] forState:UIControlStateNormal];
     [done setTitle:@"完成" forState:UIControlStateNormal];
-    [done setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [done setTitle:@"完成" forState:UIControlStateHighlighted];
     [done addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(done.frame.origin.x - 88, 0, 44, 64)];
+    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(done.frame.origin.x - 100, 0, 44, 64)];
     [edit setTitleColor:[UIColor colorHex:@"#E7586E"] forState:UIControlStateNormal];
     [edit setTitle:@"编辑" forState:UIControlStateNormal];
-    [edit setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [edit setTitle:@"编辑" forState:UIControlStateHighlighted];
+    [edit.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    UIImage *editImage = [UIImage imageNamed:@"compile_edit"];
+    [edit setImage:editImage forState:UIControlStateNormal];
+    [edit setImgViewStyle:ButtonStyleRight imageSize:editImage.size space:4];
     [edit addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
     
+    [NavigationView addSubview:title];
+    [NavigationView addSubview:titleImage];
     [NavigationView addSubview:back];
     [NavigationView addSubview:done];
     [NavigationView addSubview:edit];
     [self.view addSubview:NavigationView];
     // Do any additional setup after loading the view.
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, NavigationView.frame.size.height, [[self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]].firstObject integerValue], Height-NavigationView.frame.size.height)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(45, NavigationView.frame.size.height, AutoWidth([[self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]].firstObject floatValue]), Height-NavigationView.frame.size.height)];
     view.backgroundColor = [UIColor whiteColor];
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
     [view addGestureRecognizer:move];
@@ -70,6 +82,7 @@
     for (int i =0; i<self.rectArray.count; i++) {
         CGRect rect = [self loadViewRect:self.rectArray[i]];
         YAScrollView *firstView = [[YAScrollView alloc]initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width-rect.origin.x, rect.size.height-rect.origin.y) Image:[UIImage imageNamed:imageList[i]]];
+        firstView.YADelegate = self;
         firstView.tag = i+1;
         [self.BackView addSubview:firstView];
     }
@@ -78,26 +91,56 @@
         NSArray *aArray = [self loadModelData:points[i]];
         UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake([aArray[0] floatValue], [aArray[1] floatValue], [aArray[2] floatValue], [aArray[3] floatValue])];
         title.textAlignment = NSTextAlignmentCenter;
-        title.text = [NSString stringWithFormat:@"%d",i];
         switch (i) {
             case 0:
+                title.text = @"A";
                 title.textColor = [UIColor redColor];
                 break;
             case 1:
+                title.text = @"B";
                 title.textColor = [UIColor blueColor];
                 break;
             case 2:
+                title.text = @"C";
                 title.textColor = [UIColor cyanColor];
                 break;
             default:
+                title.text = [NSString stringWithFormat:@"%dL",i];
                 title.textColor = [UIColor whiteColor];
                 break;
         }
         [title makeBorderWidth:i+2 withColor:title.textColor];
         [self.BackView addSubview:title];
     }
+    
+    UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake((Width-250)/2, Height - SafeArea(55, 45), 250, 30)];
+    [slider setMaximumValue:self.BackView.frame.size.width + 90 - Width];
+    [slider setThumbImage:[UIImage imageNamed:@"slide_btn_icon"] forState:UIControlStateNormal];
+    [slider setMinimumTrackImage:[UIImage new] forState:UIControlStateNormal];
+    [slider setMaximumTrackImage:[UIImage imageNamed:@"slide_bg_icon"] forState:UIControlStateNormal];
+    [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:slider];
+    
+    UIButton *changeButton = [[UIButton alloc]init];
+    [changeButton setAlpha:0.9];
+    [changeButton setBackgroundColor:[UIColor colorHex:@"#E7586E"]];
+    [changeButton makeCornerRadius:6];
+    //[changeImage setTitleColor: forState:UIControlStateNormal];
+    [changeButton setTitle:@"替换" forState:UIControlStateNormal];
+    [changeButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    UIImage *changeImage = [UIImage imageNamed:@"picture_edit_icon"];
+    [changeButton setImage:changeImage forState:UIControlStateNormal];
+    [changeButton setImgViewStyle:ButtonStyleLeft imageSize:editImage.size space:4];
+    [changeButton addTarget:self action:@selector(changeImage:) forControlEvents:UIControlEventTouchUpInside];
+    changeButton.hidden = YES;
+    [self.BackView addSubview:changeButton];
+    self.changeButton = changeButton;
+    
 }
 #pragma mark  =========== 导航栏View按钮 ==========
+-(void)sliderChanged:(UISlider *)sender{
+    self.BackView.frame = CGRectMake(45 - sender.value, self.BackView.frame.origin.y, self.BackView.frame.size.width, self.BackView.frame.size.height);
+}
 -(void)back:(UIButton *)sender{
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.allowRotation = NO;
@@ -105,6 +148,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)done:(UIButton *)sender{
+    self.changeButton.hidden = YES;
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"保存提示" message:@"您需要保存到相册？" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -113,6 +157,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 -(void)edit:(UIButton *)sender{
+    self.changeButton.hidden = YES;
     sender.selected = !sender.isSelected;
     self.BackView.backgroundColor = sender.isSelected ? [UIColor blackColor]:[UIColor whiteColor];
 }
@@ -140,6 +185,7 @@
     CGPoint point = [sender locationInView:self.BackView];
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:{//点击
+            self.changeButton.hidden = YES;
             for (int i = 0; i< self.rectArray.count; i++) {
                 CGRect rect = [self loadViewRect:self.rectArray[i]];
                 if ([self isPointInRect:rect Point:point]) {
@@ -196,6 +242,20 @@
     }
     [self.selectArray removeAllObjects];
 }
+-(void)touchInScrollView:(UIScrollView *)scrollView{
+    self.changeButton.frame = CGRectMake(scrollView.frame.origin.x+(scrollView.frame.size.width-80)/2, scrollView.frame.origin.y+(scrollView.frame.size.height-30)/2, 80, 30);
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.25 animations:^{
+        weakSelf.changeButton.hidden = !weakSelf.changeButton.isHidden;
+    }];
+    if (!self.changeButton.isHidden) {
+        self.changeButton.tag = scrollView.tag;
+    }
+}
+-(void)changeImage:(UIButton *)sender{
+    NSLog(@"%ld",sender.tag);
+    
+}
 #pragma mark  =========== 数据解析 ==========
 -(NSMutableArray *)selectArray{
     if (!_selectArray) {
@@ -223,7 +283,11 @@
     return range.location != NSNotFound ? [aString componentsSeparatedByString:@","]:[aString componentsSeparatedByString:@"，"];
 }
 -(CGRect)loadViewRect:(NSDictionary *)aDict{
-    CGRect rect = CGRectMake([[self loadModelData:aDict[@"pointArray"][0]].firstObject floatValue], [[self loadModelData:aDict[@"pointArray"][0]].lastObject floatValue], [[self loadModelData:aDict[@"pointArray"][2]].firstObject floatValue], [[self loadModelData:aDict[@"pointArray"][2]].lastObject floatValue]);
+    CGFloat x = AutoWidth([[self loadModelData:aDict[@"pointArray"][0]].firstObject floatValue]);
+    CGFloat y = AutoHeight([[self loadModelData:aDict[@"pointArray"][0]].lastObject floatValue]);
+    CGFloat w = AutoWidth([[self loadModelData:aDict[@"pointArray"][2]].firstObject floatValue]);
+    CGFloat h = AutoHeight([[self loadModelData:aDict[@"pointArray"][2]].lastObject floatValue]);
+    CGRect rect = CGRectMake(x, y, w, h);
     return rect;
 }
 -(BOOL)isPointInRect:(CGRect)aRect Point:(CGPoint)aPoint{

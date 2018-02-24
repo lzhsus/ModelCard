@@ -42,7 +42,7 @@
 //    self.navigationController.navigationBar.titleTextAttributes = dic;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NavigationTop, Width, Height-NavigationTop-XBottom) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NavigationTop, Width, Height-NavigationTop) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

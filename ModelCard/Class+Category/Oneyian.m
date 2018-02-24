@@ -214,7 +214,7 @@
 +(NSMutableAttributedString *)sortingContent:(NSString *)content{
     if (!isStringEmpty(content)) {
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:content];
-        [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:MarkFont(37.5)] range:NSMakeRange(0, content.length)];
+        [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, content.length)];
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
         style.alignment=NSTextAlignmentLeft;
         style.lineSpacing = 3;

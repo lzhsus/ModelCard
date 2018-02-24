@@ -23,6 +23,10 @@
         self.backgroundColor = [UIColor lightGrayColor];
         self.showsVerticalScrollIndicator = NO;
         self.showsHorizontalScrollIndicator = NO;
+        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        
+        UITapGestureRecognizer *touch = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(touchInView:)];
+        [self addGestureRecognizer:touch];
         
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
         imageView.image = aImage;
@@ -34,11 +38,17 @@
     return self;
 }
 
+-(void)touchInView:(UITapGestureRecognizer *)touch{
+    if (touch.state == UIGestureRecognizerStateEnded) {
+        [self.YADelegate touchInScrollView:self];
+    }
+}
 -(void)setNewFrame:(CGRect)aRect animated:(BOOL)Aanimated{
     if ((aRect.size.width && aRect.size.height) != 0) {
         if (Aanimated) {
+            __weak typeof(self) weakSelf = self;
             [UIView animateWithDuration:0.25 animations:^{
-                [self setFrame:aRect];
+                [weakSelf setFrame:aRect];
             }];
         }else{
             [self setFrame:aRect];

@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YAScrollView : UIScrollView
+@protocol YAScrollViewDelegate <NSObject>
+-(void)touchInScrollView:(UIScrollView *)scrollView;
+@end
 
+@interface YAScrollView : UIScrollView
+@property (nonatomic,weak) id<YAScrollViewDelegate> YADelegate;
 -(instancetype)initWithFrame:(CGRect)aRect Image:(UIImage*)aImage;
 -(void)setNewFrame:(CGRect)aRect animated:(BOOL)Aanimated;
 

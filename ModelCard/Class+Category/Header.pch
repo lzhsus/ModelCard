@@ -16,17 +16,17 @@
 /** 约束 */
 #define Width [UIScreen mainScreen].bounds.size.width
 #define Height [UIScreen mainScreen].bounds.size.height
-#define SafeArea(Max,Min) (Height==812.f ? Max : Min)
-#define XHeight SafeArea(Height-145,Height)
+
+#define SafeArea(Max,Min) (Width < Height ? (Height==812.f ? Max : Min):(Width==812.f ? Max : Min))
 #define XBottom SafeArea(34,0)
 #define NavigationTop SafeArea(88,64)
 #define TabBarBottom SafeArea(83,49)
+#define XHeight SafeArea(Height-145,Height)
 
-#define MarkWidth(x) (Width/375.f) * x
-#define MarkHeight(x) ((Height < 568.f ? 568.f : XHeight)/667.f) * x
-
-#define MarkSize (Height == 667.f ? 1 : XHeight/667.f)
-#define MarkFont(x) (Height == 480.f ? x*3/8/MarkSize*1.19 : x*3/8/MarkSize)
+#define DWidth (Width < Height ? 375.f:667.f)
+#define DHeight (Width < Height ? 667.f:375.f)
+#define AutoWidth(x) Width * (x/DWidth)
+#define AutoHeight(x) Height * (x/DHeight)
 /** info */
 #define SystemVersion [[UIDevice currentDevice] systemVersion]
 #define AppVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
