@@ -41,6 +41,7 @@
 }
 -(void)rightBtn:(UIButton *)sender{
     ModelImageController *model = [[ModelImageController alloc]init];
+    model.plistName = @"number_eleven_style_20";
     model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:model animated:YES completion:nil];
 }
@@ -64,6 +65,13 @@
         cell.backgroundColor = ThemeColor;
         return cell;
     }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ModelImageController *model = [[ModelImageController alloc]init];
+    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"AllModel" ofType:@"plist"];
+    model.plistName = [[NSArray alloc]initWithContentsOfFile:plistPath][indexPath.row];
+    model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:model animated:YES completion:nil];
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];

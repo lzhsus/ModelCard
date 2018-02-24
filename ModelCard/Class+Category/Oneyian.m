@@ -217,7 +217,7 @@
         [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:MarkFont(37.5)] range:NSMakeRange(0, content.length)];
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
         style.alignment=NSTextAlignmentLeft;
-        style.lineSpacing = MarkHeight(10);
+        style.lineSpacing = 3;
         [attributedString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, content.length)];
         return attributedString;
     }else{

@@ -17,78 +17,72 @@
 
 @property (nonatomic,strong) NSArray * rectArray;
 @property (nonatomic,strong) NSMutableArray * selectArray;
+@property (nonatomic,strong) NSDictionary * modelDictionary;
 @end
 
 @implementation ModelImageController
 
--(NSMutableArray *)selectArray{
-    if (!_selectArray) {
-        _selectArray = [[NSMutableArray alloc]init];
-    }
-    return _selectArray;
-}
--(NSArray *)rectArray{
-    if (!_rectArray) {
-        _rectArray = [[NSArray alloc]initWithObjects:
-                      @{@"x":@"2",@"y":@"2",@"w":@"200",@"h":@"305"},
-                      @{@"x":@"204",@"y":@"2",@"w":@"150",@"h":@"150"},
-                      @{@"x":@"204",@"y":@"154",@"w":@"150",@"h":@"150"},
-                      @{@"x":@"356",@"y":@"2",@"w":@"200",@"h":@"200"},
-                      @{@"x":@"356",@"y":@"204",@"w":@"300",@"h":@"100"},
-                      @{@"x":@"558",@"y":@"2",@"w":@"100",@"h":@"200"},nil];
-    }
-    return _rectArray;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    //允许转成横屏
     appDelegate.allowRotation = YES;
-    //调用横屏代码
     [UIDevice switchNewOrientation:UIInterfaceOrientationLandscapeRight];
     
-    self.view.backgroundColor = ThemeColor;
+    self.view.backgroundColor = [UIColor colorWithRed:0.23 green:0.21 blue:0.22 alpha:1.00];
     self.title = @"编辑";
     
-    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(20, 0, 44, 64)];
-    [done setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    UIView *NavigationView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Width, 64)];
+    NavigationView.backgroundColor = ThemeColor;
+    
+    UIButton *back = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 64)];
+    [back setImage:[UIImage imageNamed:@"zuojiantou"] forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *done = [[UIButton alloc]initWithFrame:CGRectMake(NavigationView.frame.size.width - 64, 0, 44, 64)];
+    [done setTitleColor:[UIColor colorHex:@"#E7586E"] forState:UIControlStateNormal];
     [done setTitle:@"完成" forState:UIControlStateNormal];
     [done setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [done setTitle:@"完成" forState:UIControlStateHighlighted];
     [done addTarget:self action:@selector(done:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:done];
     
-    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(100, 0, 44, 64)];
-    [edit setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [edit setTitle:@"保存" forState:UIControlStateNormal];
+    UIButton *edit = [[UIButton alloc]initWithFrame:CGRectMake(done.frame.origin.x - 88, 0, 44, 64)];
+    [edit setTitleColor:[UIColor colorHex:@"#E7586E"] forState:UIControlStateNormal];
+    [edit setTitle:@"编辑" forState:UIControlStateNormal];
     [edit setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    [edit setTitle:@"保存" forState:UIControlStateHighlighted];
+    [edit setTitle:@"编辑" forState:UIControlStateHighlighted];
     [edit addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:edit];
+    
+    [NavigationView addSubview:back];
+    [NavigationView addSubview:done];
+    [NavigationView addSubview:edit];
+    [self.view addSubview:NavigationView];
     // Do any additional setup after loading the view.
     
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 64, Width, Height-64)];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, NavigationView.frame.size.height, [[self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]].firstObject integerValue], Height-NavigationView.frame.size.height)];
     view.backgroundColor = [UIColor whiteColor];
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
     [view addGestureRecognizer:move];
     [self.view addSubview:view];
     self.BackView = view;
     
-    NSArray *imageList = [[NSMutableArray alloc]initWithObjects:@"width",@"height",@"width",@"height",@"width",@"height", nil];
+    NSArray *imageList = [[NSMutableArray alloc]initWithObjects:@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height", nil];
     
     for (int i =0; i<self.rectArray.count; i++) {
-        YAScrollView *firstView = [[YAScrollView alloc]initWithFrame:CGRectMake([self.rectArray[i][@"x"] floatValue], [self.rectArray[i][@"y"] floatValue], [self.rectArray[i][@"w"] floatValue], [self.rectArray[i][@"h"] floatValue]) Image:[UIImage imageNamed:imageList[i]]];
+        CGRect rect = [self loadViewRect:self.rectArray[i]];
+        YAScrollView *firstView = [[YAScrollView alloc]initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width-rect.origin.x, rect.size.height-rect.origin.y) Image:[UIImage imageNamed:imageList[i]]];
         firstView.tag = i+1;
         [self.BackView addSubview:firstView];
     }
 }
-
--(void)done:(UIButton *)sender{
+#pragma mark  =========== 导航栏View按钮 ==========
+-(void)back:(UIButton *)sender{
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     appDelegate.allowRotation = NO;
     [UIDevice switchNewOrientation:UIInterfaceOrientationPortrait];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)done:(UIButton *)sender{
+    
 }
 -(void)edit:(UIButton *)sender{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否保存到相册" preferredStyle:UIAlertControllerStyleAlert];
@@ -123,11 +117,8 @@
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:{//点击
             for (int i = 0; i< self.rectArray.count; i++) {
-                CGFloat x = [self.rectArray[i][@"x"] floatValue];
-                CGFloat y = [self.rectArray[i][@"y"] floatValue];
-                CGFloat w = [self.rectArray[i][@"w"] floatValue];
-                CGFloat h = [self.rectArray[i][@"h"] floatValue];
-                if (point.x >= x && point.x <= x+w && point.y >= y && point.y <=y+h) {
+                CGRect rect = [self loadViewRect:self.rectArray[i]];
+                if ([self isPointInRect:rect Point:point]) {
                     [self.selectArray addObject:[NSString stringWithFormat:@"%d",i+1]];
                     return;
                 }
@@ -136,13 +127,10 @@
             break;
         case UIGestureRecognizerStateChanged:{//移动
             for (int i = 0; i< self.rectArray.count; i++) {
-                CGFloat x = [self.rectArray[i][@"x"] floatValue];
-                CGFloat y = [self.rectArray[i][@"y"] floatValue];
-                CGFloat w = [self.rectArray[i][@"w"] floatValue];
-                CGFloat h = [self.rectArray[i][@"h"] floatValue];
+                CGRect rect = [self loadViewRect:self.rectArray[i]];
                 YAScrollView *view = (YAScrollView *)[self.BackView viewWithTag:i+1];
                 view.layer.borderWidth = 0;
-                if (point.x >= x && point.x <= x+w && point.y >= y && point.y <=y+h) {
+                if ([self isPointInRect:rect Point:point]) {
                     if (self.selectArray.firstObject == nil) {
                         [self.selectArray addObject:[NSString stringWithFormat:@"%d",i+1]];
                         break;
@@ -156,13 +144,10 @@
             break;
         case UIGestureRecognizerStateEnded:{//结束
             for (int i = 0; i< self.rectArray.count; i++) {
-                CGFloat x = [self.rectArray[i][@"x"] floatValue];
-                CGFloat y = [self.rectArray[i][@"y"] floatValue];
-                CGFloat w = [self.rectArray[i][@"w"] floatValue];
-                CGFloat h = [self.rectArray[i][@"h"] floatValue];
+                CGRect rect = [self loadViewRect:self.rectArray[i]];
                 YAScrollView *view = (YAScrollView *)[self.BackView viewWithTag:i+1];
                 view.layer.borderWidth = 0;
-                if (point.x >= x && point.x <= x+w && point.y >= y && point.y <=y+h) {
+                if ([self isPointInRect:rect Point:point]) {
                     if ([self.selectArray.firstObject intValue] == i+1) break;
                     [self.selectArray addObject:[NSString stringWithFormat:@"%d",i+1]];
                 }
@@ -187,6 +172,39 @@
         last.tag = [list.firstObject intValue];
     }
     [self.selectArray removeAllObjects];
+}
+#pragma mark  =========== 数据解析 ==========
+-(NSMutableArray *)selectArray{
+    if (!_selectArray) {
+        _selectArray = [[NSMutableArray alloc]init];
+    }
+    return _selectArray;
+}
+-(NSDictionary *)modelDictionary{
+    if (!_modelDictionary) {
+        NSString *plistPath = [[NSBundle mainBundle]pathForResource:self.plistName ofType:@"plist"];
+        _modelDictionary = [[NSDictionary alloc]initWithContentsOfFile:plistPath];
+    }
+    return _modelDictionary;
+}
+-(NSArray *)rectArray{
+    if (!_rectArray) {
+        _rectArray = [[NSArray alloc]initWithArray:self.modelDictionary[@"SubViewArray"]];
+    }
+    return _rectArray;
+}
+-(NSArray *)loadModelData:(NSString *)aString{
+    aString = [aString stringByReplacingOccurrencesOfString:@"{"withString:@""];
+    aString = [aString stringByReplacingOccurrencesOfString:@"}"withString:@""];
+    NSRange range = [aString rangeOfString:@","];
+    return range.location != NSNotFound ? [aString componentsSeparatedByString:@","]:[aString componentsSeparatedByString:@"，"];
+}
+-(CGRect)loadViewRect:(NSDictionary *)aDict{
+    CGRect rect = CGRectMake([[self loadModelData:aDict[@"pointArray"][0]].firstObject floatValue], [[self loadModelData:aDict[@"pointArray"][0]].lastObject floatValue], [[self loadModelData:aDict[@"pointArray"][2]].firstObject floatValue], [[self loadModelData:aDict[@"pointArray"][2]].lastObject floatValue]);
+    return rect;
+}
+-(BOOL)isPointInRect:(CGRect)aRect Point:(CGPoint)aPoint{
+    return aPoint.x >= aRect.origin.x && aPoint.x <= aRect.size.width && aPoint.y >= aRect.origin.y && aPoint.y <= aRect.size.height ? YES:NO;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -22,9 +22,10 @@
 #define NavigationTop SafeArea(88,64)
 #define TabBarBottom SafeArea(83,49)
 
-#define MarkWidth(x) (x/1080.f) * Width
-#define MarkHeight(x) (x/1920.f) * (Height < 568.f ? 568.f : XHeight)
-#define MarkSize (Height == 667.f ? 1 : 667.f/XHeight)
+#define MarkWidth(x) (Width/375.f) * x
+#define MarkHeight(x) ((Height < 568.f ? 568.f : XHeight)/667.f) * x
+
+#define MarkSize (Height == 667.f ? 1 : XHeight/667.f)
 #define MarkFont(x) (Height == 480.f ? x*3/8/MarkSize*1.19 : x*3/8/MarkSize)
 /** info */
 #define SystemVersion [[UIDevice currentDevice] systemVersion]

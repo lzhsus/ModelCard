@@ -19,6 +19,8 @@
 		22F60AE7203E693900FC9CC3 /* Work.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F60AE6203E693900FC9CC3 /* Work.m */; };
 		22F60AEA203E694B00FC9CC3 /* TalentPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F60AE9203E694B00FC9CC3 /* TalentPool.m */; };
 		22F60AED203E696200FC9CC3 /* Mine.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F60AEC203E696200FC9CC3 /* Mine.m */; };
+		88073D6A20401CAC0096A64D /* number_eight_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88073D6920401CAC0096A64D /* number_eight_style_1.plist */; };
+		88073D6C20401CC40096A64D /* number_eight_style_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88073D6B20401CC40096A64D /* number_eight_style_2.plist */; };
 		88516AF1203FAD2B00A9F133 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF0203FAD2B00A9F133 /* UIImage+Category.m */; };
 		88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF4203FB1C100A9F133 /* UIButton+Category.m */; };
 		88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516AF5203FB1C100A9F133 /* UIView+CornerRadius.m */; };
@@ -28,6 +30,78 @@
 		88516B06203FBC1900A9F133 /* ModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B05203FBC1900A9F133 /* ModelImageController.m */; };
 		88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */; };
 		88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B0B20400F0E00A9F133 /* YAScrollView.m */; };
+		88B7DC5220410E8900824181 /* number_eleven_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC0B20410E8100824181 /* number_eleven_style_40.plist */; };
+		88B7DC5320410E8900824181 /* number_Twelve_style_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC0C20410E8100824181 /* number_Twelve_style_2.plist */; };
+		88B7DC5420410E8900824181 /* number_Twelve_style_110.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC0D20410E8100824181 /* number_Twelve_style_110.plist */; };
+		88B7DC5520410E8900824181 /* number_ten_style_41.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC0E20410E8100824181 /* number_ten_style_41.plist */; };
+		88B7DC5620410E8900824181 /* number_seven_style_110.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC0F20410E8100824181 /* number_seven_style_110.plist */; };
+		88B7DC5720410E8900824181 /* number_five_style_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1020410E8100824181 /* number_five_style_2.plist */; };
+		88B7DC5820410E8900824181 /* number_nine_style_111.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1120410E8100824181 /* number_nine_style_111.plist */; };
+		88B7DC5920410E8900824181 /* number_Twelve_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1220410E8100824181 /* number_Twelve_style_30.plist */; };
+		88B7DC5A20410E8900824181 /* number_six_style_60.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1320410E8100824181 /* number_six_style_60.plist */; };
+		88B7DC5B20410E8900824181 /* number_Twelve_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1420410E8100824181 /* number_Twelve_style_50.plist */; };
+		88B7DC5C20410E8900824181 /* number_seven_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1520410E8100824181 /* number_seven_style_30.plist */; };
+		88B7DC5D20410E8900824181 /* number_thirteen_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1620410E8100824181 /* number_thirteen_style_50.plist */; };
+		88B7DC5E20410E8900824181 /* number_ten_style_20.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1720410E8200824181 /* number_ten_style_20.plist */; };
+		88B7DC5F20410E8900824181 /* number_ten_style_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1820410E8200824181 /* number_ten_style_3.plist */; };
+		88B7DC6020410E8900824181 /* number_ten_style_42.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1920410E8200824181 /* number_ten_style_42.plist */; };
+		88B7DC6120410E8900824181 /* number_eleven_style_20.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1A20410E8200824181 /* number_eleven_style_20.plist */; };
+		88B7DC6220410E8900824181 /* number_eight_style_20.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1B20410E8200824181 /* number_eight_style_20.plist */; };
+		88B7DC6320410E8900824181 /* number_nine_style_51.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1C20410E8200824181 /* number_nine_style_51.plist */; };
+		88B7DC6420410E8900824181 /* number_thirteen_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1D20410E8200824181 /* number_thirteen_style_1.plist */; };
+		88B7DC6520410E8900824181 /* number_ten_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1E20410E8200824181 /* number_ten_style_30.plist */; };
+		88B7DC6620410E8900824181 /* number_five_style_110.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC1F20410E8200824181 /* number_five_style_110.plist */; };
+		88B7DC6720410E8900824181 /* number_nine_style_41.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2020410E8200824181 /* number_nine_style_41.plist */; };
+		88B7DC6820410E8900824181 /* number_nine_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2120410E8200824181 /* number_nine_style_50.plist */; };
+		88B7DC6920410E8900824181 /* number_six_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2220410E8200824181 /* number_six_style_1.plist */; };
+		88B7DC6A20410E8900824181 /* number_ten_style_21.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2320410E8300824181 /* number_ten_style_21.plist */; };
+		88B7DC6B20410E8900824181 /* number_eleven_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2420410E8300824181 /* number_eleven_style_30.plist */; };
+		88B7DC6C20410E8900824181 /* number_seven_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2520410E8300824181 /* number_seven_style_50.plist */; };
+		88B7DC6D20410E8900824181 /* number_six_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2620410E8300824181 /* number_six_style_40.plist */; };
+		88B7DC6E20410E8900824181 /* number_ten_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2720410E8300824181 /* number_ten_style_40.plist */; };
+		88B7DC6F20410E8900824181 /* number_Twelve_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2820410E8300824181 /* number_Twelve_style_1.plist */; };
+		88B7DC7020410E8900824181 /* number_nine_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2920410E8300824181 /* number_nine_style_40.plist */; };
+		88B7DC7120410E8900824181 /* number_seven_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2A20410E8300824181 /* number_seven_style_1.plist */; };
+		88B7DC7220410E8900824181 /* number_ten_style_52.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2B20410E8400824181 /* number_ten_style_52.plist */; };
+		88B7DC7320410E8900824181 /* number_ten_style_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2C20410E8400824181 /* number_ten_style_2.plist */; };
+		88B7DC7420410E8900824181 /* number_eight_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2D20410E8400824181 /* number_eight_style_40.plist */; };
+		88B7DC7520410E8900824181 /* number_seven_style_21.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2E20410E8400824181 /* number_seven_style_21.plist */; };
+		88B7DC7620410E8900824181 /* number_eight_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC2F20410E8400824181 /* number_eight_style_50.plist */; };
+		88B7DC7720410E8900824181 /* number_four_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3020410E8400824181 /* number_four_style_1.plist */; };
+		88B7DC7820410E8900824181 /* number_thirteen_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3120410E8500824181 /* number_thirteen_style_40.plist */; };
+		88B7DC7920410E8900824181 /* number_ten_style_60.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3220410E8500824181 /* number_ten_style_60.plist */; };
+		88B7DC7A20410E8900824181 /* number_ten_style_51.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3320410E8500824181 /* number_ten_style_51.plist */; };
+		88B7DC7B20410E8900824181 /* number_ten_style_32.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3420410E8500824181 /* number_ten_style_32.plist */; };
+		88B7DC7C20410E8900824181 /* number_six_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3520410E8500824181 /* number_six_style_30.plist */; };
+		88B7DC7D20410E8900824181 /* number_six_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3620410E8500824181 /* number_six_style_50.plist */; };
+		88B7DC7E20410E8900824181 /* number_eleven_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3720410E8500824181 /* number_eleven_style_1.plist */; };
+		88B7DC7F20410E8900824181 /* number_seven_style_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3820410E8600824181 /* number_seven_style_2.plist */; };
+		88B7DC8020410E8900824181 /* number_six_style_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3920410E8600824181 /* number_six_style_3.plist */; };
+		88B7DC8120410E8900824181 /* number_five_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3A20410E8600824181 /* number_five_style_30.plist */; };
+		88B7DC8220410E8900824181 /* number_five_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3B20410E8600824181 /* number_five_style_1.plist */; };
+		88B7DC8320410E8900824181 /* number_seven_style_20.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3C20410E8600824181 /* number_seven_style_20.plist */; };
+		88B7DC8420410E8900824181 /* number_ten_style_31.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3D20410E8600824181 /* number_ten_style_31.plist */; };
+		88B7DC8520410E8900824181 /* number_nine_style_20.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3E20410E8600824181 /* number_nine_style_20.plist */; };
+		88B7DC8620410E8900824181 /* number_thirteen_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC3F20410E8700824181 /* number_thirteen_style_30.plist */; };
+		88B7DC8720410E8900824181 /* number_Twelve_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4020410E8700824181 /* number_Twelve_style_40.plist */; };
+		88B7DC8820410E8900824181 /* number_eight_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4120410E8700824181 /* number_eight_style_30.plist */; };
+		88B7DC8920410E8900824181 /* number_eleven_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4220410E8700824181 /* number_eleven_style_50.plist */; };
+		88B7DC8A20410E8900824181 /* number_seven_style_100.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4320410E8700824181 /* number_seven_style_100.plist */; };
+		88B7DC8B20410E8900824181 /* number_eight_style_61.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4420410E8700824181 /* number_eight_style_61.plist */; };
+		88B7DC8C20410E8900824181 /* number_six_style_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4520410E8700824181 /* number_six_style_2.plist */; };
+		88B7DC8D20410E8900824181 /* number_eight_style_60.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4620410E8800824181 /* number_eight_style_60.plist */; };
+		88B7DC8E20410E8900824181 /* number_ten_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4720410E8800824181 /* number_ten_style_50.plist */; };
+		88B7DC8F20410E8900824181 /* number_thirteen_style_20.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4820410E8800824181 /* number_thirteen_style_20.plist */; };
+		88B7DC9020410E8900824181 /* number_nine_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4920410E8800824181 /* number_nine_style_1.plist */; };
+		88B7DC9120410E8900824181 /* number_seven_style_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4A20410E8800824181 /* number_seven_style_3.plist */; };
+		88B7DC9220410E8900824181 /* number_nine_style_100.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4B20410E8800824181 /* number_nine_style_100.plist */; };
+		88B7DC9320410E8900824181 /* number_ten_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4C20410E8800824181 /* number_ten_style_1.plist */; };
+		88B7DC9420410E8900824181 /* number_nine_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4D20410E8800824181 /* number_nine_style_30.plist */; };
+		88B7DC9520410E8900824181 /* number_eight_style_3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4E20410E8800824181 /* number_eight_style_3.plist */; };
+		88B7DC9620410E8900824181 /* number_seven_style_40.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC4F20410E8900824181 /* number_seven_style_40.plist */; };
+		88B7DC9720410E8900824181 /* number_seven_style_31.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC5020410E8900824181 /* number_seven_style_31.plist */; };
+		88B7DC9820410E8900824181 /* number_six_style_20.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC5120410E8900824181 /* number_six_style_20.plist */; };
+		88B7DC9A20410F8C00824181 /* AllModel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC9920410F8C00824181 /* AllModel.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +128,8 @@
 		22F60AE9203E694B00FC9CC3 /* TalentPool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TalentPool.m; sourceTree = "<group>"; };
 		22F60AEB203E696200FC9CC3 /* Mine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mine.h; sourceTree = "<group>"; };
 		22F60AEC203E696200FC9CC3 /* Mine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mine.m; sourceTree = "<group>"; };
+		88073D6920401CAC0096A64D /* number_eight_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_1.plist; sourceTree = "<group>"; };
+		88073D6B20401CC40096A64D /* number_eight_style_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_2.plist; sourceTree = "<group>"; };
 		88516AEF203FAD2B00A9F133 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		88516AF0203FAD2B00A9F133 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 		88516AF2203FB0C600A9F133 /* Header.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.pch; sourceTree = "<group>"; };
@@ -73,6 +149,78 @@
 		88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+YADevice.m"; sourceTree = "<group>"; };
 		88516B0B20400F0E00A9F133 /* YAScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAScrollView.m; sourceTree = "<group>"; };
 		88516B0C20400F0E00A9F133 /* YAScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAScrollView.h; sourceTree = "<group>"; };
+		88B7DC0B20410E8100824181 /* number_eleven_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eleven_style_40.plist; sourceTree = "<group>"; };
+		88B7DC0C20410E8100824181 /* number_Twelve_style_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_Twelve_style_2.plist; sourceTree = "<group>"; };
+		88B7DC0D20410E8100824181 /* number_Twelve_style_110.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_Twelve_style_110.plist; sourceTree = "<group>"; };
+		88B7DC0E20410E8100824181 /* number_ten_style_41.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_41.plist; sourceTree = "<group>"; };
+		88B7DC0F20410E8100824181 /* number_seven_style_110.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_110.plist; sourceTree = "<group>"; };
+		88B7DC1020410E8100824181 /* number_five_style_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_five_style_2.plist; sourceTree = "<group>"; };
+		88B7DC1120410E8100824181 /* number_nine_style_111.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_111.plist; sourceTree = "<group>"; };
+		88B7DC1220410E8100824181 /* number_Twelve_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_Twelve_style_30.plist; sourceTree = "<group>"; };
+		88B7DC1320410E8100824181 /* number_six_style_60.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_60.plist; sourceTree = "<group>"; };
+		88B7DC1420410E8100824181 /* number_Twelve_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_Twelve_style_50.plist; sourceTree = "<group>"; };
+		88B7DC1520410E8100824181 /* number_seven_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_30.plist; sourceTree = "<group>"; };
+		88B7DC1620410E8100824181 /* number_thirteen_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_thirteen_style_50.plist; sourceTree = "<group>"; };
+		88B7DC1720410E8200824181 /* number_ten_style_20.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_20.plist; sourceTree = "<group>"; };
+		88B7DC1820410E8200824181 /* number_ten_style_3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_3.plist; sourceTree = "<group>"; };
+		88B7DC1920410E8200824181 /* number_ten_style_42.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_42.plist; sourceTree = "<group>"; };
+		88B7DC1A20410E8200824181 /* number_eleven_style_20.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eleven_style_20.plist; sourceTree = "<group>"; };
+		88B7DC1B20410E8200824181 /* number_eight_style_20.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_20.plist; sourceTree = "<group>"; };
+		88B7DC1C20410E8200824181 /* number_nine_style_51.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_51.plist; sourceTree = "<group>"; };
+		88B7DC1D20410E8200824181 /* number_thirteen_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_thirteen_style_1.plist; sourceTree = "<group>"; };
+		88B7DC1E20410E8200824181 /* number_ten_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_30.plist; sourceTree = "<group>"; };
+		88B7DC1F20410E8200824181 /* number_five_style_110.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_five_style_110.plist; sourceTree = "<group>"; };
+		88B7DC2020410E8200824181 /* number_nine_style_41.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_41.plist; sourceTree = "<group>"; };
+		88B7DC2120410E8200824181 /* number_nine_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_50.plist; sourceTree = "<group>"; };
+		88B7DC2220410E8200824181 /* number_six_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_1.plist; sourceTree = "<group>"; };
+		88B7DC2320410E8300824181 /* number_ten_style_21.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_21.plist; sourceTree = "<group>"; };
+		88B7DC2420410E8300824181 /* number_eleven_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eleven_style_30.plist; sourceTree = "<group>"; };
+		88B7DC2520410E8300824181 /* number_seven_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_50.plist; sourceTree = "<group>"; };
+		88B7DC2620410E8300824181 /* number_six_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_40.plist; sourceTree = "<group>"; };
+		88B7DC2720410E8300824181 /* number_ten_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_40.plist; sourceTree = "<group>"; };
+		88B7DC2820410E8300824181 /* number_Twelve_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_Twelve_style_1.plist; sourceTree = "<group>"; };
+		88B7DC2920410E8300824181 /* number_nine_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_40.plist; sourceTree = "<group>"; };
+		88B7DC2A20410E8300824181 /* number_seven_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_1.plist; sourceTree = "<group>"; };
+		88B7DC2B20410E8400824181 /* number_ten_style_52.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_52.plist; sourceTree = "<group>"; };
+		88B7DC2C20410E8400824181 /* number_ten_style_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_2.plist; sourceTree = "<group>"; };
+		88B7DC2D20410E8400824181 /* number_eight_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_40.plist; sourceTree = "<group>"; };
+		88B7DC2E20410E8400824181 /* number_seven_style_21.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_21.plist; sourceTree = "<group>"; };
+		88B7DC2F20410E8400824181 /* number_eight_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_50.plist; sourceTree = "<group>"; };
+		88B7DC3020410E8400824181 /* number_four_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_four_style_1.plist; sourceTree = "<group>"; };
+		88B7DC3120410E8500824181 /* number_thirteen_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_thirteen_style_40.plist; sourceTree = "<group>"; };
+		88B7DC3220410E8500824181 /* number_ten_style_60.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_60.plist; sourceTree = "<group>"; };
+		88B7DC3320410E8500824181 /* number_ten_style_51.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_51.plist; sourceTree = "<group>"; };
+		88B7DC3420410E8500824181 /* number_ten_style_32.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_32.plist; sourceTree = "<group>"; };
+		88B7DC3520410E8500824181 /* number_six_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_30.plist; sourceTree = "<group>"; };
+		88B7DC3620410E8500824181 /* number_six_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_50.plist; sourceTree = "<group>"; };
+		88B7DC3720410E8500824181 /* number_eleven_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eleven_style_1.plist; sourceTree = "<group>"; };
+		88B7DC3820410E8600824181 /* number_seven_style_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_2.plist; sourceTree = "<group>"; };
+		88B7DC3920410E8600824181 /* number_six_style_3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_3.plist; sourceTree = "<group>"; };
+		88B7DC3A20410E8600824181 /* number_five_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_five_style_30.plist; sourceTree = "<group>"; };
+		88B7DC3B20410E8600824181 /* number_five_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_five_style_1.plist; sourceTree = "<group>"; };
+		88B7DC3C20410E8600824181 /* number_seven_style_20.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_20.plist; sourceTree = "<group>"; };
+		88B7DC3D20410E8600824181 /* number_ten_style_31.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_31.plist; sourceTree = "<group>"; };
+		88B7DC3E20410E8600824181 /* number_nine_style_20.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_20.plist; sourceTree = "<group>"; };
+		88B7DC3F20410E8700824181 /* number_thirteen_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_thirteen_style_30.plist; sourceTree = "<group>"; };
+		88B7DC4020410E8700824181 /* number_Twelve_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_Twelve_style_40.plist; sourceTree = "<group>"; };
+		88B7DC4120410E8700824181 /* number_eight_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_30.plist; sourceTree = "<group>"; };
+		88B7DC4220410E8700824181 /* number_eleven_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eleven_style_50.plist; sourceTree = "<group>"; };
+		88B7DC4320410E8700824181 /* number_seven_style_100.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_100.plist; sourceTree = "<group>"; };
+		88B7DC4420410E8700824181 /* number_eight_style_61.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_61.plist; sourceTree = "<group>"; };
+		88B7DC4520410E8700824181 /* number_six_style_2.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_2.plist; sourceTree = "<group>"; };
+		88B7DC4620410E8800824181 /* number_eight_style_60.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_60.plist; sourceTree = "<group>"; };
+		88B7DC4720410E8800824181 /* number_ten_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_50.plist; sourceTree = "<group>"; };
+		88B7DC4820410E8800824181 /* number_thirteen_style_20.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_thirteen_style_20.plist; sourceTree = "<group>"; };
+		88B7DC4920410E8800824181 /* number_nine_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_1.plist; sourceTree = "<group>"; };
+		88B7DC4A20410E8800824181 /* number_seven_style_3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_3.plist; sourceTree = "<group>"; };
+		88B7DC4B20410E8800824181 /* number_nine_style_100.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_100.plist; sourceTree = "<group>"; };
+		88B7DC4C20410E8800824181 /* number_ten_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_ten_style_1.plist; sourceTree = "<group>"; };
+		88B7DC4D20410E8800824181 /* number_nine_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_nine_style_30.plist; sourceTree = "<group>"; };
+		88B7DC4E20410E8800824181 /* number_eight_style_3.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_eight_style_3.plist; sourceTree = "<group>"; };
+		88B7DC4F20410E8900824181 /* number_seven_style_40.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_40.plist; sourceTree = "<group>"; };
+		88B7DC5020410E8900824181 /* number_seven_style_31.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_seven_style_31.plist; sourceTree = "<group>"; };
+		88B7DC5120410E8900824181 /* number_six_style_20.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_20.plist; sourceTree = "<group>"; };
+		88B7DC9920410F8C00824181 /* AllModel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AllModel.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +432,8 @@
 		88516AFF203FB61D00A9F133 /* AddUserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				88B7DC0A20410E0C00824181 /* Plist */,
+				88B7DC0920410E0600824181 /* Model */,
 				88516B0A20400F0700A9F133 /* View */,
 				88516B00203FB62C00A9F133 /* Controller */,
 			);
@@ -308,6 +458,94 @@
 				88516B0B20400F0E00A9F133 /* YAScrollView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		88B7DC0920410E0600824181 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88B7DC0A20410E0C00824181 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				88073D6920401CAC0096A64D /* number_eight_style_1.plist */,
+				88073D6B20401CC40096A64D /* number_eight_style_2.plist */,
+				88B7DC4E20410E8800824181 /* number_eight_style_3.plist */,
+				88B7DC1B20410E8200824181 /* number_eight_style_20.plist */,
+				88B7DC4120410E8700824181 /* number_eight_style_30.plist */,
+				88B7DC2D20410E8400824181 /* number_eight_style_40.plist */,
+				88B7DC2F20410E8400824181 /* number_eight_style_50.plist */,
+				88B7DC4620410E8800824181 /* number_eight_style_60.plist */,
+				88B7DC4420410E8700824181 /* number_eight_style_61.plist */,
+				88B7DC3720410E8500824181 /* number_eleven_style_1.plist */,
+				88B7DC1A20410E8200824181 /* number_eleven_style_20.plist */,
+				88B7DC2420410E8300824181 /* number_eleven_style_30.plist */,
+				88B7DC0B20410E8100824181 /* number_eleven_style_40.plist */,
+				88B7DC4220410E8700824181 /* number_eleven_style_50.plist */,
+				88B7DC3B20410E8600824181 /* number_five_style_1.plist */,
+				88B7DC1020410E8100824181 /* number_five_style_2.plist */,
+				88B7DC3A20410E8600824181 /* number_five_style_30.plist */,
+				88B7DC1F20410E8200824181 /* number_five_style_110.plist */,
+				88B7DC3020410E8400824181 /* number_four_style_1.plist */,
+				88B7DC4920410E8800824181 /* number_nine_style_1.plist */,
+				88B7DC3E20410E8600824181 /* number_nine_style_20.plist */,
+				88B7DC4D20410E8800824181 /* number_nine_style_30.plist */,
+				88B7DC2920410E8300824181 /* number_nine_style_40.plist */,
+				88B7DC2020410E8200824181 /* number_nine_style_41.plist */,
+				88B7DC2120410E8200824181 /* number_nine_style_50.plist */,
+				88B7DC1C20410E8200824181 /* number_nine_style_51.plist */,
+				88B7DC4B20410E8800824181 /* number_nine_style_100.plist */,
+				88B7DC1120410E8100824181 /* number_nine_style_111.plist */,
+				88B7DC2A20410E8300824181 /* number_seven_style_1.plist */,
+				88B7DC3820410E8600824181 /* number_seven_style_2.plist */,
+				88B7DC4A20410E8800824181 /* number_seven_style_3.plist */,
+				88B7DC3C20410E8600824181 /* number_seven_style_20.plist */,
+				88B7DC2E20410E8400824181 /* number_seven_style_21.plist */,
+				88B7DC1520410E8100824181 /* number_seven_style_30.plist */,
+				88B7DC5020410E8900824181 /* number_seven_style_31.plist */,
+				88B7DC4F20410E8900824181 /* number_seven_style_40.plist */,
+				88B7DC2520410E8300824181 /* number_seven_style_50.plist */,
+				88B7DC4320410E8700824181 /* number_seven_style_100.plist */,
+				88B7DC0F20410E8100824181 /* number_seven_style_110.plist */,
+				88B7DC2220410E8200824181 /* number_six_style_1.plist */,
+				88B7DC4520410E8700824181 /* number_six_style_2.plist */,
+				88B7DC3920410E8600824181 /* number_six_style_3.plist */,
+				88B7DC5120410E8900824181 /* number_six_style_20.plist */,
+				88B7DC3520410E8500824181 /* number_six_style_30.plist */,
+				88B7DC2620410E8300824181 /* number_six_style_40.plist */,
+				88B7DC3620410E8500824181 /* number_six_style_50.plist */,
+				88B7DC1320410E8100824181 /* number_six_style_60.plist */,
+				88B7DC4C20410E8800824181 /* number_ten_style_1.plist */,
+				88B7DC2C20410E8400824181 /* number_ten_style_2.plist */,
+				88B7DC1820410E8200824181 /* number_ten_style_3.plist */,
+				88B7DC1720410E8200824181 /* number_ten_style_20.plist */,
+				88B7DC2320410E8300824181 /* number_ten_style_21.plist */,
+				88B7DC1E20410E8200824181 /* number_ten_style_30.plist */,
+				88B7DC3D20410E8600824181 /* number_ten_style_31.plist */,
+				88B7DC3420410E8500824181 /* number_ten_style_32.plist */,
+				88B7DC2720410E8300824181 /* number_ten_style_40.plist */,
+				88B7DC0E20410E8100824181 /* number_ten_style_41.plist */,
+				88B7DC1920410E8200824181 /* number_ten_style_42.plist */,
+				88B7DC4720410E8800824181 /* number_ten_style_50.plist */,
+				88B7DC3320410E8500824181 /* number_ten_style_51.plist */,
+				88B7DC2B20410E8400824181 /* number_ten_style_52.plist */,
+				88B7DC3220410E8500824181 /* number_ten_style_60.plist */,
+				88B7DC1D20410E8200824181 /* number_thirteen_style_1.plist */,
+				88B7DC4820410E8800824181 /* number_thirteen_style_20.plist */,
+				88B7DC3F20410E8700824181 /* number_thirteen_style_30.plist */,
+				88B7DC3120410E8500824181 /* number_thirteen_style_40.plist */,
+				88B7DC1620410E8100824181 /* number_thirteen_style_50.plist */,
+				88B7DC2820410E8300824181 /* number_Twelve_style_1.plist */,
+				88B7DC0C20410E8100824181 /* number_Twelve_style_2.plist */,
+				88B7DC1220410E8100824181 /* number_Twelve_style_30.plist */,
+				88B7DC4020410E8700824181 /* number_Twelve_style_40.plist */,
+				88B7DC1420410E8100824181 /* number_Twelve_style_50.plist */,
+				88B7DC0D20410E8100824181 /* number_Twelve_style_110.plist */,
+				88B7DC9920410F8C00824181 /* AllModel.plist */,
+			);
+			path = Plist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,8 +606,82 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B7DC5A20410E8900824181 /* number_six_style_60.plist in Resources */,
+				88B7DC9420410E8900824181 /* number_nine_style_30.plist in Resources */,
+				88B7DC9320410E8900824181 /* number_ten_style_1.plist in Resources */,
+				88B7DC5820410E8900824181 /* number_nine_style_111.plist in Resources */,
+				88B7DC8A20410E8900824181 /* number_seven_style_100.plist in Resources */,
+				88B7DC8D20410E8900824181 /* number_eight_style_60.plist in Resources */,
+				88B7DC7A20410E8900824181 /* number_ten_style_51.plist in Resources */,
+				88B7DC8320410E8900824181 /* number_seven_style_20.plist in Resources */,
+				88B7DC7D20410E8900824181 /* number_six_style_50.plist in Resources */,
+				88B7DC6D20410E8900824181 /* number_six_style_40.plist in Resources */,
 				22F60AC2203E675A00FC9CC3 /* LaunchScreen.storyboard in Resources */,
+				88B7DC7F20410E8900824181 /* number_seven_style_2.plist in Resources */,
+				88B7DC8E20410E8900824181 /* number_ten_style_50.plist in Resources */,
+				88B7DC9720410E8900824181 /* number_seven_style_31.plist in Resources */,
+				88B7DC7220410E8900824181 /* number_ten_style_52.plist in Resources */,
+				88B7DC5B20410E8900824181 /* number_Twelve_style_50.plist in Resources */,
+				88B7DC7820410E8900824181 /* number_thirteen_style_40.plist in Resources */,
+				88B7DC5420410E8900824181 /* number_Twelve_style_110.plist in Resources */,
+				88B7DC6420410E8900824181 /* number_thirteen_style_1.plist in Resources */,
+				88B7DC6920410E8900824181 /* number_six_style_1.plist in Resources */,
+				88B7DC5C20410E8900824181 /* number_seven_style_30.plist in Resources */,
+				88B7DC8F20410E8900824181 /* number_thirteen_style_20.plist in Resources */,
+				88B7DC5320410E8900824181 /* number_Twelve_style_2.plist in Resources */,
+				88B7DC6720410E8900824181 /* number_nine_style_41.plist in Resources */,
+				88B7DC5D20410E8900824181 /* number_thirteen_style_50.plist in Resources */,
+				88B7DC8020410E8900824181 /* number_six_style_3.plist in Resources */,
+				88B7DC6E20410E8900824181 /* number_ten_style_40.plist in Resources */,
+				88B7DC6B20410E8900824181 /* number_eleven_style_30.plist in Resources */,
+				88B7DC6F20410E8900824181 /* number_Twelve_style_1.plist in Resources */,
+				88B7DC5220410E8900824181 /* number_eleven_style_40.plist in Resources */,
+				88073D6A20401CAC0096A64D /* number_eight_style_1.plist in Resources */,
+				88B7DC7320410E8900824181 /* number_ten_style_2.plist in Resources */,
+				88B7DC7720410E8900824181 /* number_four_style_1.plist in Resources */,
+				88B7DC8620410E8900824181 /* number_thirteen_style_30.plist in Resources */,
+				88B7DC7B20410E8900824181 /* number_ten_style_32.plist in Resources */,
+				88B7DC6620410E8900824181 /* number_five_style_110.plist in Resources */,
+				88B7DC9220410E8900824181 /* number_nine_style_100.plist in Resources */,
+				88B7DC6120410E8900824181 /* number_eleven_style_20.plist in Resources */,
+				88B7DC6A20410E8900824181 /* number_ten_style_21.plist in Resources */,
+				88B7DC9620410E8900824181 /* number_seven_style_40.plist in Resources */,
+				88B7DC8420410E8900824181 /* number_ten_style_31.plist in Resources */,
+				88B7DC6220410E8900824181 /* number_eight_style_20.plist in Resources */,
+				88B7DC7420410E8900824181 /* number_eight_style_40.plist in Resources */,
+				88B7DC6020410E8900824181 /* number_ten_style_42.plist in Resources */,
+				88B7DC8120410E8900824181 /* number_five_style_30.plist in Resources */,
+				88073D6C20401CC40096A64D /* number_eight_style_2.plist in Resources */,
+				88B7DC8920410E8900824181 /* number_eleven_style_50.plist in Resources */,
+				88B7DC7C20410E8900824181 /* number_six_style_30.plist in Resources */,
+				88B7DC5720410E8900824181 /* number_five_style_2.plist in Resources */,
+				88B7DC9520410E8900824181 /* number_eight_style_3.plist in Resources */,
+				88B7DC9A20410F8C00824181 /* AllModel.plist in Resources */,
+				88B7DC6320410E8900824181 /* number_nine_style_51.plist in Resources */,
+				88B7DC8720410E8900824181 /* number_Twelve_style_40.plist in Resources */,
+				88B7DC7620410E8900824181 /* number_eight_style_50.plist in Resources */,
+				88B7DC9120410E8900824181 /* number_seven_style_3.plist in Resources */,
+				88B7DC5620410E8900824181 /* number_seven_style_110.plist in Resources */,
+				88B7DC8C20410E8900824181 /* number_six_style_2.plist in Resources */,
+				88B7DC5E20410E8900824181 /* number_ten_style_20.plist in Resources */,
+				88B7DC5520410E8900824181 /* number_ten_style_41.plist in Resources */,
+				88B7DC7E20410E8900824181 /* number_eleven_style_1.plist in Resources */,
+				88B7DC6520410E8900824181 /* number_ten_style_30.plist in Resources */,
+				88B7DC7520410E8900824181 /* number_seven_style_21.plist in Resources */,
+				88B7DC7120410E8900824181 /* number_seven_style_1.plist in Resources */,
+				88B7DC8820410E8900824181 /* number_eight_style_30.plist in Resources */,
+				88B7DC6820410E8900824181 /* number_nine_style_50.plist in Resources */,
+				88B7DC8220410E8900824181 /* number_five_style_1.plist in Resources */,
+				88B7DC6C20410E8900824181 /* number_seven_style_50.plist in Resources */,
+				88B7DC9020410E8900824181 /* number_nine_style_1.plist in Resources */,
+				88B7DC7920410E8900824181 /* number_ten_style_60.plist in Resources */,
+				88B7DC8B20410E8900824181 /* number_eight_style_61.plist in Resources */,
+				88B7DC5F20410E8900824181 /* number_ten_style_3.plist in Resources */,
+				88B7DC9820410E8900824181 /* number_six_style_20.plist in Resources */,
 				22F60ABF203E675A00FC9CC3 /* Assets.xcassets in Resources */,
+				88B7DC7020410E8900824181 /* number_nine_style_40.plist in Resources */,
+				88B7DC5920410E8900824181 /* number_Twelve_style_30.plist in Resources */,
+				88B7DC8520410E8900824181 /* number_nine_style_20.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

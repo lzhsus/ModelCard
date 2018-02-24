@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ModelImageController : UIViewController
-
+@property (nonatomic,strong) NSString * plistName;
 @end
