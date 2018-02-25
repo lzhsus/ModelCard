@@ -243,9 +243,10 @@
 }
 -(void)touchInScrollView:(UIScrollView *)scrollView{
     self.changeButton.frame = CGRectMake(scrollView.frame.origin.x+(scrollView.frame.size.width-80)/2, scrollView.frame.origin.y+(scrollView.frame.size.height-30)/2, 80, 30);
-    __weak typeof(self) weakSelf = self;
+    Weakify(self);
     [UIView animateWithDuration:0.25 animations:^{
-        weakSelf.changeButton.hidden = !weakSelf.changeButton.isHidden;
+        Strongify(weakSelf);
+        strongSelf.changeButton.hidden = !weakSelf.changeButton.isHidden;
     }];
     if (!self.changeButton.isHidden) {
         self.changeButton.tag = scrollView.tag;

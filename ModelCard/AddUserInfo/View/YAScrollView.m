@@ -49,9 +49,10 @@
 -(void)setNewFrame:(CGRect)aRect animated:(BOOL)Aanimated{
     if ((aRect.size.width && aRect.size.height) != 0) {
         if (Aanimated) {
-            __weak typeof(self) weakSelf = self;
+            Weakify(self);
             [UIView animateWithDuration:0.25 animations:^{
-                [weakSelf setFrame:aRect];
+                Strongify(weakSelf);
+                [strongSelf setFrame:aRect];
             }];
         }else{
             [self setFrame:aRect];

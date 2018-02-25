@@ -31,6 +31,8 @@
 #define SystemVersion [[UIDevice currentDevice] systemVersion]
 #define AppVersion [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
 #define SystemLanguage [NSLocale preferredLanguages].firstObject
+#define Weakify(var) __weak typeof(self) weakSelf = var
+#define Strongify(var) __strong typeof(var) strongSelf = var
 /** 空值判断 */
 #define isStringEmpty(a) ([a isEqual:[NSNull null]] || a == nil || [a isEqualToString:@""])
 #define isObjectEmpty(a) ([a isEqual:[NSNull null]] || a == nil)
