@@ -18,7 +18,6 @@
 
 @property (nonatomic,strong) NSArray * rectArray;
 @property (nonatomic,strong) NSMutableArray * selectArray;
-@property (nonatomic,strong) NSDictionary * modelDictionary;
 
 @property (nonatomic,strong) UIButton * changeButton;
 @end
@@ -32,6 +31,7 @@
     [UIDevice switchNewOrientation:UIInterfaceOrientationLandscapeRight];
     self.view.backgroundColor = [UIColor colorWithRed:0.23 green:0.21 blue:0.22 alpha:1.00];
     
+    //导航栏View
     UIView *NavigationView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Width, 64)];
     NavigationView.backgroundColor = ThemeColor;
     
@@ -39,7 +39,6 @@
     title.text = @"编辑";
     title.textColor = [UIColor whiteColor];
     title.textAlignment = NSTextAlignmentCenter;
-    
     UIImageView *titleImage = [[UIImageView alloc]initWithFrame:CGRectMake((NavigationView.frame.size.width-150)/2, 37, 150, 15)];
     titleImage.image = [UIImage imageNamed:@"middle_tip_icon"];
     titleImage.contentMode = UIViewContentModeScaleAspectFit;
@@ -70,6 +69,7 @@
     [self.view addSubview:NavigationView];
     // Do any additional setup after loading the view.
     
+    //所有区块的背景
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(45, NavigationView.frame.size.height, AutoWidth([[self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]].firstObject floatValue]), Height-NavigationView.frame.size.height)];
     view.backgroundColor = [UIColor whiteColor];
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
@@ -77,42 +77,57 @@
     [self.view addSubview:view];
     self.BackView = view;
     
-    NSArray *imageList = [[NSMutableArray alloc]initWithObjects:@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height", nil];
-    
+    //图片区块
     for (int i =0; i<self.rectArray.count; i++) {
         CGRect rect = [self loadViewRect:self.rectArray[i]];
-        YAScrollView *firstView = [[YAScrollView alloc]initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width-rect.origin.x, rect.size.height-rect.origin.y) Image:[UIImage imageNamed:imageList[i]]];
+        YAScrollView *firstView = [[YAScrollView alloc]initWithFrame:CGRectMake(rect.origin.x, rect.origin.y, rect.size.width-rect.origin.x, rect.size.height-rect.origin.y) Image:self.images[i]];
         firstView.YADelegate = self;
         firstView.tag = i+1;
         [self.BackView addSubview:firstView];
     }
+    
+    //个人信息
     NSArray *points = [[NSArray alloc]initWithArray:self.modelDictionary[@"viewPoint"]];
     for (int i=0; i<points.count; i++) {
         NSArray *aArray = [self loadModelData:points[i]];
-        UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake([aArray[0] floatValue], [aArray[1] floatValue], [aArray[2] floatValue], [aArray[3] floatValue])];
-        title.textAlignment = NSTextAlignmentCenter;
-        switch (i) {
-            case 0:
-                title.text = @"A";
-                title.textColor = [UIColor redColor];
+        CGRect viewRect =  CGRectMake([aArray[0] floatValue], [aArray[1] floatValue], [aArray[2] floatValue], [aArray[3] floatValue]);
+        
+        CGPoint point1 = CGPointMake(viewRect.origin.x, viewRect.origin.y);
+        CGPoint point2 = CGPointMake(viewRect.origin.x+viewRect.size.width, viewRect.origin.y+viewRect.size.height);
+        CGPoint point3 = CGPointMake(viewRect.origin.x+viewRect.size.width, viewRect.origin.y);
+        CGPoint point4 = CGPointMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height);
+        
+        BOOL isPoint = YES;
+        for (int i =0; i<self.rectArray.count; i++) {
+            CGRect rect = [self loadViewRect:self.rectArray[i]];
+            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
+                isPoint = NO;
                 break;
-            case 1:
-                title.text = @"B";
-                title.textColor = [UIColor blueColor];
-                break;
-            case 2:
-                title.text = @"C";
-                title.textColor = [UIColor cyanColor];
-                break;
-            default:
-                title.text = [NSString stringWithFormat:@"%dL",i];
-                title.textColor = [UIColor whiteColor];
-                break;
+            }
         }
-        [title makeBorderWidth:i+2 withColor:title.textColor];
-        [self.BackView addSubview:title];
+        if (isPoint) {
+            UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
+            title.textAlignment = NSTextAlignmentCenter;
+            switch (i) {
+                case 0:
+                    title.text = self.name;
+                    title.textColor = [UIColor redColor];
+                    break;
+                case 1:
+                    title.text = self.content;
+                    title.textColor = [UIColor blueColor];
+                    break;
+                default:
+                    title.text = [NSString stringWithFormat:@"%d",i];
+                    title.textColor = [UIColor whiteColor];
+                    break;
+            }
+            [title makeBorderWidth:i+2 withColor:title.textColor];
+            [self.BackView addSubview:title];
+        }
     }
     
+    //滑动条
     UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake((Width-250)/2, Height - SafeArea(55, 45), 250, 30)];
     [slider setMaximumValue:self.BackView.frame.size.width + 90 - Width];
     [slider setThumbImage:[UIImage imageNamed:@"slide_btn_icon"] forState:UIControlStateNormal];
@@ -121,11 +136,11 @@
     [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:slider];
     
+    //替换
     UIButton *changeButton = [[UIButton alloc]init];
     [changeButton setAlpha:0.9];
     [changeButton setBackgroundColor:[UIColor colorHex:@"#E7586E"]];
     [changeButton makeCornerRadius:6];
-    //[changeImage setTitleColor: forState:UIControlStateNormal];
     [changeButton setTitle:@"替换" forState:UIControlStateNormal];
     [changeButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
     UIImage *changeImage = [UIImage imageNamed:@"picture_edit_icon"];
@@ -161,13 +176,17 @@
     self.BackView.backgroundColor = sender.isSelected ? [UIColor blackColor]:[UIColor whiteColor];
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
-    NSString *status = nil;
+    NSString *title = nil;
+    NSString *message = nil;
+    
     if (!error) {
-        status = @"保存成功";
+        title = @"保存成功";
+        message = @"请进入[相册]查看模卡";
     }else{
-        status = @"保存失败";
+        title = @"保存失败";
+        message = @"请换个姿势再试一试";
     }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:status message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -270,13 +289,6 @@
         _selectArray = [[NSMutableArray alloc]init];
     }
     return _selectArray;
-}
--(NSDictionary *)modelDictionary{
-    if (!_modelDictionary) {
-        NSString *plistPath = [[NSBundle mainBundle]pathForResource:self.plistName ofType:@"plist"];
-        _modelDictionary = [[NSDictionary alloc]initWithContentsOfFile:plistPath];
-    }
-    return _modelDictionary;
 }
 -(NSArray *)rectArray{
     if (!_rectArray) {

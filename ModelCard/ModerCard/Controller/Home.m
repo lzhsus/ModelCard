@@ -9,7 +9,6 @@
 #import "Home.h"
 #import "ModelCard.h"
 #import "UIImage+Category.h"
-#import "AddUserInfoController.h"
 
 #define HeadImgHeight 180
 
@@ -137,9 +136,7 @@
             }
             break;
         case 1:{
-            AddUserInfoController *add = [[AddUserInfoController alloc]init];
-            add.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:add animated:YES];
+            
         }
             break;
             

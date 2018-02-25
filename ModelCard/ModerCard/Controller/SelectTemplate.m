@@ -8,6 +8,9 @@
 
 #import "SelectTemplate.h"
 
+//photo
+#import "AddUserInfoController.h"
+
 @interface SelectTemplate ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
@@ -102,21 +105,26 @@
     return 130;
 }
 // 选中每一行
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    //    switch (indexPath.row) {
-//    //        case 0:{
-//    SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
-//    SelectTemplateVC.titleName = @"模特卡";
-//    //            SelectTemplateVC.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:SelectTemplateVC animated:YES];
-//    //        }
-//    //            break;
-//
-//
-//    //        default:
-//    //            break;
-//    //    }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    {
+        NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"AllModel" ofType:@"plist"];
+        NSArray *plist = [[NSArray alloc]initWithContentsOfFile:plistPath];
+        NSString *modelPath = [[NSBundle mainBundle]pathForResource:plist[indexPath.section] ofType:@"plist"];
+        NSDictionary *model = [[NSDictionary alloc]initWithContentsOfFile:modelPath];
+        NSInteger count = [[NSArray alloc]initWithArray:model[@"SubViewArray"]].count;
+        /** 返回图片 */{
+            NSArray *imageNames = [[NSArray alloc]initWithObjects:@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height", nil];
+            NSMutableArray *images = [NSMutableArray new];
+            for (int i=0; i<count; i++) {
+                UIImage *image = [UIImage imageNamed:imageNames[i]];
+                [images addObject:image];
+            }
+            NSLog(@"图片数量：%ld",images.count);
+            AddUserInfoController *add = [[AddUserInfoController alloc]init];
+            add.model = [[NSDictionary alloc]initWithDictionary:model];
+            add.images = [[NSArray alloc]initWithArray:images];
+            [self.navigationController pushViewController:add animated:YES];
+        }
+    }
 }
 @end

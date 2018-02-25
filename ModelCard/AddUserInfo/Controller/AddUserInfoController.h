@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddUserInfoController : UIViewController
-
+@property (nonatomic,strong) NSDictionary * model;
+@property (nonatomic,strong) NSArray * images;
 @end
