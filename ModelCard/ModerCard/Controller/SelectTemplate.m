@@ -13,6 +13,7 @@
 
 @interface SelectTemplate ()<UITableViewDataSource, UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ImagesViewDelegae>
 @property (nonatomic,strong) ImagesView * selectImages;
+@property (nonatomic,strong) NSArray * modelArray;
 @end
 
 @implementation SelectTemplate{
@@ -20,6 +21,13 @@
     NSDictionary *_ModelDict;
 }
 
+-(NSArray *)modelArray{
+    if (!_modelArray) {
+        NSString *plistPath = [[NSBundle mainBundle]pathForResource:self.modelName ofType:@"plist"];
+        _modelArray = [[NSArray alloc]initWithContentsOfFile:plistPath];
+    }
+    return _modelArray;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -37,7 +45,7 @@
     [appDelegate.window addSubview:self.selectImages];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 9;
+    return self.modelArray.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -56,48 +64,50 @@
         imageView.frame =CGRectMake(0, 0, self.view.frame.size.width, 130);
         [cell.contentView addSubview:imageView];
     }
-    if (indexPath.section == 0) {
-        imageView.image = [UIImage imageNamed:@"01-H-05-12-1" ];
-    }else if (indexPath.section == 1){
-        imageView.image = [UIImage imageNamed:@"01-H-04-10-2" ];
-    }else if (indexPath.section == 2){
-        imageView.image = [UIImage imageNamed:@"01-H-03-10-1" ];
-    }else if (indexPath.section == 3){
-        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-    }else if (indexPath.section == 4){
-        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-    }else if (indexPath.section == 5){
-        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-    }else if (indexPath.section == 6){
-        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-    }else if (indexPath.section == 7){
-        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-    }else {
-        imageView.image = [UIImage imageNamed:@"01-H-01-10-2" ];
-    }
+    imageView.image = [UIImage imageNamed:@"01-H-05-12-1"];
+//    if (indexPath.section == 0) {
+//        imageView.image = [UIImage imageNamed:@"01-H-05-12-1"];
+//    }else if (indexPath.section == 1){
+//        imageView.image = [UIImage imageNamed:@"01-H-04-10-2" ];
+//    }else if (indexPath.section == 2){
+//        imageView.image = [UIImage imageNamed:@"01-H-03-10-1" ];
+//    }else if (indexPath.section == 3){
+//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+//    }else if (indexPath.section == 4){
+//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+//    }else if (indexPath.section == 5){
+//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+//    }else if (indexPath.section == 6){
+//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+//    }else if (indexPath.section == 7){
+//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+//    }else {
+//        imageView.image = [UIImage imageNamed:@"01-H-01-10-2" ];
+//    }
     return cell;
 }
 //设置分区头的 文本内容
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return @"12图① - 9竖图3横图";
-    }else if (section == 1){
-        return @"13图② - 13竖图";
-    }else if (section == 2){
-        return @"11图① - 5竖图6方图";
-    }else if (section == 3){
-        return @"10图① - 7竖图3横图";
-    }else if (section == 4){
-        return @"10图② - 10竖图";
-    }else if (section == 5){
-        return @"10图③ - 10竖图";
-    }else if (section == 6){
-        return @"9图① - 9竖图";
-    }else if (section == 7){
-        return @"9图② - 9竖图";
-    }else{
-        return @"7图① - 7竖图";
-    }
+    return self.modelArray[section];
+//    if (section == 0) {
+//        return @"12图① - 9竖图3横图";
+//    }else if (section == 1){
+//        return @"13图② - 13竖图";
+//    }else if (section == 2){
+//        return @"11图① - 5竖图6方图";
+//    }else if (section == 3){
+//        return @"10图① - 7竖图3横图";
+//    }else if (section == 4){
+//        return @"10图② - 10竖图";
+//    }else if (section == 5){
+//        return @"10图③ - 10竖图";
+//    }else if (section == 6){
+//        return @"9图① - 9竖图";
+//    }else if (section == 7){
+//        return @"9图② - 9竖图";
+//    }else{
+//        return @"7图① - 7竖图";
+//    }
 }
 //设置分区头的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -108,9 +118,7 @@
 }
 // 选中每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"AllModel" ofType:@"plist"];
-    NSArray *plist = [[NSArray alloc]initWithContentsOfFile:plistPath];
-    NSString *modelPath = [[NSBundle mainBundle]pathForResource:plist[indexPath.section] ofType:@"plist"];
+    NSString *modelPath = [[NSBundle mainBundle]pathForResource:self.modelArray[indexPath.section] ofType:@"plist"];
     
     _ModelDict = [[NSDictionary alloc]initWithContentsOfFile:modelPath];
     self.selectImages.count = [NSArray arrayWithArray:_ModelDict[@"SubViewArray"]].count;

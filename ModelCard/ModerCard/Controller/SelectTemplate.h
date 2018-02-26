@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectTemplate : UIViewController
-@property (nonatomic,strong) NSString * titleName;
+@property (nonatomic,strong) NSString * modelName;
 @end

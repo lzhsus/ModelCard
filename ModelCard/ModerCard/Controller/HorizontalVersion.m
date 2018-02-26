@@ -29,7 +29,7 @@
     [self.view addSubview:tableView];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -38,15 +38,14 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell)
-    {
+    if (!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     imageView = [cell.contentView viewWithTag:104];
     if (imageView == nil) {
         imageView = [[UIImageView alloc]init];
         imageView.tag = 104;
-        imageView.frame =CGRectMake(0, 0, self.view.frame.size.width, 130);
+        imageView.frame =CGRectMake(0, 0, Width, 130);
         [cell.contentView addSubview:imageView];
     }
     if (indexPath.section == 0) {
@@ -85,22 +84,20 @@
     return 130;
 }
 // 选中每一行
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //    switch (indexPath.row) {
-    //        case 0:{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
-    SelectTemplateVC.titleName = @"模特卡";
-    //            SelectTemplateVC.hidesBottomBarWhenPushed = YES;
+    switch (indexPath.section) {
+        case 0:
+            SelectTemplateVC.modelName = @"AModel";
+            break;
+        case 1:
+            SelectTemplateVC.modelName = @"BModel";
+            break;
+        default:
+            SelectTemplateVC.modelName = @"CModel";
+            break;
+    }
     [self.navigationController pushViewController:SelectTemplateVC animated:YES];
-    //        }
-    //            break;
-    
-    
-    //        default:
-    //            break;
-    //    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

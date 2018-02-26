@@ -96,7 +96,7 @@
     //滑动条
     UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(Width-145, (Height-30)/2, 250, 30)];
     CGFloat maxValue = self.BackView.frame.size.height + 90 + NavigationTop + SafeArea(54, 20) - Height;
-    if (maxValue <= 0) {
+    if (maxValue < 20) {
         slider.hidden = YES;
     }else{
         [slider setMaximumValue:maxValue];
