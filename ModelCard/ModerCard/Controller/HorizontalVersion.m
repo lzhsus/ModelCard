@@ -64,18 +64,26 @@
 }
 //设置分区头的 文本内容
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"浮层式资料栏";
-//    if (section == 0) {
-//        return @"浮层式资料栏";
-//    }else if (section == 1){
-//        return @"环绕式资料栏";
-//    }else if (section == 2){
-//        return @"插入式资料栏";
-//    }else if (section == 3){
-//        return @"底部式资料栏";
-//    }else{
-//        return @"侧边式资料栏";
-//    }
+    switch (section) {
+        case 0:
+            return @"侧边式资料栏";
+        case 1:
+            return @"底部式资料栏";
+        case 2:
+            return @"插入式资料栏";
+        case 3:
+            return @"环绕式资料栏";
+        case 4:
+            return @"悬浮式资料栏";
+        case 5:
+            return @"插入式资料栏";
+        case 6:
+            return @"竖屏式资料栏 - 1";
+        case 7:
+            return @"竖屏式资料栏 - 2";
+        default:
+            return @"测试";
+    }
 }
 //设置分区头的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

@@ -36,7 +36,7 @@
     // Do any additional setup after loading the view.
     //所有区块的背景
     NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake((Width-AutoWidth([size.firstObject floatValue]))/2, 45, AutoWidth([size.firstObject floatValue]), AutoHeight([size.lastObject floatValue]))];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake((Width-AutoWidth([size.firstObject floatValue]))/2, [self isAutoHeight] ? (Height-NavigationTop-SafeArea(74, 40) - AutoHeight([size.lastObject floatValue]))/2 : 45, AutoWidth([size.firstObject floatValue]), AutoHeight([size.lastObject floatValue]))];
     view.backgroundColor = [UIColor whiteColor];
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
     [view addGestureRecognizer:move];
@@ -64,13 +64,13 @@
         CGPoint point4 = CGPointMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height);
         
         BOOL isPoint = YES;
-//        for (int i =0; i<self.rectArray.count; i++) {
-//            CGRect rect = [self loadViewRect:self.rectArray[i]];
-//            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
-//                isPoint = NO;
-//                break;
-//            }
-//        }
+        for (int i =0; i<self.rectArray.count; i++) {
+            CGRect rect = [self loadViewRect:self.rectArray[i]];
+            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
+                isPoint = NO;
+                break;
+            }
+        }
         if (isPoint) {
             UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
             title.textAlignment = NSTextAlignmentCenter;
@@ -95,8 +95,8 @@
     
     //滑动条
     UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(Width-150, (Height-30)/2, 250, 30)];
-    CGFloat maxValue = self.BackView.frame.size.height + 90 + NavigationTop + SafeArea(54, 20) - Height;
-    if (maxValue <= SafeArea(99, 65)) {
+    CGFloat maxValue = self.BackView.frame.size.height + NavigationTop + SafeArea(164, 130) - Height;
+    if ([self isAutoHeight]) {
         slider.hidden = YES;
     }else{
         [slider setMaximumValue:maxValue];
@@ -135,6 +135,10 @@
     [edit setImgViewStyle:ButtonStyleRight imageSize:editImage.size space:4];
     [edit addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:edit];
+}
+-(BOOL)isAutoHeight{
+    NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
+    return (Height-NavigationTop-SafeArea(74, 40) - AutoHeight([size.lastObject floatValue]))/2 >= 45 ? YES : NO;
 }
 #pragma mark  =========== 导航栏按钮 ==========
 -(void)done:(UIButton *)sender{
@@ -175,7 +179,7 @@
     self.BackView.backgroundColor = sender.isSelected ? [UIColor blackColor]:[UIColor whiteColor];
 }
 -(void)sliderChanged:(UISlider *)sender{
-    self.BackView.frame = CGRectMake(self.BackView.frame.origin.x, 45 - sender.value, self.BackView.frame.size.width, self.BackView.frame.size.height);
+    self.BackView.frame = CGRectMake(self.BackView.frame.origin.x, [self isAutoHeight] ? (Height-NavigationTop-SafeArea(74, 40) - self.BackView.frame.size.height)/2 : 45 - sender.value, self.BackView.frame.size.width, self.BackView.frame.size.height);
 }
 #pragma mark  =========== 图片区块 ==========
 -(void)moveToPoint:(UIPanGestureRecognizer *)sender{
@@ -296,7 +300,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 

@@ -63,7 +63,7 @@
     
     //所有区块的背景
     NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(45, NavigationView.frame.size.height, AutoWidth([size.firstObject floatValue]), AutoHeight([size.lastObject floatValue]))];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake([self isAutoWidth] ? (Width-AutoWidth([size.firstObject floatValue]))/2 :45, NavigationView.frame.size.height, AutoWidth([size.firstObject floatValue]), AutoHeight([size.lastObject floatValue]))];
     view.backgroundColor = [UIColor whiteColor];
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
     [view addGestureRecognizer:move];
@@ -98,13 +98,13 @@
         CGPoint point4 = CGPointMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height);
         
         BOOL isPoint = YES;
-//        for (int i =0; i<self.rectArray.count; i++) {
-//            CGRect rect = [self loadViewRect:self.rectArray[i]];
-//            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
-//                isPoint = NO;
-//                break;
-//            }
-//        }
+        for (int i =0; i<self.rectArray.count; i++) {
+            CGRect rect = [self loadViewRect:self.rectArray[i]];
+            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
+                isPoint = NO;
+                break;
+            }
+        }
         if (isPoint) {
             UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
             title.textAlignment = NSTextAlignmentCenter;
@@ -130,7 +130,7 @@
     //横滑动条
     UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake((Width-250)/2, Height - SafeArea(55, 45), 250, 30)];
     CGFloat maxValue = self.BackView.frame.size.width + 90 - Width;
-    if (maxValue <= 45) {
+    if ([self isAutoWidth]) {
         slider.hidden = YES;
     }else{
         [slider setMaximumValue:maxValue];
@@ -144,9 +144,9 @@
     
     {
         //竖滑动条
-        UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(Width-150, (Height-30)/2, 250, 30)];
-        CGFloat maxValue = self.BackView.frame.size.height - Height + 64 + 4;
-        if (maxValue <= 4) {
+        UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(Width-150, (Height+34)/2, 250, 30)];
+        CGFloat maxValue = self.BackView.frame.size.height + 64 + 4 - Height ;
+        if (maxValue < 4) {
             slider.hidden = YES;
         }else{
             [slider setMaximumValue:maxValue];
@@ -175,9 +175,13 @@
     [self.BackView addSubview:changeButton];
     self.changeButton = changeButton;
 }
+-(BOOL)isAutoWidth{
+    NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
+    return (Width-AutoWidth([size.firstObject floatValue]))/2 >= 45 ? YES:NO;
+}
 #pragma mark  =========== 导航栏View按钮 ==========
 -(void)sliderChanged:(UISlider *)sender{
-    self.BackView.frame = CGRectMake(45 - sender.value, self.BackView.frame.origin.y, self.BackView.frame.size.width, self.BackView.frame.size.height);
+    self.BackView.frame = CGRectMake([self isAutoWidth] ? (Width-self.BackView.frame.size.width)/2 :45 - sender.value, self.BackView.frame.origin.y, self.BackView.frame.size.width, self.BackView.frame.size.height);
 }
 -(void)sliderChangeds:(UISlider *)sender{
     self.BackView.frame = CGRectMake(self.BackView.frame.origin.x, 64 - sender.value, self.BackView.frame.size.width, self.BackView.frame.size.height);
