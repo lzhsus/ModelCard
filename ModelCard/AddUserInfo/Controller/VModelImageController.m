@@ -94,16 +94,17 @@
     }
     
     //滑动条
-    UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(Width-145, (Height-30)/2, 250, 30)];
+    UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(Width-150, (Height-30)/2, 250, 30)];
     CGFloat maxValue = self.BackView.frame.size.height + 90 + NavigationTop + SafeArea(54, 20) - Height;
-    if (maxValue < 20) {
+    if (maxValue <= 20) {
         slider.hidden = YES;
     }else{
         [slider setMaximumValue:maxValue];
     }
     [slider setThumbImage:[UIImage imageNamed:@"slide_btn_icon"] forState:UIControlStateNormal];
-    [slider setMinimumTrackImage:[UIImage new] forState:UIControlStateNormal];
-    [slider setMaximumTrackImage:[UIImage imageNamed:@"slide_bg_icon"] forState:UIControlStateNormal];
+    UIImage *minTrack = [[[UIImage imageNamed:@"slide_bg_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20, 0, 20)];
+    [slider setMinimumTrackImage:minTrack forState:UIControlStateNormal];
+    [slider setMaximumTrackImage:minTrack forState:UIControlStateNormal];
     [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     CGAffineTransform transform=  CGAffineTransformRotate(slider.transform, M_PI_2);
     [slider setTransform:transform];

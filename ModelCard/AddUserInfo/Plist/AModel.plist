@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>number_four_style_1</string>
-	<string>number_five_style_110</string>
-	<string>number_nine_style_100</string>
-	<string>number_nine_style_111</string>
 	<string>number_seven_style_100</string>
+	<string>number_nine_style_100</string>
+	<string>number_four_style_100</string>
+	<string>number_five_style_110</string>
 	<string>number_seven_style_110</string>
+	<string>number_nine_style_110</string>
 	<string>number_Twelve_style_110</string>
 </array>
 </plist>

@@ -59,6 +59,16 @@
     [edit setImage:editImage forState:UIControlStateNormal];
     [edit setImgViewStyle:ButtonStyleRight imageSize:editImage.size space:4];
     [edit addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
+    // Do any additional setup after loading the view.
+    
+    //所有区块的背景
+    NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(45, NavigationView.frame.size.height, AutoWidth([size.firstObject floatValue]), AutoHeight([size.lastObject floatValue]))];
+    view.backgroundColor = [UIColor whiteColor];
+    UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
+    [view addGestureRecognizer:move];
+    [self.view addSubview:view];
+    self.BackView = view;
     
     [NavigationView addSubview:title];
     [NavigationView addSubview:titleImage];
@@ -66,16 +76,6 @@
     [NavigationView addSubview:done];
     [NavigationView addSubview:edit];
     [self.view addSubview:NavigationView];
-    // Do any additional setup after loading the view.
-    
-    //所有区块的背景
-    NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(45, NavigationView.frame.size.height, AutoWidth([size.firstObject floatValue]), AutoHeight(311))];
-    view.backgroundColor = [UIColor whiteColor];
-    UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
-    [view addGestureRecognizer:move];
-    [self.view addSubview:view];
-    self.BackView = view;
     
     //图片区块
     for (int i =0; i<self.rectArray.count; i++) {
@@ -127,19 +127,38 @@
         }
     }
     
-    //滑动条
+    //横滑动条
     UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake((Width-250)/2, Height - SafeArea(55, 45), 250, 30)];
     CGFloat maxValue = self.BackView.frame.size.width + 90 - Width;
-    if (maxValue < 20) {
+    if (maxValue <= 45) {
         slider.hidden = YES;
     }else{
         [slider setMaximumValue:maxValue];
     }
     [slider setThumbImage:[UIImage imageNamed:@"slide_btn_icon"] forState:UIControlStateNormal];
-    [slider setMinimumTrackImage:[UIImage new] forState:UIControlStateNormal];
-    [slider setMaximumTrackImage:[UIImage imageNamed:@"slide_bg_icon"] forState:UIControlStateNormal];
+    UIImage *minTrack = [[[UIImage imageNamed:@"slide_bg_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 20, 0, 20)];
+    [slider setMinimumTrackImage:minTrack forState:UIControlStateNormal];
+    [slider setMaximumTrackImage:minTrack forState:UIControlStateNormal];
     [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:slider];
+    
+    {
+        //竖滑动条
+        UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake(Width-150, (Height-30)/2, 250, 30)];
+        CGFloat maxValue = self.BackView.frame.size.height - Height + 68;
+        if (maxValue <= 2) {
+            slider.hidden = YES;
+        }else{
+            [slider setMaximumValue:maxValue];
+        }
+        [slider setThumbImage:[UIImage imageNamed:@"slide_btn_icon"] forState:UIControlStateNormal];
+        [slider setMinimumTrackImage:minTrack forState:UIControlStateNormal];
+        [slider setMaximumTrackImage:minTrack forState:UIControlStateNormal];
+        [slider addTarget:self action:@selector(sliderChangeds:) forControlEvents:UIControlEventValueChanged];
+        CGAffineTransform transform=  CGAffineTransformRotate(slider.transform, M_PI_2);
+        [slider setTransform:transform];
+        [self.view addSubview:slider];
+    }
     
     //替换
     UIButton *changeButton = [[UIButton alloc]init];
@@ -159,6 +178,9 @@
 #pragma mark  =========== 导航栏View按钮 ==========
 -(void)sliderChanged:(UISlider *)sender{
     self.BackView.frame = CGRectMake(45 - sender.value, self.BackView.frame.origin.y, self.BackView.frame.size.width, self.BackView.frame.size.height);
+}
+-(void)sliderChangeds:(UISlider *)sender{
+    self.BackView.frame = CGRectMake(self.BackView.frame.origin.x, 64 - sender.value, self.BackView.frame.size.width, self.BackView.frame.size.height);
 }
 -(void)back:(UIButton *)sender{
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -282,7 +304,6 @@
     ipc.delegate = self;
     [self presentViewController:ipc animated:YES completion:nil];
 }
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
     YAScrollView *view = (YAScrollView *)[self.BackView viewWithTag:self.changeButton.tag];
