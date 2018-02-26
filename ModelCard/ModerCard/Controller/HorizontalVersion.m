@@ -29,7 +29,7 @@
     [self.view addSubview:tableView];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 8;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -44,37 +44,38 @@
     imageView = [cell.contentView viewWithTag:104];
     if (imageView == nil) {
         imageView = [[UIImageView alloc]init];
+        imageView.image = [UIImage imageNamed:@"01-H-05-12-1" ];
         imageView.tag = 104;
         imageView.frame =CGRectMake(0, 0, Width, 130);
         [cell.contentView addSubview:imageView];
     }
-    if (indexPath.section == 0) {
-        imageView.image = [UIImage imageNamed:@"01-H-05-12-1" ];
-    }else if (indexPath.section == 1){
-        imageView.image = [UIImage imageNamed:@"01-H-04-10-2" ];
-    }else if (indexPath.section == 2){
-        imageView.image = [UIImage imageNamed:@"01-H-03-10-1" ];
-    }else if (indexPath.section == 3){
-        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-    }else {
-        imageView.image = [UIImage imageNamed:@"01-H-01-10-2" ];
-    }
+//    if (indexPath.section == 0) {
+//        imageView.image = [UIImage imageNamed:@"01-H-05-12-1" ];
+//    }else if (indexPath.section == 1){
+//        imageView.image = [UIImage imageNamed:@"01-H-04-10-2" ];
+//    }else if (indexPath.section == 2){
+//        imageView.image = [UIImage imageNamed:@"01-H-03-10-1" ];
+//    }else if (indexPath.section == 3){
+//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
+//    }else {
+//        imageView.image = [UIImage imageNamed:@"01-H-01-10-2" ];
+//    }
     return cell;
 }
 //设置分区头的 文本内容
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return @"浮层式资料栏";
-    }else if (section == 1){
-        return @"环绕式资料栏";
-    }else if (section == 2){
-        return @"插入式资料栏";
-    }else if (section == 3){
-        return @"底部式资料栏";
-    }else{
-        return @"侧边式资料栏";
-    }
-    
+    return @"浮层式资料栏";
+//    if (section == 0) {
+//        return @"浮层式资料栏";
+//    }else if (section == 1){
+//        return @"环绕式资料栏";
+//    }else if (section == 2){
+//        return @"插入式资料栏";
+//    }else if (section == 3){
+//        return @"底部式资料栏";
+//    }else{
+//        return @"侧边式资料栏";
+//    }
 }
 //设置分区头的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -91,14 +92,31 @@
     SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
     switch (indexPath.section) {
         case 0:
-            SelectTemplateVC.modelName = @"AModel";
+            SelectTemplateVC.modelName = @"AModel";//侧边
             break;
         case 1:
-            SelectTemplateVC.modelName = @"BModel";
+            SelectTemplateVC.modelName = @"BModel";//底部
+            break;
+        case 2:
+            SelectTemplateVC.modelName = @"CModel";//插入
+            break;
+        case 3:
+            SelectTemplateVC.modelName = @"DModel";//环绕
+            break;
+        case 4:
+            SelectTemplateVC.modelName = @"EModel";//悬浮
+            break;
+        case 5:
+            SelectTemplateVC.modelName = @"FModel";//插入2
+            break;
+        case 6:
+            SelectTemplateVC.modelName = @"GModel";//竖屏1
+            break;
+        case 7:
+            SelectTemplateVC.modelName = @"HModel";//竖屏2
             break;
         default:
-            SelectTemplateVC.modelName = @"CModel";
-            break;
+            return;
     }
     [self.navigationController pushViewController:SelectTemplateVC animated:YES];
 }
