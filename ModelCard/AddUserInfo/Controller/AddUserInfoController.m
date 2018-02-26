@@ -7,7 +7,8 @@
 //
 
 #import "AddUserInfoController.h"
-#import "ModelImageController.h"
+#import "HModelImageController.h"
+#import "VModelImageController.h"
 
 @interface AddUserInfoController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView * tableView;
@@ -17,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"添加个人资料";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"个人资料";
+    self.view.backgroundColor = ThemeColor;
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
     [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -29,7 +30,7 @@
     UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];
     [self.navigationItem setRightBarButtonItem:right];
     
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NavigationTop, Width, Height-NavigationTop) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor colorHex:@"#3A3538"];
     tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     tableView.delegate = self;
@@ -40,13 +41,29 @@
     // Do any additional setup after loading the view.
 }
 -(void)rightBtn:(UIButton *)sender{
-    ModelImageController *model = [[ModelImageController alloc]init];
-    model.modelDictionary = [[NSDictionary alloc]initWithDictionary:self.model];
-    model.images = [[NSArray alloc]initWithArray:self.images];
-    model.name = @"安";
-    model.content = @"info";
-    model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentViewController:model animated:YES completion:nil];
+    NSArray *size = [self loadModelData:self.model[@"SuperViewInfo"][@"size"]];
+    if ([size.firstObject floatValue] > [size.lastObject floatValue]) {
+        HModelImageController *model = [[HModelImageController alloc]init];
+        model.modelDictionary = [[NSDictionary alloc]initWithDictionary:self.model];
+        model.images = [[NSArray alloc]initWithArray:self.images];
+        model.name = @"安";
+        model.content = @"info";
+        model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:model animated:YES completion:nil];
+    }else{
+        VModelImageController *model = [[VModelImageController alloc]init];
+        model.modelDictionary = [[NSDictionary alloc]initWithDictionary:self.model];
+        model.images = [[NSArray alloc]initWithArray:self.images];
+        model.name = @"安";
+        model.content = @"info";
+        [self.navigationController pushViewController:model animated:YES];
+    }
+}
+-(NSArray *)loadModelData:(NSString *)aString{
+    aString = [aString stringByReplacingOccurrencesOfString:@"{"withString:@""];
+    aString = [aString stringByReplacingOccurrencesOfString:@"}"withString:@""];
+    NSRange range = [aString rangeOfString:@","];
+    return range.location != NSNotFound ? [aString componentsSeparatedByString:@","]:[aString componentsSeparatedByString:@"，"];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 9;

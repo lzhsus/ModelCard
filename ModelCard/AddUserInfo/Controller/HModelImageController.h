@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModelImageController : UIViewController
+@interface HModelImageController : UIViewController
 @property (nonatomic,strong) NSDictionary * modelDictionary;
 
 @property (nonatomic,strong) NSArray * images;

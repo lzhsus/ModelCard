@@ -57,7 +57,8 @@
     navigationBar.backIndicatorTransitionMaskImage = allBack;
     [navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17.0]}];
     [navigationBar setShadowImage:[UIImage new]];
-    [navigationBar setBarTintColor:[UIColor blackColor]];
+    [navigationBar setBackgroundImage:[UIColor colorToImage:ThemeColor andAlpha:1 andHeight:NavigationTop] forBarMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-300, 0) forBarMetrics:UIBarMetricsDefault];
     [navigationBar setTintColor:[UIColor whiteColor]];
     return YES;
 }

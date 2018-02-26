@@ -37,7 +37,7 @@
     self.viewControllers = [NSArray arrayWithObjects:HorizontalVersionVc,VerticalVersionVc,nil];
     SegmentView * main = [[SegmentView alloc] init];
     [self.view addSubview:main];
-    main.frame = CGRectMake(0, NavigationTop,Width, Height-NavigationTop);
+    main.frame = CGRectMake(0, 0,Width, Height-NavigationTop);
     //设置菜单view 的高度
     main.btnViewHeight = 40;
     //设置按钮下划线高度

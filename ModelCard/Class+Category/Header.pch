@@ -38,7 +38,7 @@
 #define isObjectEmpty(a) ([a isEqual:[NSNull null]] || a == nil)
 #define isArrayEmpty(a) ([a isEqual:[NSNull null]] || a == nil || a.count == 0)
 /** 主题色 */
-#define ThemeColor [UIColor colorHex:@"#252326"]
+#define ThemeColor [UIColor colorHex:@"#242325"]
 #define BackgroundColor [UIColor colorHex:@"#f7f7f7"]
 #define ClearColor [UIColor clearColor]
 /** 调试 */

@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
     UIImageView *show = [[UIImageView alloc]init];
-    show.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-80);
+    show.frame = CGRectMake(0, 0, Width, Height-80);
     //设置 图片
     show.image = [UIImage imageNamed:@"01-S-03-04-1"];
     //设置内容的显示模式
@@ -38,7 +38,7 @@
     
 }
 -(void)CreateBottomView{
-    UIView * bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-80-64-40, self.view.frame.size.width, 80)];
+    UIView * bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, Height-80-64-40, Width, 80)];
     bottomView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:bottomView];
     UIImageView * SevenFigure = [[UIImageView alloc]init];

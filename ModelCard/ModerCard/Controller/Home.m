@@ -41,7 +41,7 @@
 //    self.navigationController.navigationBar.titleTextAttributes = dic;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, NavigationTop, Width, Height-NavigationTop) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -72,7 +72,6 @@
         imageView = [[UIImageView alloc]init];
         imageView.tag = 101;
         imageView.frame =CGRectMake(0, 0, Width, 120);
-        imageView.backgroundColor = [UIColor redColor];
         imageView.image = [UIImage imageNamed:@"work_home1" ];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;

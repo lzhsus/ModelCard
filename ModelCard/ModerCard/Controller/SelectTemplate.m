@@ -7,29 +7,34 @@
 //
 
 #import "SelectTemplate.h"
-
-//photo
+#import "AppDelegate.h"
 #import "AddUserInfoController.h"
+#import "ImagesView.h"
 
-@interface SelectTemplate ()<UITableViewDataSource, UITableViewDelegate>
-
+@interface SelectTemplate ()<UITableViewDataSource, UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ImagesViewDelegae>
+@property (nonatomic,strong) ImagesView * selectImages;
 @end
 
-@implementation SelectTemplate
-{
-    UIImageView*imageView;
+@implementation SelectTemplate{
+    UIImageView *imageView;
+    NSDictionary *_ModelDict;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
-    UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+    self.title = @"选择模板";
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
     //设置tableView 的delegate
     tableView.delegate = self;
+    tableView.tableHeaderView.backgroundColor = [UIColor colorHex:@"#3A3538"];
     [self.view addSubview:tableView];
+    
+    AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate.window addSubview:self.selectImages];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 9;
@@ -41,8 +46,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell)
-    {
+    if (!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     imageView = [cell.contentView viewWithTag:104];
@@ -50,7 +54,6 @@
         imageView = [[UIImageView alloc]init];
         imageView.tag = 104;
         imageView.frame =CGRectMake(0, 0, self.view.frame.size.width, 130);
-        imageView.backgroundColor = [UIColor redColor];
         [cell.contentView addSubview:imageView];
     }
     if (indexPath.section == 0) {
@@ -95,7 +98,6 @@
     }else{
         return @"7图① - 7竖图";
     }
-    
 }
 //设置分区头的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -106,25 +108,43 @@
 }
 // 选中每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    {
-        NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"AllModel" ofType:@"plist"];
-        NSArray *plist = [[NSArray alloc]initWithContentsOfFile:plistPath];
-        NSString *modelPath = [[NSBundle mainBundle]pathForResource:plist[indexPath.section] ofType:@"plist"];
-        NSDictionary *model = [[NSDictionary alloc]initWithContentsOfFile:modelPath];
-        NSInteger count = [[NSArray alloc]initWithArray:model[@"SubViewArray"]].count;
-        /** 返回图片 */{
-            NSArray *imageNames = [[NSArray alloc]initWithObjects:@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height",@"width",@"height", nil];
-            NSMutableArray *images = [NSMutableArray new];
-            for (int i=0; i<count; i++) {
-                UIImage *image = [UIImage imageNamed:imageNames[i]];
-                [images addObject:image];
-            }
-            NSLog(@"图片数量：%ld",images.count);
-            AddUserInfoController *add = [[AddUserInfoController alloc]init];
-            add.model = [[NSDictionary alloc]initWithDictionary:model];
-            add.images = [[NSArray alloc]initWithArray:images];
-            [self.navigationController pushViewController:add animated:YES];
-        }
+    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"AllModel" ofType:@"plist"];
+    NSArray *plist = [[NSArray alloc]initWithContentsOfFile:plistPath];
+    NSString *modelPath = [[NSBundle mainBundle]pathForResource:plist[indexPath.section] ofType:@"plist"];
+    
+    _ModelDict = [[NSDictionary alloc]initWithContentsOfFile:modelPath];
+    self.selectImages.count = [NSArray arrayWithArray:_ModelDict[@"SubViewArray"]].count;
+        
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    self.selectImages.popViewController = ipc;
+    ipc.delegate = self;
+    
+    [self presentViewController:ipc animated:YES completion:^{
+        self.selectImages.hidden = NO;
+    }];
+}
+-(ImagesView *)selectImages{
+    if (!_selectImages) {
+        _selectImages = [[ImagesView alloc]initWithFrame:CGRectMake(0, Height-150, Width, 150)];
+        _selectImages.count = 0;
+        _selectImages.delegate = self;
     }
+    return _selectImages;
+}
+-(void)didFinishImages:(NSArray *)images{
+    AddUserInfoController *add = [[AddUserInfoController alloc]init];
+    add.model = [[NSDictionary alloc]initWithDictionary:_ModelDict];
+    add.images = [[NSArray alloc]initWithArray:images];
+    [self.navigationController pushViewController:add animated:YES];
+    [self.selectImages.popViewController dismissViewControllerAnimated:YES completion:nil];
+    self.selectImages.count = 0;
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    self.selectImages.count = 0;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    [self.selectImages didAddImage:info[UIImagePickerControllerOriginalImage]];
 }
 @end

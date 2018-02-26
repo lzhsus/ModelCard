@@ -1,19 +1,18 @@
 //
-//  ModelImageController.m
+//  HModelImageController.m
 //  ModelCard
 //
 //  Created by iMac on 2018/2/23.
 //  Copyright © 2018年 Asher. All rights reserved.
 //
 
-#import "ModelImageController.h"
+#import "HModelImageController.h"
 #import "UIDevice+YADevice.h"
 #import "AppDelegate.h"
-#import "AddUserInfoController.h"
 #import "YAScrollView.h"
 #import "UIButton+Category.h"
 
-@interface ModelImageController ()<YAScrollViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface HModelImageController ()<YAScrollViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UIView * BackView;
 
 @property (nonatomic,strong) NSArray * rectArray;
@@ -22,7 +21,7 @@
 @property (nonatomic,strong) UIButton * changeButton;
 @end
 
-@implementation ModelImageController
+@implementation HModelImageController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,7 +69,8 @@
     // Do any additional setup after loading the view.
     
     //所有区块的背景
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(45, NavigationView.frame.size.height, AutoWidth([[self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]].firstObject floatValue]), Height-NavigationView.frame.size.height)];
+    NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(45, NavigationView.frame.size.height, AutoWidth([size.firstObject floatValue]), AutoHeight(311))];
     view.backgroundColor = [UIColor whiteColor];
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveToPoint:)];
     [view addGestureRecognizer:move];
@@ -98,13 +98,13 @@
         CGPoint point4 = CGPointMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height);
         
         BOOL isPoint = YES;
-        for (int i =0; i<self.rectArray.count; i++) {
-            CGRect rect = [self loadViewRect:self.rectArray[i]];
-            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
-                isPoint = NO;
-                break;
-            }
-        }
+//        for (int i =0; i<self.rectArray.count; i++) {
+//            CGRect rect = [self loadViewRect:self.rectArray[i]];
+//            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
+//                isPoint = NO;
+//                break;
+//            }
+//        }
         if (isPoint) {
             UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
             title.textAlignment = NSTextAlignmentCenter;
@@ -119,17 +119,22 @@
                     break;
                 default:
                     title.text = [NSString stringWithFormat:@"%d",i];
-                    title.textColor = [UIColor whiteColor];
+                    title.textColor = [UIColor blueColor];
                     break;
             }
-            [title makeBorderWidth:i+2 withColor:title.textColor];
+            [title makeBorderWidth:i+1 withColor:title.textColor];
             [self.BackView addSubview:title];
         }
     }
     
     //滑动条
     UISlider *slider = [[UISlider alloc]initWithFrame:CGRectMake((Width-250)/2, Height - SafeArea(55, 45), 250, 30)];
-    [slider setMaximumValue:self.BackView.frame.size.width + 90 - Width];
+    CGFloat maxValue = self.BackView.frame.size.width + 90 - Width;
+    if (maxValue <= 0) {
+        slider.hidden = YES;
+    }else{
+        [slider setMaximumValue:maxValue];
+    }
     [slider setThumbImage:[UIImage imageNamed:@"slide_btn_icon"] forState:UIControlStateNormal];
     [slider setMinimumTrackImage:[UIImage new] forState:UIControlStateNormal];
     [slider setMaximumTrackImage:[UIImage imageNamed:@"slide_bg_icon"] forState:UIControlStateNormal];
@@ -145,7 +150,7 @@
     [changeButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
     UIImage *changeImage = [UIImage imageNamed:@"picture_edit_icon"];
     [changeButton setImage:changeImage forState:UIControlStateNormal];
-    [changeButton setImgViewStyle:ButtonStyleLeft imageSize:editImage.size space:4];
+    [changeButton setImgViewStyle:ButtonStyleLeft imageSize:changeImage.size space:4];
     [changeButton addTarget:self action:@selector(changeImage:) forControlEvents:UIControlEventTouchUpInside];
     changeButton.hidden = YES;
     [self.BackView addSubview:changeButton];
@@ -274,10 +279,10 @@
 -(void)changeImage:(UIButton *)sender{
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     ipc.delegate = self;
     [self presentViewController:ipc animated:YES completion:nil];
 }
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
     YAScrollView *view = (YAScrollView *)[self.BackView viewWithTag:self.changeButton.tag];

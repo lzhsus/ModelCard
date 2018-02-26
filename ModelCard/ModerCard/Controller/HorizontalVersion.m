@@ -20,11 +20,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-40) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop-40) style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
     //设置tableView 的delegate
     tableView.delegate = self;
+    tableView.tableHeaderView.backgroundColor = [UIColor colorHex:@"#3A3538"];
     [self.view addSubview:tableView];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -46,7 +47,6 @@
         imageView = [[UIImageView alloc]init];
         imageView.tag = 104;
         imageView.frame =CGRectMake(0, 0, self.view.frame.size.width, 130);
-        imageView.backgroundColor = [UIColor redColor];
         [cell.contentView addSubview:imageView];
     }
     if (indexPath.section == 0) {
