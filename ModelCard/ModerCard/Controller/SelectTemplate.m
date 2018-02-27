@@ -142,7 +142,7 @@
 }
 -(void)didFinishImages:(NSArray *)images{
     AddUserInfoController *add = [[AddUserInfoController alloc]init];
-    add.modelType = ModelTypeMoTe;
+    add.modelType = ModelTypeZhuBo;
     add.model = [[NSDictionary alloc]initWithDictionary:_ModelDict];
     add.images = [[NSArray alloc]initWithArray:images];
     [self.navigationController pushViewController:add animated:YES];

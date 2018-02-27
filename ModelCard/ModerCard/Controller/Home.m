@@ -31,14 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    /*  设置属性字符串  */
-    //创建一个属性字典
-//    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-//    dic[NSForegroundColorAttributeName] = [UIColor greenColor];
-//    dic[NSFontAttributeName] = [UIFont systemFontOfSize:30];
-//    dic[NSBackgroundColorAttributeName] = [UIColor blueColor];
-//    //设置 导航条上title的字体
-//    self.navigationController.navigationBar.titleTextAttributes = dic;
     self.view.backgroundColor = [UIColor whiteColor];
     
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];

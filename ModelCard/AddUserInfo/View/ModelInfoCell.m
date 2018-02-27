@@ -34,10 +34,12 @@
             UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(15, 80 + i*60, 80, 20)];
             title.textColor = [UIColor lightGrayColor];
             title.tag = i+10;
+            title.hidden = YES;
             [self.contentView addSubview:title];
             
             UIButton *showButton = [[UIButton alloc]initWithFrame:CGRectMake(Width-90, title.frame.origin.y-10, 60, 40)];
             showButton.tag = i+1;
+            showButton.hidden = YES;
             [showButton setTitle:@"不展示" forState:UIControlStateNormal];
             [showButton setImage:[UIImage imageNamed:@"personal_data_choice"] forState:UIControlStateNormal];
             [showButton setTitle:@"展示" forState:UIControlStateSelected];
@@ -52,12 +54,14 @@
 -(void)setTitles:(NSArray *)titles{
     for (int i=0; i<titles.count; i++) {
         UILabel *title = (UILabel *)[self.contentView viewWithTag:i+10];
+        title.hidden = NO;
         title.text = titles[i];
     }
 }
 -(void)setContents:(NSArray *)contents{
     for (int i=0; i<contents.count; i++) {
         UIButton *showButton = (UIButton *)[self.contentView viewWithTag:i+1];
+        showButton.hidden = NO;
         showButton.selected = [contents[i] integerValue] > 0 ? YES:NO;
     }
 }
