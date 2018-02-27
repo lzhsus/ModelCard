@@ -56,7 +56,7 @@
     NSArray *points = [[NSArray alloc]initWithArray:self.modelDictionary[@"viewPoint"]];
     for (int i=0; i<points.count; i++) {
         NSArray *aArray = [self loadModelData:points[i]];
-        CGRect viewRect =  CGRectMake([aArray[0] floatValue], [aArray[1] floatValue], [aArray[2] floatValue], [aArray[3] floatValue]);
+        CGRect viewRect =  CGRectMake(AutoWidth([aArray[0] floatValue]), AutoHeight([aArray[1] floatValue]), AutoWidth([aArray[2] floatValue]), AutoHeight([aArray[3] floatValue]));
         
         CGPoint point1 = CGPointMake(viewRect.origin.x, viewRect.origin.y);
         CGPoint point2 = CGPointMake(viewRect.origin.x+viewRect.size.width, viewRect.origin.y+viewRect.size.height);

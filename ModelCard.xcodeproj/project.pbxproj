@@ -112,6 +112,7 @@
 		88C0E8B12043F61800FCD1A5 /* number_thirteen_style_30.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C0E8682043F61700FCD1A5 /* number_thirteen_style_30.plist */; };
 		88C0E8B22043F61800FCD1A5 /* number_six_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C0E8692043F61700FCD1A5 /* number_six_style_50.plist */; };
 		88C0E8B32043F61800FCD1A5 /* number_five_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C0E86A2043F61700FCD1A5 /* number_five_style_1.plist */; };
+		88D9F3A62044EBCC00E3FC75 /* ModelInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -245,6 +246,8 @@
 		88C0E8682043F61700FCD1A5 /* number_thirteen_style_30.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_thirteen_style_30.plist; sourceTree = "<group>"; };
 		88C0E8692043F61700FCD1A5 /* number_six_style_50.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_six_style_50.plist; sourceTree = "<group>"; };
 		88C0E86A2043F61700FCD1A5 /* number_five_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_five_style_1.plist; sourceTree = "<group>"; };
+		88D9F3A42044EBCC00E3FC75 /* ModelInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelInfoCell.h; sourceTree = "<group>"; };
+		88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelInfoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,6 +490,8 @@
 			children = (
 				88516B0C20400F0E00A9F133 /* YAScrollView.h */,
 				88516B0B20400F0E00A9F133 /* YAScrollView.m */,
+				88D9F3A42044EBCC00E3FC75 /* ModelInfoCell.h */,
+				88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */,
 				2281AEAD203EB29B00412003 /* ModelCard.m in Sources */,
 				88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */,
+				88D9F3A62044EBCC00E3FC75 /* ModelInfoCell.m in Sources */,
 				88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */,
 				22F60AC5203E675A00FC9CC3 /* main.m in Sources */,
 				88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */,

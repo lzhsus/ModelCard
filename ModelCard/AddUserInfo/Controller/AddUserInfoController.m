@@ -35,7 +35,6 @@
     tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.estimatedRowHeight = 40;
     [self.view addSubview:tableView];
     self.tableView = tableView;
     // Do any additional setup after loading the view.
@@ -66,18 +65,24 @@
     return range.location != NSNotFound ? [aString componentsSeparatedByString:@","]:[aString componentsSeparatedByString:@"，"];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 9;
+    return 6;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 5) {
+        return 150;
+    }
+    return 40;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row < 8) {
+    if (indexPath.row < 5) {
         UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
         cell.selectionStyle = 0;
         cell.backgroundColor = ThemeColor;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text = @"测试";
+        cell.textLabel.text = @[@"昵称",@"性别",@"出生日期",@"身高(cm)",@"体重(kg)",][indexPath.row];
         cell.textLabel.textColor = [UIColor lightGrayColor];
-        cell.detailTextLabel.text = @"啊";
         cell.detailTextLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.text = @[@"安",@"男",@"2018-01-01",@"165",@"52",][indexPath.row];
         return cell;
     }else{
         UITableViewCell *cell = [UITableViewCell new];
