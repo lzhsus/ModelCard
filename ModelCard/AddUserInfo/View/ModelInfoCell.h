@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModelInfoCell : UITableViewCell
+@protocol ModelInfoCellDelegate <NSObject>
+-(void)didChangeIndex:(NSInteger)index Status:(BOOL)status;
+@end
 
+@interface ModelInfoCell : UITableViewCell
+@property (nonatomic,weak) id<ModelInfoCellDelegate> delegate;
+@property (nonatomic,strong) NSArray * titles;
+@property (nonatomic,strong) NSArray * contents;
 @end
