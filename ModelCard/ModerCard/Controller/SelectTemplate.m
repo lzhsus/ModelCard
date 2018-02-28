@@ -127,14 +127,17 @@
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
     self.selectImages.popViewController = ipc;
     ipc.delegate = self;
-    
-    [self presentViewController:ipc animated:YES completion:^{
-        self.selectImages.hidden = NO;
+    self.selectImages.hidden = NO;
+    @weakify(self);
+    [UIView animateWithDuration:0.21 animations:^{
+        @strongify(self);
+        self.selectImages.frame = CGRectMake(0, Height-150, Width, 150);
     }];
+    [self presentViewController:ipc animated:YES completion:nil];
 }
 -(ImagesView *)selectImages{
     if (!_selectImages) {
-        _selectImages = [[ImagesView alloc]initWithFrame:CGRectMake(0, Height-150, Width, 150)];
+        _selectImages = [[ImagesView alloc]initWithFrame:CGRectMake(0, Height, Width, 150)];
         _selectImages.count = 0;
         _selectImages.delegate = self;
     }
@@ -142,7 +145,7 @@
 }
 -(void)didFinishImages:(NSArray *)images{
     AddUserInfoController *add = [[AddUserInfoController alloc]init];
-    add.modelType = ModelTypeZhuBo;
+    add.modelType = ModelTypeWangZhe;//分类
     add.model = [[NSDictionary alloc]initWithDictionary:_ModelDict];
     add.images = [[NSArray alloc]initWithArray:images];
     [self.navigationController pushViewController:add animated:YES];

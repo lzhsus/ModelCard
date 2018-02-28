@@ -10,12 +10,15 @@
 #import "HModelImageController.h"
 #import "VModelImageController.h"
 #import "ModelInfoCell.h"
+#import "TextFieldCell.h"
+#import "PickInfoView.h"
 
 @interface AddUserInfoController ()<UITableViewDelegate,UITableViewDataSource,ModelInfoCellDelegate>
 @property (nonatomic,strong) UITableView * tableView;
 
 @property (nonatomic,strong) NSArray * titleList;
 @property (nonatomic,strong) NSMutableArray * contentList;
+@property (nonatomic,strong) PickInfoView * pickView;
 @end
 
 @implementation AddUserInfoController
@@ -24,7 +27,7 @@
     if (!_titleList) {
         switch (self.modelType) {
             case ModelTypeMoTe:
-                _titleList = [[NSArray alloc]initWithObjects:@"昵称",@"性别",@"出生日期",@"身高(cm)",@"体重(kg)",@"三围",@"鞋码",@"地区",@"地区",@"地区",@"地区",@"地区",@"地区",@[@"生日",@"三围"], nil];
+                _titleList = [[NSArray alloc]initWithObjects:@"昵称",@"性别",@"出生日期",@"身高(cm)",@"体重(kg)",@"三围",@"鞋码",@"地区",@[@"生日",@"三围"], nil];
                 break;
             case ModelTypeWangZhe:
                 _titleList = [[NSArray alloc]initWithObjects:@"昵称",@"游戏昵称",@"性别",@"排位段位",@"常用英雄",@"游戏区服",@"常用语", nil];
@@ -43,7 +46,7 @@
     if (!_contentList) {
         switch (self.modelType) {
             case ModelTypeMoTe:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市",@"地区",@"地区",@"地区",@"地区",@"地区",@[@"1",@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-1-1",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市-青山湖区",@[@"1",@"1"], nil];
                 break;
             case ModelTypeWangZhe:
                 _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"oneyian",@"男",@"荣耀王者",@"橘右京-诸葛亮-宫本武藏",@"50区-痛苦狙击",@"哈哈哈哈", nil];
@@ -78,11 +81,13 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerClass:[ModelInfoCell class] forCellReuseIdentifier:@"ModelInfoCell"];
+    [tableView registerClass:[TextFieldCell class] forCellReuseIdentifier:@"TextFieldCell"];
     [self.view addSubview:tableView];
     self.tableView = tableView;
     // Do any additional setup after loading the view.
 }
 -(void)rightBtn:(UIButton *)sender{
+    //下一步
     NSArray *size = [self loadModelData:self.model[@"SuperViewInfo"][@"size"]];
     if ([size.firstObject floatValue] > [size.lastObject floatValue]) {
         HModelImageController *model = [[HModelImageController alloc]init];
@@ -110,6 +115,9 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.titleList.count;
 }
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (self.modelType) {
         case ModelTypeWangZhe:
@@ -125,26 +133,27 @@
     switch (self.modelType) {
         case ModelTypeWangZhe:
         {
-            UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
-            cell.selectionStyle = 0;
-            cell.backgroundColor = ThemeColor;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = self.titleList[indexPath.row];
-            cell.textLabel.textColor = [UIColor lightGrayColor];
-            cell.detailTextLabel.textColor = [UIColor whiteColor];
-            cell.detailTextLabel.text = self.contentList[indexPath.row];
-            return cell;
-        }
-        default:
-        {
-            if (indexPath.row == self.titleList.count-1) {
-                ModelInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ModelInfoCell" forIndexPath:indexPath];
-                cell.titles = self.titleList[indexPath.row];
-                cell.contents = self.contentList[indexPath.row];
-                cell.delegate = self;
+            if (indexPath.row < 2) {
+                //编辑昵称Cell
+                TextFieldCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextFieldCell" forIndexPath:indexPath];
+                cell.placeholder = indexPath.row == 0 ? @"请输入昵称":@"请输入游戏昵称";
+                cell.FieldLength = indexPath.row == 0 ? 4:8;
+                cell.titleString = self.titleList[indexPath.row];
+                cell.contentString = self.contentList[indexPath.row];
+                cell.subFieldText = [RACSubject subject];
+                @weakify(self);
+                [[cell.subFieldText takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+                    @strongify(self);
+                    [self.contentList replaceObjectAtIndex:indexPath.row withObject:x];
+                }];
                 return cell;
             }else{
-                UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+                //普通Cell
+                UITableViewCell *cell = nil;
+                cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+                if (!cell) {
+                    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+                }
                 cell.selectionStyle = 0;
                 cell.backgroundColor = ThemeColor;
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -153,6 +162,70 @@
                 cell.detailTextLabel.textColor = [UIColor whiteColor];
                 cell.detailTextLabel.text = self.contentList[indexPath.row];
                 return cell;
+            }
+        }
+        default:
+        {
+            if (indexPath.row == self.titleList.count-1) {
+                //最底部Cell
+                ModelInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ModelInfoCell" forIndexPath:indexPath];
+                cell.titles = self.titleList[indexPath.row];
+                cell.contents = self.contentList[indexPath.row];
+                cell.delegate = self;
+                return cell;
+            }else{
+                NSInteger row = 0;
+                NSInteger lenght = 4;
+                NSString *placeholder = @"请输入昵称";
+                switch (self.modelType) {
+                    case ModelTypeYanYuan:
+                    {
+                        row = 8;
+                        lenght = 11;
+                        placeholder = @"请输入联系方式";
+                    }
+                        break;
+                    case ModelTypeZhuBo:
+                    {
+                        row = 3;
+                        lenght = 9;
+                        placeholder = @"请输入微博账号";
+                    }
+                        break;
+                    default:
+                        break;
+                }
+                
+                if (indexPath.row == 0 || indexPath.row == row) {
+                    //编辑昵称Cell
+                    TextFieldCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TextFieldCell" forIndexPath:indexPath];
+                    cell.FieldLength = lenght;
+                    cell.placeholder = indexPath.row == row ? placeholder:@"请输入昵称";
+                    cell.titleString = self.titleList[indexPath.row];
+                    cell.contentString = self.contentList[indexPath.row];
+                    cell.subFieldText = [RACSubject subject];
+                    @weakify(self);
+                    [[cell.subFieldText takeUntil:cell.rac_prepareForReuseSignal] subscribeNext:^(id  _Nullable x) {
+                        @strongify(self);
+                        [self.contentList replaceObjectAtIndex:indexPath.row withObject:x];
+                    }];
+                    return cell;
+                }else{
+                    //普通Cell
+                    UITableViewCell *cell = nil;
+                    cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+                    if (!cell) {
+                        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+                    }
+                    cell.selectionStyle = 0;
+                    cell.backgroundColor = ThemeColor;
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    cell.textLabel.text = self.titleList[indexPath.row];
+                    cell.textLabel.textColor = [UIColor lightGrayColor];
+                    cell.detailTextLabel.textColor = [UIColor whiteColor];
+                    cell.detailTextLabel.text = self.contentList[indexPath.row];
+                    return cell;
+                }
             }
         }
     }
@@ -165,14 +238,200 @@
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) return;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSInteger indexType = 0;
+    //根据总分类，将相同功能按 indexType 分离
+    switch (self.modelType) {
+        case ModelTypeMoTe:
+        case ModelTypeYanYuan:
+        {
+            indexType = indexPath.row;
+            if (indexType ==8) return;
+        }
+            break;
+        case ModelTypeWangZhe:{
+            if (indexPath.row ==1 ) return;
+            switch (indexPath.row) {
+                case 2:
+                    indexType = 1;
+                    break;
+                case 3:
+                    indexType = 9;
+                    break;
+                case 4:
+                    indexType = 101;
+                    break;
+                case 5:
+                    indexType = 102;
+                    break;
+                case 6:
+                    indexType = 103;
+                    break;
+                default:
+                    return;
+            }
+        }
+            break;
+        case ModelTypeZhuBo:{
+            if (indexPath.row ==3 ) return;
+            switch (indexPath.row) {
+                case 1:
+                    indexType = 100;
+                    break;
+                case 2:
+                case 4:
+                    indexType = 8;
+                    break;
+                default:
+                    indexType = indexPath.row - 4;
+                    break;
+            }
+        }
+            break;
+        default:
+            return;
+    }
     
+    //根据indexType决定功能
+    switch (indexType) {
+        case 1://性别
+        {
+            self.pickView.Type = PickerTypeSex;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                cell.detailTextLabel.text = array.firstObject;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 2://生日
+        {
+            self.pickView.Type = PickerTypeDate;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                NSString *content = nil;
+                for (NSString *aStr in array) {
+                    if (!content) {
+                        content = aStr;
+                    }else{
+                        content = [NSString stringWithFormat:@"%@-%@",content,aStr];
+                    }
+                }
+                cell.detailTextLabel.text = content;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 3://身高
+        {
+            self.pickView.Type = PickerTypeHeight;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                cell.detailTextLabel.text = array.firstObject;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 4://体重
+        {
+            self.pickView.Type = PickerTypeWeight;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                cell.detailTextLabel.text = array.firstObject;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 5://三围
+        {
+            self.pickView.Type = PickerTypeSize;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"胸围%@ 腰围%@ 臀围%@",array[0],array[1],array[2]];
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 6://脚码
+        {
+            self.pickView.Type = PickerTypeFoot;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                cell.detailTextLabel.text = array.firstObject;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 7://地区
+        {
+            self.pickView.Type = PickerTypeLocation;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                NSString *content = nil;
+                for (NSString *aStr in array) {
+                    if (!content) {
+                        content = aStr;
+                    }else{
+                        content = [NSString stringWithFormat:@"%@-%@",content,aStr];
+                    }
+                }
+                cell.detailTextLabel.text = content;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 8://微博粉丝
+        {
+            self.pickView.Type = PickerTypeWeiBo;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@",array.firstObject,array.lastObject];
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        case 9://王者段位
+        {
+            self.pickView.Type = PickerTypeGameRank;
+            @weakify(self);
+            [self.pickView show:^(id value) {
+                @strongify(self);
+                NSArray *array = (NSArray *)value;
+                cell.detailTextLabel.text = array.firstObject;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
+        }
+            break;
+        default:
+            NSLog(@"%ld",indexType);
+            return;
+    }
 }
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return CGFLOAT_MIN;
+-(PickInfoView *)pickView{
+    if (!_pickView) {
+        _pickView = [[PickInfoView alloc]initWithFrame:CGRectMake(0, 0, Width-30, 200)];
+    }
+    return _pickView;
 }
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    return [UIView new];
-}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

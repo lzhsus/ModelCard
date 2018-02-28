@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface TextFieldCell : UITableViewCell
+@property (nonatomic,assign) NSInteger FieldLength;
 
+@property (nonatomic,strong) NSString * placeholder;
+
+@property (nonatomic,strong) NSString * titleString;
+@property (nonatomic,strong) NSString * contentString;
+
+@property (nonatomic,strong) RACSubject * subFieldText;
 @end

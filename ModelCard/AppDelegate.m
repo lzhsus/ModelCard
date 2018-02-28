@@ -48,9 +48,11 @@
     self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];
     
+    /** IQ键盘配置 */
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    
     /** 全局UINavigationBar */
-    
-    
     UINavigationBar * navigationBar = [UINavigationBar appearance];
     UIImage *allBack = [[UIImage imageNamed:@"zuojiantou"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     navigationBar.backIndicatorImage = allBack;

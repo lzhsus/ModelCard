@@ -83,6 +83,7 @@
         [self.finish setBackgroundColor:[UIColor lightGrayColor]];
         [self.collection reloadData];
         self.hidden = YES;
+        self.frame = CGRectMake(0, Height, Width, 150);
     }
     self.countTitle.text = [NSString stringWithFormat:@"已添加%ld张照片 (%ld/%ld)",self.images.count,self.images.count,_count];
 }

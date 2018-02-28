@@ -29,6 +29,11 @@
 		88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */; };
 		88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B0B20400F0E00A9F133 /* YAScrollView.m */; };
 		8888800B204639B600009C75 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888800A204639B600009C75 /* TextFieldCell.m */; };
+		8888800E20463CCD00009C75 /* UITextField+Length.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888800C20463CCD00009C75 /* UITextField+Length.m */; };
+		888880182046700000009C75 /* PickInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 888880172046700000009C75 /* PickInfoView.m */; };
+		8888801A2046894800009C75 /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 888880192046894800009C75 /* Address.plist */; };
+		8888801C2046A06F00009C75 /* GameRankList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8888801B2046A06F00009C75 /* GameRankList.plist */; };
+		8888801E2046A1D300009C75 /* liwushuo.json in Resources */ = {isa = PBXBuildFile; fileRef = 8888801D2046A1D300009C75 /* liwushuo.json */; };
 		88B5989C2043A49100BE6B1A /* VModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B5989B2043A49100BE6B1A /* VModelImageController.m */; };
 		88B7DC9A20410F8C00824181 /* BModel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC9920410F8C00824181 /* BModel.plist */; };
 		88BC6B5E2042A6CE00C2B64D /* ImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC6B5D2042A6CE00C2B64D /* ImagesView.m */; };
@@ -114,9 +119,11 @@
 		88C0E8B22043F61800FCD1A5 /* number_six_style_50.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C0E8692043F61700FCD1A5 /* number_six_style_50.plist */; };
 		88C0E8B32043F61800FCD1A5 /* number_five_style_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88C0E86A2043F61700FCD1A5 /* number_five_style_1.plist */; };
 		88D9F3A62044EBCC00E3FC75 /* ModelInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */; };
+		C4A6C520974CD39F85229CAD /* libPods-ModelCard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F20DF02267F87AA7555177 /* libPods-ModelCard.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21F20DF02267F87AA7555177 /* libPods-ModelCard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ModelCard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2252A7FA204165300030618B /* SelectTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTemplate.h; sourceTree = "<group>"; };
 		2252A7FB204165310030618B /* SelectTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTemplate.m; sourceTree = "<group>"; };
 		2281AEAB203EB29B00412003 /* ModelCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelCard.h; sourceTree = "<group>"; };
@@ -162,6 +169,13 @@
 		88516B0C20400F0E00A9F133 /* YAScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAScrollView.h; sourceTree = "<group>"; };
 		88888009204639B600009C75 /* TextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		8888800A204639B600009C75 /* TextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
+		8888800C20463CCD00009C75 /* UITextField+Length.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Length.m"; sourceTree = "<group>"; };
+		8888800D20463CCD00009C75 /* UITextField+Length.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Length.h"; sourceTree = "<group>"; };
+		888880162046700000009C75 /* PickInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickInfoView.h; sourceTree = "<group>"; };
+		888880172046700000009C75 /* PickInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickInfoView.m; sourceTree = "<group>"; };
+		888880192046894800009C75 /* Address.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Address.plist; sourceTree = "<group>"; };
+		8888801B2046A06F00009C75 /* GameRankList.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GameRankList.plist; sourceTree = "<group>"; };
+		8888801D2046A1D300009C75 /* liwushuo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = liwushuo.json; sourceTree = "<group>"; };
 		88B5989A2043A49100BE6B1A /* VModelImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VModelImageController.h; sourceTree = "<group>"; };
 		88B5989B2043A49100BE6B1A /* VModelImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VModelImageController.m; sourceTree = "<group>"; };
 		88B7DC9920410F8C00824181 /* BModel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BModel.plist; sourceTree = "<group>"; };
@@ -251,6 +265,8 @@
 		88C0E86A2043F61700FCD1A5 /* number_five_style_1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = number_five_style_1.plist; sourceTree = "<group>"; };
 		88D9F3A42044EBCC00E3FC75 /* ModelInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelInfoCell.h; sourceTree = "<group>"; };
 		88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelInfoCell.m; sourceTree = "<group>"; };
+		A87B731EC8916C2AA65C1798 /* Pods-ModelCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelCard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ModelCard/Pods-ModelCard.debug.xcconfig"; sourceTree = "<group>"; };
+		B712187D2D0752A1663049D8 /* Pods-ModelCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModelCard.release.xcconfig"; path = "Pods/Target Support Files/Pods-ModelCard/Pods-ModelCard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,17 +274,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A6C520974CD39F85229CAD /* libPods-ModelCard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1200E05C81C358B7BABD2E44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A87B731EC8916C2AA65C1798 /* Pods-ModelCard.debug.xcconfig */,
+				B712187D2D0752A1663049D8 /* Pods-ModelCard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		22F60AA9203E675A00FC9CC3 = {
 			isa = PBXGroup;
 			children = (
 				22F60AB4203E675A00FC9CC3 /* ModelCard */,
 				22F60AB3203E675A00FC9CC3 /* Products */,
+				1200E05C81C358B7BABD2E44 /* Pods */,
+				2EB41D7B89F843385212C6A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -444,6 +472,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2EB41D7B89F843385212C6A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21F20DF02267F87AA7555177 /* libPods-ModelCard.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		88516AEE203FAD0E00A9F133 /* Class+Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +496,8 @@
 				88516AF5203FB1C100A9F133 /* UIView+CornerRadius.m */,
 				88516B07203FFECC00A9F133 /* UIDevice+YADevice.h */,
 				88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */,
+				8888800D20463CCD00009C75 /* UITextField+Length.h */,
+				8888800C20463CCD00009C75 /* UITextField+Length.m */,
 			);
 			path = "Class+Category";
 			sourceTree = "<group>";
@@ -493,10 +531,12 @@
 			children = (
 				88516B0C20400F0E00A9F133 /* YAScrollView.h */,
 				88516B0B20400F0E00A9F133 /* YAScrollView.m */,
-				88D9F3A42044EBCC00E3FC75 /* ModelInfoCell.h */,
-				88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */,
 				88888009204639B600009C75 /* TextFieldCell.h */,
 				8888800A204639B600009C75 /* TextFieldCell.m */,
+				88D9F3A42044EBCC00E3FC75 /* ModelInfoCell.h */,
+				88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */,
+				888880162046700000009C75 /* PickInfoView.h */,
+				888880172046700000009C75 /* PickInfoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -511,6 +551,9 @@
 		88C0E6EC2043DB6800FCD1A5 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				888880192046894800009C75 /* Address.plist */,
+				8888801B2046A06F00009C75 /* GameRankList.plist */,
+				8888801D2046A1D300009C75 /* liwushuo.json */,
 				88C0E8212043F5B700FCD1A5 /* AllModel */,
 				88C0E6E72043D06F00FCD1A5 /* AModel.plist */,
 				88B7DC9920410F8C00824181 /* BModel.plist */,
@@ -611,9 +654,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22F60AC8203E675A00FC9CC3 /* Build configuration list for PBXNativeTarget "ModelCard" */;
 			buildPhases = (
+				B2DCD284C5292C6ABA271744 /* [CP] Check Pods Manifest.lock */,
 				22F60AAE203E675A00FC9CC3 /* Sources */,
 				22F60AAF203E675A00FC9CC3 /* Frameworks */,
 				22F60AB0203E675A00FC9CC3 /* Resources */,
+				C389BA63E78BC3A2ABB7B194 /* [CP] Embed Pods Frameworks */,
+				8B8D32A694E9698B1E6E77AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -687,6 +733,7 @@
 				88C0E8712043F61700FCD1A5 /* number_Twelve_style_1.plist in Resources */,
 				88C0E88A2043F61800FCD1A5 /* number_seven_style_100.plist in Resources */,
 				88C0E8982043F61800FCD1A5 /* number_Twelve_style_30.plist in Resources */,
+				8888801A2046894800009C75 /* Address.plist in Resources */,
 				88C0E89D2043F61800FCD1A5 /* number_thirteen_style_1.plist in Resources */,
 				88C0E8A62043F61800FCD1A5 /* number_ten_style_32.plist in Resources */,
 				88C0E8AA2043F61800FCD1A5 /* number_seven_style_2.plist in Resources */,
@@ -702,6 +749,7 @@
 				88C0E8782043F61700FCD1A5 /* number_nine_style_100.plist in Resources */,
 				88C0E8942043F61800FCD1A5 /* number_six_style_20.plist in Resources */,
 				88C0E8AC2043F61800FCD1A5 /* number_six_style_2.plist in Resources */,
+				8888801E2046A1D300009C75 /* liwushuo.json in Resources */,
 				88C0E87B2043F61700FCD1A5 /* number_nine_style_110.plist in Resources */,
 				88C0E88D2043F61800FCD1A5 /* number_five_style_30.plist in Resources */,
 				88C0E89A2043F61800FCD1A5 /* number_ten_style_42.plist in Resources */,
@@ -719,6 +767,7 @@
 				88C0E86D2043F61700FCD1A5 /* number_seven_style_40.plist in Resources */,
 				88C0E8202043EFE300FCD1A5 /* FModel.plist in Resources */,
 				88C0E8872043F61800FCD1A5 /* number_eight_style_3.plist in Resources */,
+				8888801C2046A06F00009C75 /* GameRankList.plist in Resources */,
 				88C0E8812043F61700FCD1A5 /* number_ten_style_21.plist in Resources */,
 				88C0E8B02043F61800FCD1A5 /* number_ten_style_2.plist in Resources */,
 				88C0E87A2043F61700FCD1A5 /* number_thirteen_style_20.plist in Resources */,
@@ -749,6 +798,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8B8D32A694E9698B1E6E77AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ModelCard/Pods-ModelCard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2DCD284C5292C6ABA271744 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C389BA63E78BC3A2ABB7B194 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ModelCard/Pods-ModelCard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		22F60AAE203E675A00FC9CC3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -767,6 +864,7 @@
 				22F60AEA203E694B00FC9CC3 /* TalentPool.m in Sources */,
 				88516AFE203FB20400A9F133 /* Oneyian.m in Sources */,
 				88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */,
+				8888800E20463CCD00009C75 /* UITextField+Length.m in Sources */,
 				2281AEAD203EB29B00412003 /* ModelCard.m in Sources */,
 				88516B03203FB66000A9F133 /* AddUserInfoController.m in Sources */,
 				88D9F3A62044EBCC00E3FC75 /* ModelInfoCell.m in Sources */,
@@ -775,6 +873,7 @@
 				88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */,
 				2252A7FC204165310030618B /* SelectTemplate.m in Sources */,
 				8888800B204639B600009C75 /* TextFieldCell.m in Sources */,
+				888880182046700000009C75 /* PickInfoView.m in Sources */,
 				2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */,
 				88516B06203FBC1900A9F133 /* HModelImageController.m in Sources */,
 				88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */,
@@ -891,6 +990,7 @@
 		};
 		22F60AC9203E675A00FC9CC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A87B731EC8916C2AA65C1798 /* Pods-ModelCard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -908,6 +1008,7 @@
 		};
 		22F60ACA203E675A00FC9CC3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B712187D2D0752A1663049D8 /* Pods-ModelCard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
