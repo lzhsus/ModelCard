@@ -292,13 +292,12 @@
         default:
             return;
     }
-    
+    @weakify(self);
     //根据indexType决定功能
     switch (indexType) {
         case 1://性别
         {
             self.pickView.Type = PickerTypeSex;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -310,7 +309,6 @@
         case 2://生日
         {
             self.pickView.Type = PickerTypeDate;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -330,7 +328,6 @@
         case 3://身高
         {
             self.pickView.Type = PickerTypeHeight;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -342,7 +339,6 @@
         case 4://体重
         {
             self.pickView.Type = PickerTypeWeight;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -354,7 +350,6 @@
         case 5://三围
         {
             self.pickView.Type = PickerTypeSize;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -366,7 +361,6 @@
         case 6://脚码
         {
             self.pickView.Type = PickerTypeFoot;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -378,7 +372,6 @@
         case 7://地区
         {
             self.pickView.Type = PickerTypeLocation;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -398,7 +391,6 @@
         case 8://微博粉丝
         {
             self.pickView.Type = PickerTypeWeiBo;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
@@ -410,7 +402,6 @@
         case 9://王者段位
         {
             self.pickView.Type = PickerTypeGameRank;
-            @weakify(self);
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;

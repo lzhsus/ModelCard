@@ -46,6 +46,7 @@
             self.RootArray = [[NSMutableArray alloc]initWithObjects:@[@"男",@"女"], nil];
             self.selectArray = [[NSMutableArray alloc]initWithObjects:@"男", nil];
             [self.pickerView reloadAllComponents];
+            [self.pickerView selectRow:0 inComponent:0 animated:YES];
         }
             break;
         case PickerTypeDate://生日
@@ -74,6 +75,8 @@
             self.selectArray = [[NSMutableArray alloc]initWithObjects:year.lastObject,@"1",@"1", nil];
             [self.pickerView reloadAllComponents];
             [self.pickerView selectRow:year.count-1 inComponent:0 animated:YES];
+            [self.pickerView selectRow:0 inComponent:1 animated:YES];
+            [self.pickerView selectRow:0 inComponent:2 animated:YES];
         }
             break;
         case PickerTypeHeight://身高
