@@ -43,16 +43,16 @@
     if (!_contentList) {
         switch (self.modelType) {
             case ModelTypeMoTe:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"80-60-80",@"38",@"江西-南昌",@"地区",@"地区",@"地区",@"地区",@"地区",@[@"1",@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市",@"地区",@"地区",@"地区",@"地区",@"地区",@[@"1",@"1"], nil];
                 break;
             case ModelTypeWangZhe:
                 _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"oneyian",@"男",@"荣耀王者",@"橘右京-诸葛亮-宫本武藏",@"50区-痛苦狙击",@"哈哈哈哈", nil];
                 break;
             case ModelTypeYanYuan:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"80-60-80",@"38",@"江西-南昌",@"15079244845",@[@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市",@"15079244845",@[@"1"], nil];
                 break;
             default:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"熊猫",@"100W",@"oneyian",@"100W",@"男",@"2018-01-01",@"165",@"52",@"80-60-80",@"38",@"江西-南昌",@[@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"熊猫",@"100W",@"oneyian",@"100W",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市",@[@"1"], nil];
                 break;
         }
     }

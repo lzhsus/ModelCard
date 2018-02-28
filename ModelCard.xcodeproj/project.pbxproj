@@ -28,6 +28,7 @@
 		88516B06203FBC1900A9F133 /* HModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B05203FBC1900A9F133 /* HModelImageController.m */; };
 		88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */; };
 		88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B0B20400F0E00A9F133 /* YAScrollView.m */; };
+		8888800B204639B600009C75 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888800A204639B600009C75 /* TextFieldCell.m */; };
 		88B5989C2043A49100BE6B1A /* VModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B5989B2043A49100BE6B1A /* VModelImageController.m */; };
 		88B7DC9A20410F8C00824181 /* BModel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC9920410F8C00824181 /* BModel.plist */; };
 		88BC6B5E2042A6CE00C2B64D /* ImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC6B5D2042A6CE00C2B64D /* ImagesView.m */; };
@@ -159,6 +160,8 @@
 		88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+YADevice.m"; sourceTree = "<group>"; };
 		88516B0B20400F0E00A9F133 /* YAScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAScrollView.m; sourceTree = "<group>"; };
 		88516B0C20400F0E00A9F133 /* YAScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAScrollView.h; sourceTree = "<group>"; };
+		88888009204639B600009C75 /* TextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
+		8888800A204639B600009C75 /* TextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
 		88B5989A2043A49100BE6B1A /* VModelImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VModelImageController.h; sourceTree = "<group>"; };
 		88B5989B2043A49100BE6B1A /* VModelImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VModelImageController.m; sourceTree = "<group>"; };
 		88B7DC9920410F8C00824181 /* BModel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BModel.plist; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				88516B0B20400F0E00A9F133 /* YAScrollView.m */,
 				88D9F3A42044EBCC00E3FC75 /* ModelInfoCell.h */,
 				88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */,
+				88888009204639B600009C75 /* TextFieldCell.h */,
+				8888800A204639B600009C75 /* TextFieldCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -769,6 +774,7 @@
 				22F60AC5203E675A00FC9CC3 /* main.m in Sources */,
 				88516AF9203FB1C100A9F133 /* UIButton+Category.m in Sources */,
 				2252A7FC204165310030618B /* SelectTemplate.m in Sources */,
+				8888800B204639B600009C75 /* TextFieldCell.m in Sources */,
 				2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */,
 				88516B06203FBC1900A9F133 /* HModelImageController.m in Sources */,
 				88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */,
