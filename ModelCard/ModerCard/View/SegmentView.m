@@ -12,7 +12,7 @@
 
 - (void)setViewControllers:(NSArray *)viewControllers {
     _viewControllers = viewControllers;
-    [self scrollVc1];
+    //    [self scrollVc1];
 }
 - (void)setTitleArray:(NSArray *)titleArray {
     _titleArray = titleArray;
@@ -21,7 +21,8 @@
         titleWidth = width + titleWidth;
     }
     [self cretBtnView];
-    
+    self.pageScroll.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width*self.titleArray.count, 0);
+    [self scrollVc1];
 }
 - (void)setBtnViewHeight:(NSInteger)btnViewHeight {
     _btnViewHeight = btnViewHeight;
@@ -52,7 +53,7 @@
     _pageScroll.bounces = NO;
     _pageScroll.frame = CGRectMake(0,self.btnViewHeight, [[UIScreen mainScreen] bounds].size.width, self.bounds.size.height -self.btnViewHeight);
     _pageScroll.showsHorizontalScrollIndicator = NO;
-    self.pageScroll.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width*2, 0);
+    
     
 }
 
@@ -99,7 +100,8 @@
 }
 
 - (void)scrollVc1 {
-    for (int i = 0; i<2; i++) {
+    NSLog(@"%ld",self.titleArray.count);
+    for (int i = 0; i<self.titleArray.count; i++) {
         UIViewController *vc = self.viewControllers[i];
         vc.view.frame = CGRectMake(i*[[UIScreen mainScreen] bounds].size.width,0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-94);
         [self.pageScroll addSubview:vc.view];
@@ -140,3 +142,5 @@
 }
 
 @end
+
+
