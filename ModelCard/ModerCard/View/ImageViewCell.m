@@ -17,7 +17,7 @@
 -(instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(0, 10, frame.size.width-10, frame.size.height-10)];
+        UIView *whiteView = [[UIView alloc]initWithFrame:CGRectMake(0, 9, frame.size.width-9, frame.size.height-9)];
         whiteView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:whiteView];
         
@@ -27,7 +27,7 @@
         [whiteView addSubview:imageView];
         self.imageView = imageView;
         
-        UIImageView *cancel = [[UIImageView alloc]initWithFrame:CGRectMake(frame.size.width-20, 0, 20, 20)];
+        UIImageView *cancel = [[UIImageView alloc]initWithFrame:CGRectMake(frame.size.width-18, 0, 18, 18)];
         cancel.image = [UIImage imageNamed:@"makeCancel"];
         [self.contentView addSubview:cancel];
     }

@@ -11,6 +11,13 @@
 
 @interface Oneyian : NSObject
 
+typedef enum : NSInteger {
+    ModelTypeMoTe,
+    ModelTypeWangZhe,
+    ModelTypeYanYuan,
+    ModelTypeZhuBo
+} ModelType;
+
 /** 获取32位随机数 */
 +(NSString *)get32bit;
 /** 获取ip */

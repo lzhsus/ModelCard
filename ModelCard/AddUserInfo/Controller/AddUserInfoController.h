@@ -8,13 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum : NSInteger {
-    ModelTypeMoTe,
-    ModelTypeWangZhe,
-    ModelTypeYanYuan,
-    ModelTypeZhuBo
-} ModelType;
-
 @interface AddUserInfoController : UIViewController
 @property (nonatomic,strong) NSDictionary * model;
 @property (nonatomic,strong) NSArray * images;

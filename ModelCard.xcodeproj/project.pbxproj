@@ -34,6 +34,8 @@
 		8888801A2046894800009C75 /* Address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 888880192046894800009C75 /* Address.plist */; };
 		8888801C2046A06F00009C75 /* GameRankList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8888801B2046A06F00009C75 /* GameRankList.plist */; };
 		8888801E2046A1D300009C75 /* liwushuo.json in Resources */ = {isa = PBXBuildFile; fileRef = 8888801D2046A1D300009C75 /* liwushuo.json */; };
+		889132E6204789BC00767D9F /* LiveTypeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889132E5204789BC00767D9F /* LiveTypeController.m */; };
+		889132E9204794BF00767D9F /* LiveTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 889132E8204794BF00767D9F /* LiveTypeCell.m */; };
 		88B5989C2043A49100BE6B1A /* VModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B5989B2043A49100BE6B1A /* VModelImageController.m */; };
 		88B7DC9A20410F8C00824181 /* BModel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88B7DC9920410F8C00824181 /* BModel.plist */; };
 		88BC6B5E2042A6CE00C2B64D /* ImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC6B5D2042A6CE00C2B64D /* ImagesView.m */; };
@@ -176,6 +178,10 @@
 		888880192046894800009C75 /* Address.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Address.plist; sourceTree = "<group>"; };
 		8888801B2046A06F00009C75 /* GameRankList.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = GameRankList.plist; sourceTree = "<group>"; };
 		8888801D2046A1D300009C75 /* liwushuo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = liwushuo.json; sourceTree = "<group>"; };
+		889132E4204789BC00767D9F /* LiveTypeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveTypeController.h; sourceTree = "<group>"; };
+		889132E5204789BC00767D9F /* LiveTypeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveTypeController.m; sourceTree = "<group>"; };
+		889132E7204794BF00767D9F /* LiveTypeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveTypeCell.h; sourceTree = "<group>"; };
+		889132E8204794BF00767D9F /* LiveTypeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveTypeCell.m; sourceTree = "<group>"; };
 		88B5989A2043A49100BE6B1A /* VModelImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VModelImageController.h; sourceTree = "<group>"; };
 		88B5989B2043A49100BE6B1A /* VModelImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VModelImageController.m; sourceTree = "<group>"; };
 		88B7DC9920410F8C00824181 /* BModel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BModel.plist; sourceTree = "<group>"; };
@@ -522,6 +528,8 @@
 				88516B05203FBC1900A9F133 /* HModelImageController.m */,
 				88B5989A2043A49100BE6B1A /* VModelImageController.h */,
 				88B5989B2043A49100BE6B1A /* VModelImageController.m */,
+				889132E4204789BC00767D9F /* LiveTypeController.h */,
+				889132E5204789BC00767D9F /* LiveTypeController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -537,8 +545,26 @@
 				88D9F3A52044EBCC00E3FC75 /* ModelInfoCell.m */,
 				888880162046700000009C75 /* PickInfoView.h */,
 				888880172046700000009C75 /* PickInfoView.m */,
+				889132E7204794BF00767D9F /* LiveTypeCell.h */,
+				889132E8204794BF00767D9F /* LiveTypeCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		889132EA20479A2F00767D9F /* ModelPlist */ = {
+			isa = PBXGroup;
+			children = (
+				88C0E8212043F5B700FCD1A5 /* AllModel */,
+				88C0E6E72043D06F00FCD1A5 /* AModel.plist */,
+				88B7DC9920410F8C00824181 /* BModel.plist */,
+				88C0E6E92043D07B00FCD1A5 /* CModel.plist */,
+				88C0E8192043EFE300FCD1A5 /* DModel.plist */,
+				88C0E8182043EFE200FCD1A5 /* EModel.plist */,
+				88C0E81B2043EFE300FCD1A5 /* FModel.plist */,
+				88C0E81A2043EFE300FCD1A5 /* GModel.plist */,
+				88C0E8172043EFE200FCD1A5 /* HModel.plist */,
+			);
+			path = ModelPlist;
 			sourceTree = "<group>";
 		};
 		88B7DC0920410E0600824181 /* Model */ = {
@@ -551,18 +577,10 @@
 		88C0E6EC2043DB6800FCD1A5 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				889132EA20479A2F00767D9F /* ModelPlist */,
 				888880192046894800009C75 /* Address.plist */,
 				8888801B2046A06F00009C75 /* GameRankList.plist */,
 				8888801D2046A1D300009C75 /* liwushuo.json */,
-				88C0E8212043F5B700FCD1A5 /* AllModel */,
-				88C0E6E72043D06F00FCD1A5 /* AModel.plist */,
-				88B7DC9920410F8C00824181 /* BModel.plist */,
-				88C0E6E92043D07B00FCD1A5 /* CModel.plist */,
-				88C0E8192043EFE300FCD1A5 /* DModel.plist */,
-				88C0E8182043EFE200FCD1A5 /* EModel.plist */,
-				88C0E81B2043EFE300FCD1A5 /* FModel.plist */,
-				88C0E81A2043EFE300FCD1A5 /* GModel.plist */,
-				88C0E8172043EFE200FCD1A5 /* HModel.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -856,6 +874,7 @@
 				22F60AE7203E693900FC9CC3 /* Work.m in Sources */,
 				88516AF1203FAD2B00A9F133 /* UIImage+Category.m in Sources */,
 				88BC6B612042BD8900C2B64D /* ImageViewCell.m in Sources */,
+				889132E6204789BC00767D9F /* LiveTypeController.m in Sources */,
 				88B5989C2043A49100BE6B1A /* VModelImageController.m in Sources */,
 				88BC6B5E2042A6CE00C2B64D /* ImagesView.m in Sources */,
 				2281AEB0203EB2C800412003 /* Home.m in Sources */,
@@ -876,6 +895,7 @@
 				888880182046700000009C75 /* PickInfoView.m in Sources */,
 				2281AEB3203EC7A900412003 /* HorizontalVersion.m in Sources */,
 				88516B06203FBC1900A9F133 /* HModelImageController.m in Sources */,
+				889132E9204794BF00767D9F /* LiveTypeCell.m in Sources */,
 				88516AFA203FB1C100A9F133 /* UIView+CornerRadius.m in Sources */,
 				22F60AB7203E675A00FC9CC3 /* AppDelegate.m in Sources */,
 			);

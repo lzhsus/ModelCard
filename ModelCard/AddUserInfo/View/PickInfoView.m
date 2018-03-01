@@ -72,9 +72,9 @@
             }
             
             self.RootArray = [[NSMutableArray alloc]initWithObjects:year,month,day, nil];
-            self.selectArray = [[NSMutableArray alloc]initWithObjects:year.lastObject,@"1",@"1", nil];
+            self.selectArray = [[NSMutableArray alloc]initWithObjects:@"2000",@"1",@"1", nil];
             [self.pickerView reloadAllComponents];
-            [self.pickerView selectRow:year.count-1 inComponent:0 animated:YES];
+            [self.pickerView selectRow:50 inComponent:0 animated:YES];
             [self.pickerView selectRow:0 inComponent:1 animated:YES];
             [self.pickerView selectRow:0 inComponent:2 animated:YES];
         }
@@ -215,9 +215,13 @@
     if (self.Type == PickerTypeLocation) {
         if (component == 0) {
             NSString *string = self.addressDict.allKeys[row];
-            self.RootArray = [[NSMutableArray alloc]initWithObjects:self.addressDict.allKeys,[[self.addressDict[string] firstObject] allKeys],[self.addressDict[string] firstObject][[[self.addressDict[string] firstObject] allKeys].firstObject], nil];
-            [self.selectArray replaceObjectAtIndex:1 withObject:[[self.addressDict[string] firstObject] allKeys].firstObject];
-            [self.selectArray replaceObjectAtIndex:2 withObject:[[self.addressDict[string] firstObject][[[self.addressDict[string] firstObject] allKeys].firstObject] firstObject]];
+            NSArray *allKeys1 = self.addressDict.allKeys;
+            NSArray *allKeys2 = [[self.addressDict[string] firstObject] allKeys];
+            
+            self.RootArray = [[NSMutableArray alloc]initWithObjects:allKeys1,allKeys2,[self.addressDict[string] firstObject][allKeys2.firstObject], nil];
+            
+            [self.selectArray replaceObjectAtIndex:1 withObject:allKeys2.firstObject];
+            [self.selectArray replaceObjectAtIndex:2 withObject:[[self.addressDict[string] firstObject][allKeys2.firstObject] firstObject]];
             [pickerView reloadAllComponents];
             [self.pickerView selectRow:0 inComponent:1 animated:YES];
             [self.pickerView selectRow:0 inComponent:2 animated:YES];

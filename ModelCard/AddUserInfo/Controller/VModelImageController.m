@@ -55,42 +55,28 @@
     //个人信息
     NSArray *points = [[NSArray alloc]initWithArray:self.modelDictionary[@"viewPoint"]];
     for (int i=0; i<points.count; i++) {
+        if (i == 2) break;
         NSArray *aArray = [self loadModelData:points[i]];
         CGRect viewRect =  CGRectMake(AutoWidth([aArray[0] floatValue]), AutoHeight([aArray[1] floatValue]), AutoWidth([aArray[2] floatValue]), AutoHeight([aArray[3] floatValue]));
-        
-        CGPoint point1 = CGPointMake(viewRect.origin.x, viewRect.origin.y);
-        CGPoint point2 = CGPointMake(viewRect.origin.x+viewRect.size.width, viewRect.origin.y+viewRect.size.height);
-        CGPoint point3 = CGPointMake(viewRect.origin.x+viewRect.size.width, viewRect.origin.y);
-        CGPoint point4 = CGPointMake(viewRect.origin.x, viewRect.origin.y+viewRect.size.height);
-        
-        BOOL isPoint = YES;
-        for (int i =0; i<self.rectArray.count; i++) {
-            CGRect rect = [self loadViewRect:self.rectArray[i]];
-            if ([self isPointInRect:rect Point:point1] || [self isPointInRect:rect Point:point2] || [self isPointInRect:rect Point:point3] || [self isPointInRect:rect Point:point4]) {
-                isPoint = NO;
-                break;
-            }
+
+        UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
+        title.textAlignment = NSTextAlignmentCenter;
+        switch (i) {
+            case 0:
+            title.text = self.name;
+            title.textColor = [UIColor redColor];
+            break;
+            case 1:
+            title.text = self.content;
+            title.textColor = [UIColor blueColor];
+            break;
+            default:
+            title.text = [NSString stringWithFormat:@"%d",i];
+            title.textColor = [UIColor blueColor];
+            break;
         }
-        if (isPoint) {
-            UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
-            title.textAlignment = NSTextAlignmentCenter;
-            switch (i) {
-                case 0:
-                    title.text = self.name;
-                    title.textColor = [UIColor redColor];
-                    break;
-                case 1:
-                    title.text = self.content;
-                    title.textColor = [UIColor blueColor];
-                    break;
-                default:
-                    title.text = [NSString stringWithFormat:@"%d",i];
-                    title.textColor = [UIColor blueColor];
-                    break;
-            }
-            [title makeBorderWidth:i+1 withColor:title.textColor];
-            [self.BackView addSubview:title];
-        }
+        [title makeBorderWidth:i+1 withColor:title.textColor];
+        [self.BackView addSubview:title];
     }
     
     //滑动条

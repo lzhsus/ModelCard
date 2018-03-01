@@ -7,5 +7,6 @@ target 'ModelCard' do
   pod 'IQKeyboardManager'
   pod 'ReactiveObjC'
   pod 'LEEAlert'
+  pod 'Masonry'
 
 end

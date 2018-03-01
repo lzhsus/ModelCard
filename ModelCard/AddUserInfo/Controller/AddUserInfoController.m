@@ -12,6 +12,7 @@
 #import "ModelInfoCell.h"
 #import "TextFieldCell.h"
 #import "PickInfoView.h"
+#import "LiveTypeController.h"
 
 @interface AddUserInfoController ()<UITableViewDelegate,UITableViewDataSource,ModelInfoCellDelegate>
 @property (nonatomic,strong) UITableView * tableView;
@@ -93,6 +94,7 @@
         HModelImageController *model = [[HModelImageController alloc]init];
         model.modelDictionary = [[NSDictionary alloc]initWithDictionary:self.model];
         model.images = [[NSArray alloc]initWithArray:self.images];
+        model.modelType = self.modelType;
         model.name = @"安";
         model.content = @"info";
         model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -101,6 +103,7 @@
         VModelImageController *model = [[VModelImageController alloc]init];
         model.modelDictionary = [[NSDictionary alloc]initWithDictionary:self.model];
         model.images = [[NSArray alloc]initWithArray:self.images];
+        model.modelType = self.modelType;
         model.name = @"安";
         model.content = @"info";
         [self.navigationController pushViewController:model animated:YES];
@@ -410,8 +413,28 @@
             }];
         }
             break;
+        case 100://直播平台
+        {
+            LiveTypeController *live = [[LiveTypeController alloc]init];
+            [self.navigationController pushViewController:live animated:YES];
+        }
+            break;
+        case 101://常用英雄
+        {
+            
+        }
+            break;
+        case 102://游戏区服
+        {
+            
+        }
+            break;
+        case 103://常用语
+        {
+            
+        }
+            break;
         default:
-            NSLog(@"%ld",indexType);
             return;
     }
 }
