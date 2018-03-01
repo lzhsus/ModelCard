@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>SchemeUserState</key>
-	<dict>
-		<key>ModelCard.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-	</dict>
-</dict>
+<array>
+	<string>8图①</string>
+	<string>8图②</string>
+	<string>6图</string>
+	<string>10图</string>
+</array>
 </plist>

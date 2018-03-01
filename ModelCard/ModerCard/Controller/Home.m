@@ -11,6 +11,9 @@
 #import "UIImage+Category.h"
 
 #define HeadImgHeight 180
+#import "KingGloryCard.h"
+#import "ActorCard.h"
+#import "HostCard.h"
 
 @interface Home ()<UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) UIImageView *HeadImgView; //!< 头部图像
@@ -120,17 +123,31 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:{
-                ModelCard *ModelCardVC = [[ModelCard alloc]init];
-                ModelCardVC.titleName = @"模特卡";
-                ModelCardVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:ModelCardVC animated:YES];
-            }
-            break;
-        case 1:{
-            
+            ModelCard *ModelCardVC = [[ModelCard alloc]init];
+            ModelCardVC.titleName = @"模特卡";
+            ModelCardVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:ModelCardVC animated:YES];
         }
             break;
-            
+        case 1:{
+            KingGloryCard * KingGloryVC = [[KingGloryCard alloc]init];
+            KingGloryVC.modelName = @"FModel";//插入2
+            KingGloryVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:KingGloryVC animated:YES];
+        }
+            break;
+        case 2:{
+            ActorCard *ActorCardVC = [[ActorCard alloc]init];
+            ActorCardVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:ActorCardVC animated:YES];
+        }
+            break;
+        case 3:{
+            HostCard *HostCardVC = [[HostCard alloc]init];
+            HostCardVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:HostCardVC animated:YES];
+        }
+            break;
         default:
             break;
     }

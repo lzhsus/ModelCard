@@ -1,19 +1,18 @@
 //
-//  HorizontalVersion.m
+//  ActorCard.m
 //  ModelCard
 //
-//  Created by chenkanghua on 2018/2/22.
+//  Created by chenkanghua on 2018/2/28.
 //  Copyright © 2018年 Asher. All rights reserved.
 //
 
-#import "HorizontalVersion.h"
+#import "ActorCard.h"
 #import "SelectTemplate.h"
-#import "SidebarModel.h"
-@interface HorizontalVersion ()<UITableViewDataSource, UITableViewDelegate>
+@interface ActorCard ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation HorizontalVersion{
+@implementation ActorCard{
     UIImageView*imageView;
 }
 
@@ -21,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop-40) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
     //设置tableView 的delegate
@@ -61,7 +60,7 @@
     //    }else {
     //        imageView.image = [UIImage imageNamed:@"01-H-01-10-2" ];
     //    }
-    imageView.image = [UIImage imageNamed:@"01-H-05-12-1" ];
+    imageView.image = [UIImage imageNamed:@"01-H-05-12-1"];
     return cell;
 }
 //设置分区头的 文本内容
@@ -77,7 +76,7 @@
             return @"环绕式资料栏";
         case 4:
             return @"浮层式资料栏";
-            
+        
         default:
             return @"测试";
     }
@@ -95,34 +94,34 @@
 // 选中每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
+//    SidebarModel * SidebarModelVC = [[SidebarModel alloc]init];
     switch (indexPath.section) {
         case 0:
-        {
-            SidebarModel * SidebarModelVC = [[SidebarModel alloc]init];
-            SidebarModelVC.modelName = @"a1Model";
-            [self.navigationController pushViewController:SidebarModelVC animated:YES];
-        }
+            SelectTemplateVC.modelName = @"AaModel";//侧边
+//            SidebarModelVC.modelName = @"a1Model";
+            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 1:
-            SelectTemplateVC.modelName = @"BModel";//底部
+            SelectTemplateVC.modelName = @"BbModel";//底部
             [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 2:
-            SelectTemplateVC.modelName = @"CModel";//插入
+            SelectTemplateVC.modelName = @"CcModel";//插入
             [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 3:
-            SelectTemplateVC.modelName = @"DModel";//环绕
+            SelectTemplateVC.modelName = @"DdModel";//环绕
             [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 4:
-            SelectTemplateVC.modelName = @"EModel";//悬浮
+            SelectTemplateVC.modelName = @"EeModel";//悬浮
             [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
+        
         default:
             return;
     }
-    //    [self.navigationController pushViewController:SelectTemplateVC animated:YES];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -130,14 +129,13 @@
 }
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
-

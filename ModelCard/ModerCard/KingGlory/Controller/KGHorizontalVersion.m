@@ -1,39 +1,38 @@
 //
-//  SelectTemplate.m
+//  KGHorizontalVersion.m
 //  ModelCard
 //
-//  Created by chenkanghua on 2018/2/23.
+//  Created by chenkanghua on 2018/2/28.
 //  Copyright © 2018年 Asher. All rights reserved.
 //
 
-#import "SelectTemplate.h"
+#import "KGHorizontalVersion.h"
 #import "AppDelegate.h"
 #import "AddUserInfoController.h"
 #import "ImagesView.h"
-
-@interface SelectTemplate ()<UITableViewDataSource, UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ImagesViewDelegae>
+@interface KGHorizontalVersion ()<UITableViewDataSource, UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ImagesViewDelegae>
 @property (nonatomic,strong) ImagesView * selectImages;
-@property (nonatomic,strong) NSArray * modelArray;
+
 @end
 
-@implementation SelectTemplate{
+@implementation KGHorizontalVersion{
     UIImageView *imageView;
     NSDictionary *_ModelDict;
 }
-
 -(NSArray *)modelArray{
     if (!_modelArray) {
-        NSString *plistPath = [[NSBundle mainBundle]pathForResource:self.modelName ofType:@"plist"];
-        _modelArray = [[NSArray alloc]initWithContentsOfFile:plistPath];
+        
+        _modelArray = [[NSArray alloc]init];
     }
     return _modelArray;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
-    self.title = @"选择模板";
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
+    self.title = @"侧边模版";
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop-40) style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
     //设置tableView 的delegate
@@ -43,6 +42,7 @@
     
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [appDelegate.window addSubview:self.selectImages];
+    NSLog(@"%@",self.modelArray);
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.modelArray.count;
@@ -65,49 +65,11 @@
         [cell.contentView addSubview:imageView];
     }
     imageView.image = [UIImage imageNamed:@"01-H-05-12-1"];
-//    if (indexPath.section == 0) {
-//        imageView.image = [UIImage imageNamed:@"01-H-05-12-1"];
-//    }else if (indexPath.section == 1){
-//        imageView.image = [UIImage imageNamed:@"01-H-04-10-2" ];
-//    }else if (indexPath.section == 2){
-//        imageView.image = [UIImage imageNamed:@"01-H-03-10-1" ];
-//    }else if (indexPath.section == 3){
-//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-//    }else if (indexPath.section == 4){
-//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-//    }else if (indexPath.section == 5){
-//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-//    }else if (indexPath.section == 6){
-//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-//    }else if (indexPath.section == 7){
-//        imageView.image = [UIImage imageNamed:@"01-H-02-08-1" ];
-//    }else {
-//        imageView.image = [UIImage imageNamed:@"01-H-01-10-2" ];
-//    }
     return cell;
 }
 //设置分区头的 文本内容
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return self.modelArray[section];
-//    if (section == 0) {
-//        return @"12图① - 9竖图3横图";
-//    }else if (section == 1){
-//        return @"13图② - 13竖图";
-//    }else if (section == 2){
-//        return @"11图① - 5竖图6方图";
-//    }else if (section == 3){
-//        return @"10图① - 7竖图3横图";
-//    }else if (section == 4){
-//        return @"10图② - 10竖图";
-//    }else if (section == 5){
-//        return @"10图③ - 10竖图";
-//    }else if (section == 6){
-//        return @"9图① - 9竖图";
-//    }else if (section == 7){
-//        return @"9图② - 9竖图";
-//    }else{
-//        return @"7图① - 7竖图";
-//    }
 }
 //设置分区头的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -121,7 +83,7 @@
     NSString *modelPath = [[NSBundle mainBundle]pathForResource:self.modelArray[indexPath.section] ofType:@"plist"];
     _ModelDict = [[NSDictionary alloc]initWithContentsOfFile:modelPath];
     self.selectImages.count = [NSArray arrayWithArray:_ModelDict[@"SubViewArray"]].count;
-        
+    
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) return;
     UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
     self.selectImages.popViewController = ipc;
@@ -133,11 +95,12 @@
         @strongify(self);
         self.selectImages.frame = CGRectMake(0, Height-150, Width, 150);
     }];
+    
     [self presentViewController:ipc animated:YES completion:nil];
 }
 -(ImagesView *)selectImages{
     if (!_selectImages) {
-        _selectImages = [[ImagesView alloc]initWithFrame:CGRectMake(0, Height, Width, 150)];
+        _selectImages = [[ImagesView alloc]initWithFrame:CGRectMake(0, Height-150, Width, 150)];
         _selectImages.count = 0;
         _selectImages.delegate = self;
     }
@@ -145,7 +108,6 @@
 }
 -(void)didFinishImages:(NSArray *)images{
     AddUserInfoController *add = [[AddUserInfoController alloc]init];
-    add.modelType = ModelTypeZhuBo;//分类
     add.model = [[NSDictionary alloc]initWithDictionary:_ModelDict];
     add.images = [[NSArray alloc]initWithArray:images];
     [self.navigationController pushViewController:add animated:YES];
@@ -159,4 +121,20 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     [self.selectImages didAddImage:info[UIImagePickerControllerOriginalImage]];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 @end
