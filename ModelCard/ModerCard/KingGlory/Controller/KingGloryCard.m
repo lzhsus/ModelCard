@@ -25,6 +25,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"王者荣耀卡";
     // Do any additional setup after loading the view.
     [self createVc];
 }

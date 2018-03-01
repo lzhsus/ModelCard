@@ -163,7 +163,7 @@
 }
 -(BOOL)isAutoWidth{
     NSArray *size = [self loadModelData:self.modelDictionary[@"SuperViewInfo"][@"size"]];
-    return (Width-AutoWidth([size.firstObject floatValue]))/2 >= 45 ? YES:NO;
+    return (Width-AutoWidth([size.firstObject floatValue]))/2 >= 45;
 }
 #pragma mark  =========== 导航栏View按钮 ==========
 -(void)sliderChanged:(UISlider *)sender{
@@ -327,7 +327,7 @@
     return rect;
 }
 -(BOOL)isPointInRect:(CGRect)aRect Point:(CGPoint)aPoint{
-    return aPoint.x >= aRect.origin.x && aPoint.x <= aRect.size.width && aPoint.y >= aRect.origin.y && aPoint.y <= aRect.size.height ? YES:NO;
+    return aPoint.x >= aRect.origin.x && aPoint.x <= aRect.size.width && aPoint.y >= aRect.origin.y && aPoint.y <= aRect.size.height;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

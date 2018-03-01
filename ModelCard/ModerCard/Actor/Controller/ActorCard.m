@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
+    self.title = @"演员卡";
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
@@ -94,34 +95,27 @@
 // 选中每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
-//    SidebarModel * SidebarModelVC = [[SidebarModel alloc]init];
+    SelectTemplateVC.Type = ModelTypeYanYuan;
     switch (indexPath.section) {
         case 0:
             SelectTemplateVC.modelName = @"AaModel";//侧边
-//            SidebarModelVC.modelName = @"a1Model";
-            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 1:
             SelectTemplateVC.modelName = @"BbModel";//底部
-            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 2:
             SelectTemplateVC.modelName = @"CcModel";//插入
-            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 3:
             SelectTemplateVC.modelName = @"DdModel";//环绕
-            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 4:
             SelectTemplateVC.modelName = @"EeModel";//悬浮
-            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
-        
         default:
             return;
     }
-    
+    [self.navigationController pushViewController:SelectTemplateVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

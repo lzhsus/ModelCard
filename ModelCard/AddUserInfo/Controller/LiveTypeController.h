@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LiveTypeController : UIViewController
-
+@property (nonatomic,strong) RACSubject * subLives;
 @end

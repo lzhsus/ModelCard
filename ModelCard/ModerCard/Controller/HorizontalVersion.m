@@ -95,6 +95,7 @@
 // 选中每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
+    SelectTemplateVC.Type = ModelTypeMoTe;
     switch (indexPath.section) {
         case 0:
         {

@@ -13,6 +13,9 @@
 #import "TextFieldCell.h"
 #import "PickInfoView.h"
 #import "LiveTypeController.h"
+#import "GameHeroController.h"
+#import "GameServerController.h"
+#import "GameMessageController.h"
 
 @interface AddUserInfoController ()<UITableViewDelegate,UITableViewDataSource,ModelInfoCellDelegate>
 @property (nonatomic,strong) UITableView * tableView;
@@ -416,22 +419,31 @@
         case 100://直播平台
         {
             LiveTypeController *live = [[LiveTypeController alloc]init];
+            live.subLives = [RACSubject subject];
+            [live.subLives subscribeNext:^(id  _Nullable x) {
+                @strongify(self);
+                cell.detailTextLabel.text = x;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
             [self.navigationController pushViewController:live animated:YES];
         }
             break;
         case 101://常用英雄
         {
-            
+            GameHeroController *hero = [[GameHeroController alloc]init];
+            [self.navigationController pushViewController:hero animated:YES];
         }
             break;
         case 102://游戏区服
         {
-            
+            GameServerController *server = [[GameServerController alloc]init];
+            [self.navigationController pushViewController:server animated:YES];
         }
             break;
         case 103://常用语
         {
-            
+            GameMessageController *mesage = [[GameMessageController alloc]init];
+            [self.navigationController pushViewController:mesage animated:YES];
         }
             break;
         default:
@@ -444,7 +456,6 @@
     }
     return _pickView;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

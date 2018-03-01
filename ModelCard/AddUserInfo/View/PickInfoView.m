@@ -20,13 +20,13 @@
 
 -(NSMutableArray *)RootArray{
     if (!_RootArray) {
-        _RootArray = [[NSMutableArray alloc]initWithObjects:@[@"1",@"2",@"3",@"4",@"5"],@[@"1",@"2",@"3",@"4",@"5"],@[@"1",@"2",@"3",@"4",@"5"], nil];
+        _RootArray = [[NSMutableArray alloc]init];
     }
     return _RootArray;
 }
 -(NSMutableArray *)selectArray{
     if (!_selectArray) {
-        _selectArray = [[NSMutableArray alloc]initWithObjects:@"",@"",@"", nil];
+        _selectArray = [[NSMutableArray alloc]initWithCapacity:3];
     }
     return _selectArray;
 }
@@ -219,16 +219,20 @@
             NSArray *allKeys2 = [[self.addressDict[string] firstObject] allKeys];
             
             self.RootArray = [[NSMutableArray alloc]initWithObjects:allKeys1,allKeys2,[self.addressDict[string] firstObject][allKeys2.firstObject], nil];
-            
             [self.selectArray replaceObjectAtIndex:1 withObject:allKeys2.firstObject];
             [self.selectArray replaceObjectAtIndex:2 withObject:[[self.addressDict[string] firstObject][allKeys2.firstObject] firstObject]];
+            
             [pickerView reloadAllComponents];
             [self.pickerView selectRow:0 inComponent:1 animated:YES];
             [self.pickerView selectRow:0 inComponent:2 animated:YES];
         }else if (component ==1){
             NSString *string = self.selectArray.firstObject;
-            self.RootArray = [[NSMutableArray alloc]initWithObjects:self.addressDict.allKeys,[[self.addressDict[string] firstObject] allKeys],[self.addressDict[string] firstObject][[[self.addressDict[string] firstObject] allKeys][row]], nil];
-            [self.selectArray replaceObjectAtIndex:2 withObject:[[self.addressDict[string] firstObject][[[self.addressDict[string] firstObject] allKeys][row]] firstObject]];
+            NSArray *allKeys1 = self.addressDict.allKeys;
+            NSArray *allKeys2 = [[self.addressDict[string] firstObject] allKeys];
+            
+            self.RootArray = [[NSMutableArray alloc]initWithObjects:allKeys1,allKeys2,[self.addressDict[string] firstObject][allKeys2[row]], nil];
+            [self.selectArray replaceObjectAtIndex:2 withObject:[[self.addressDict[string] firstObject][allKeys2[row]] firstObject]];
+            
             [pickerView reloadAllComponents];
             [self.pickerView selectRow:0 inComponent:2 animated:YES];
         }

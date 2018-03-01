@@ -62,7 +62,7 @@
     for (int i=0; i<contents.count; i++) {
         UIButton *showButton = (UIButton *)[self.contentView viewWithTag:i+1];
         showButton.hidden = NO;
-        showButton.selected = [contents[i] integerValue] > 0 ? YES:NO;
+        showButton.selected = [contents[i] integerValue] > 0;
     }
 }
 -(void)selectType:(UIButton *)sender{

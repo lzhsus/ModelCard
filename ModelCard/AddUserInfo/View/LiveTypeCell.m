@@ -9,6 +9,7 @@
 #import "LiveTypeCell.h"
 
 @interface LiveTypeCell ()
+@property (nonatomic,strong) UIView * selectView;
 @property (nonatomic,strong) UILabel * title;
 @end
 
@@ -17,16 +18,28 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        //背景色
+        UIView *selectView = [[UIView alloc]init];
+        selectView.backgroundColor = [UIColor colorWithRed:0.22 green:0.21 blue:0.22 alpha:1.00];
+        [selectView makeCornerRadius:4];
+        [selectView makeBorderWidth:1 withColor:[UIColor lightGrayColor]];
+        [self.contentView addSubview:selectView];
+        [selectView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.contentView);
+        }];
+        self.selectView = selectView;
+        
+        //title
         UILabel *title = [[UILabel alloc]init];
-        title.textColor = self.isSelected ? [UIColor whiteColor]:[UIColor lightGrayColor];
-        title.text = @"映客";
+        title.textColor = [UIColor lightGrayColor];
+        title.font = [UIFont systemFontOfSize:15];
         [self.contentView addSubview:title];
         [title mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView).offset(5);
-            make.left.equalTo(self.contentView).offset(10);
-            make.bottom.equalTo(self.contentView).offset(-5);
-            make.right.equalTo(self.contentView).offset(-10);
-            make.height.offset(20);
+            make.top.equalTo(self.contentView).offset(4);
+            make.left.equalTo(self.contentView).offset(8);
+            make.bottom.equalTo(self.contentView).offset(-4);
+            make.right.equalTo(self.contentView).offset(-8);
+            make.height.offset(18);
         }];
         self.title = title;
     }
@@ -36,8 +49,11 @@
     _titleString = titleString;
     self.title.text = titleString;
 }
-
--(void)setSelected:(BOOL)selected{
-    [super setSelected:selected];
+-(void)setSelecteds:(BOOL)selecteds{
+    _selecteds = selecteds;
+    self.title.textColor = selecteds ? [UIColor whiteColor]:[UIColor lightGrayColor];
+    [self.selectView makeBorderWidth:selecteds ? 0:1 withColor:[UIColor lightGrayColor]];
+    self.selectView.backgroundColor = selecteds ? [UIColor colorWithRed:0.91 green:0.35 blue:0.43 alpha:1.00]:[UIColor colorWithRed:0.22 green:0.21 blue:0.22 alpha:1.00];
 }
+
 @end

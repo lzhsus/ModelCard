@@ -10,4 +10,5 @@
 
 @interface LiveTypeCell : UICollectionViewCell
 @property (nonatomic,strong) NSString * titleString;
+@property (nonatomic,assign) BOOL selecteds;
 @end

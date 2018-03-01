@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = BackgroundColor;
+    self.title = @"主播卡";
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
     //记住tableView 一定要设置数据源对象
     tableView.dataSource = self;
@@ -88,23 +89,18 @@
 // 选中每一行
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     SelectTemplate *SelectTemplateVC = [[SelectTemplate alloc]init];
-    //    SidebarModel * SidebarModelVC = [[SidebarModel alloc]init];
+    SelectTemplateVC.Type = ModelTypeZhuBo;
     switch (indexPath.section) {
         case 0:
             SelectTemplateVC.modelName = @"Cc1Model";
-            //            SidebarModelVC.modelName = @"a1Model";
-            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
         case 1:
             SelectTemplateVC.modelName = @"Aa1Model";
-            [self.navigationController pushViewController:SelectTemplateVC animated:YES];
             break;
-        
-            
         default:
             return;
     }
-    
+    [self.navigationController pushViewController:SelectTemplateVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

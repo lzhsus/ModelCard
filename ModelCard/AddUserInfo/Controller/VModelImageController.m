@@ -280,7 +280,7 @@
     return rect;
 }
 -(BOOL)isPointInRect:(CGRect)aRect Point:(CGPoint)aPoint{
-    return aPoint.x >= aRect.origin.x && aPoint.x <= aRect.size.width && aPoint.y >= aRect.origin.y && aPoint.y <= aRect.size.height ? YES:NO;
+    return aPoint.x >= aRect.origin.x && aPoint.x <= aRect.size.width && aPoint.y >= aRect.origin.y && aPoint.y <= aRect.size.height;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

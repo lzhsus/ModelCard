@@ -65,8 +65,8 @@
     CGSize imageSize = aimage.size;
     CGSize aSize = self.frame.size;
     
-    BOOL isViewStatus = aSize.width > aSize.height ? YES:NO;    //横向区块或竖向区块
-    BOOL isStatus = imageSize.width > imageSize.height ? YES:NO;  //横图或竖图
+    BOOL isViewStatus = aSize.width > aSize.height;    //横向区块或竖向区块
+    BOOL isStatus = imageSize.width > imageSize.height;  //横图或竖图
     
     CGFloat aWidth = imageSize.width/(imageSize.height/aSize.height);
     CGFloat aHeight = imageSize.height/(imageSize.width/aSize.width);

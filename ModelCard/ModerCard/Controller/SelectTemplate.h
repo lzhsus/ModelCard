@@ -10,4 +10,5 @@
 
 @interface SelectTemplate : UIViewController
 @property (nonatomic,strong) NSString * modelName;
+@property (nonatomic,assign) ModelType Type;
 @end
