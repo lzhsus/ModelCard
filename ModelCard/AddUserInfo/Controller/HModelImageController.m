@@ -94,22 +94,45 @@
         CGRect viewRect =  CGRectMake(AutoWidth([aArray[0] floatValue]), AutoHeight([aArray[1] floatValue]), AutoWidth([aArray[2] floatValue]), AutoHeight([aArray[3] floatValue]));
         
         UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
-        title.textAlignment = NSTextAlignmentCenter;
+        title.numberOfLines = 0;
+        
         switch (i) {
             case 0:
-            title.text = self.name;
-            title.textColor = [UIColor redColor];
+            {
+                title.text = self.name;
+                title.textAlignment = NSTextAlignmentCenter;
+            }
             break;
             case 1:
-            title.text = self.content;
-            title.textColor = [UIColor blueColor];
+            {
+                CGFloat fontSize = self.contents.count<4 ? 8:5;
+                NSString *AutoString = @"";
+                NSString *labelText = nil;
+                for (int i=0; i<self.contents.count; i++) {
+                    if (title.frame.size.width < title.frame.size.height) {
+                        AutoString = [NSString stringWithFormat:@"%@\n%@",AutoString,self.contents[i]];
+                        labelText = AutoString;
+                    }else{
+                        AutoString = [NSString stringWithFormat:@"%@  %@",AutoString,self.contents[i]];
+                        labelText = AutoString;
+                        if ([AutoString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}].width + 2*i >= title.frame.size.width) {
+                            AutoString = [NSString stringWithFormat:@"%@\n%@",labelText,self.contents[i]];
+                            labelText = AutoString;
+                        }
+                    }
+                }
+                if (title.frame.size.width < title.frame.size.height) {
+                    title.attributedText = [Oneyian sortingContent:labelText];
+                }else{
+                    title.font = [UIFont systemFontOfSize:fontSize];
+                    title.text = labelText;
+                    title.textAlignment = NSTextAlignmentCenter;
+                }
+            }
             break;
             default:
-            title.text = [NSString stringWithFormat:@"%d",i];
-            title.textColor = [UIColor blueColor];
             break;
         }
-        [title makeBorderWidth:i+1 withColor:title.textColor];
         [self.BackView addSubview:title];
     }
     

@@ -214,10 +214,10 @@
 +(NSMutableAttributedString *)sortingContent:(NSString *)content{
     if (!isStringEmpty(content)) {
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:content];
-        [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, content.length)];
+        [attributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:10] range:NSMakeRange(0, content.length)];
         NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
         style.alignment=NSTextAlignmentLeft;
-        style.lineSpacing = 3;
+        style.lineSpacing = 2;
         [attributedString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, content.length)];
         return attributedString;
     }else{

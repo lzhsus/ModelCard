@@ -10,9 +10,7 @@
 
 @interface VModelImageController : UIViewController
 @property (nonatomic,strong) NSDictionary * modelDictionary;
-
-@property (nonatomic,assign) ModelType modelType;
 @property (nonatomic,strong) NSArray * images;
 @property (nonatomic,strong) NSString * name;
-@property (nonatomic,strong) NSString * content;
+@property (nonatomic,strong) NSArray * contents;
 @end

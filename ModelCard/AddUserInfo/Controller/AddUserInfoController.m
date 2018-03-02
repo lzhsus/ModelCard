@@ -50,16 +50,16 @@
     if (!_contentList) {
         switch (self.modelType) {
             case ModelTypeMoTe:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-1-1",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市-青山湖区",@[@"1",@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-1-1",@"165",@"52",@"80-60-80",@"38",@"江西省-南昌市-青山湖区",@[@"1",@"1"], nil];
                 break;
             case ModelTypeWangZhe:
                 _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"oneyian",@"男",@"荣耀王者",@"橘右京,诸葛亮,宫本武藏",@"50区 痛苦狙击",@"哈哈哈哈", nil];
                 break;
             case ModelTypeYanYuan:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市-青山湖区",@"15079244845",@[@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"80-60-80",@"38",@"江西省-南昌市-青山湖区",@"15079244845",@[@"1"], nil];
                 break;
             default:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"熊猫",@"100W",@"oneyian",@"100W",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市-青山湖区",@[@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"熊猫",@"100W",@"oneyian",@"100W",@"男",@"2018-01-01",@"165",@"52",@"80-60-80",@"38",@"江西省-南昌市-青山湖区",@[@"1"], nil];
                 break;
         }
     }
@@ -98,20 +98,54 @@
         HModelImageController *model = [[HModelImageController alloc]init];
         model.modelDictionary = [[NSDictionary alloc]initWithDictionary:self.model];
         model.images = [[NSArray alloc]initWithArray:self.images];
-        model.modelType = self.modelType;
-        model.name = @"安";
-        model.content = @"info";
+        model.name = self.contentList.firstObject;
+        model.contents = [[NSArray alloc]initWithArray:[self loadContents]];
         model.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self presentViewController:model animated:YES completion:nil];
     }else{
         VModelImageController *model = [[VModelImageController alloc]init];
         model.modelDictionary = [[NSDictionary alloc]initWithDictionary:self.model];
         model.images = [[NSArray alloc]initWithArray:self.images];
-        model.modelType = self.modelType;
-        model.name = @"安";
-        model.content = @"info";
+        model.name = self.contentList.firstObject;
+        model.contents = [[NSArray alloc]initWithArray:[self loadContents]];
         [self.navigationController pushViewController:model animated:YES];
     }
+}
+-(NSMutableArray *)loadContents{
+    NSMutableArray *array = [[NSMutableArray alloc]init];
+    
+    switch (self.modelType) {
+        case ModelTypeMoTe:
+        {
+            [array addObject:[NSString stringWithFormat:@"H:%@cm",self.contentList[3]]];
+            [array addObject:[NSString stringWithFormat:@"W:%@kg",self.contentList[4]]];
+            [array addObject:[NSString stringWithFormat:@"S:%@",self.contentList[6]]];
+            
+            if ([[self.contentList.lastObject firstObject] isEqualToString:@"1"]) {
+                [array addObject:[NSString stringWithFormat:@"BWH:%@",self.contentList[5]]];
+            }
+            if ([[self.contentList.lastObject lastObject] isEqualToString:@"1"]) {
+                [array addObject:[NSString stringWithFormat:@"B:%@",self.contentList[2]]];
+            }
+        }
+            break;
+        case ModelTypeWangZhe:
+        {
+            
+        }
+            break;
+        case ModelTypeYanYuan:
+        {
+            
+        }
+            break;
+        default:
+        {
+            
+        }
+            break;
+    }
+    return array;
 }
 -(NSArray *)loadModelData:(NSString *)aString{
     aString = [aString stringByReplacingOccurrencesOfString:@"{"withString:@""];
@@ -230,7 +264,12 @@
                     cell.textLabel.text = self.titleList[indexPath.row];
                     cell.textLabel.textColor = [UIColor lightGrayColor];
                     cell.detailTextLabel.textColor = [UIColor whiteColor];
-                    cell.detailTextLabel.text = self.contentList[indexPath.row];
+                    NSString *content = self.contentList[indexPath.row];
+                    if ([cell.textLabel.text isEqualToString:@"三围"]) {
+                        NSArray *array = [content componentsSeparatedByString:@"-"];
+                        content = [NSString stringWithFormat:@"胸围%@ 腰围%@ 臀围%@",array[0],array[1],array[2]];
+                    }
+                    cell.detailTextLabel.text = content;
                     return cell;
                 }
             }
@@ -360,7 +399,7 @@
             [self.pickView show:^(id value) {
                 @strongify(self);
                 NSArray *array = (NSArray *)value;
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"胸围%@ 腰围%@ 臀围%@",array[0],array[1],array[2]];
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%@-%@-%@",array[0],array[1],array[2]];
                 [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
             }];
         }
