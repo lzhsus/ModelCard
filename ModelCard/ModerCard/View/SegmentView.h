@@ -31,5 +31,4 @@
 
 //设置按钮下划线高度
 @property (nonatomic,assign) NSInteger             btnLineHeight;
-
 @end

@@ -142,7 +142,6 @@
     if ([touch view] == FiveFigure)
     {
         //do some method.....
-        NSLog(@"7");
         FiveFigure.layer.borderColor=[[UIColor redColor]CGColor];  //边框的颜色
         FiveFigure.layer.borderWidth = 1; //边框的宽度
         SevenFigure.layer.borderColor=[[UIColor clearColor]CGColor];

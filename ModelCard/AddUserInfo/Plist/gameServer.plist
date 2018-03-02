@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>微信-苹果</key>
+		<array>
+			<dict>
+				<key>1-20区</key>
+				<array>
+					<string>1区 徇烂刀锋</string>
+					<string>2区 智慧之拳</string>
+					<string>3区 大唐名探</string>
+					<string>4区 冰雪之华</string>
+					<string>5区 逆流之时</string>
+					<string>6区 破釜沉舟</string>
+					<string>7区 天命之女</string>
+					<string>8区 女帝辉光</string>
+					<string>9区 女帝威严</string>
+					<string>10区 生杀矛夺</string>
+					<string>11区 师道尊严</string>
+					<string>12区 圣人训诚</string>
+					<string>13区 圣人之威</string>
+					<string>14区 舍生忘死</string>
+					<string>15区 爆裂双斧</string>
+					<string>16区 激热回旋</string>
+					<string>17区 正义潜能</string>
+					<string>18区 杀意之枪</string>
+					<string>19区 无情冲锋</string>
+					<string>20区 背水一战</string>
+				</array>
+			</dict>
+			<dict>
+				<key>21-40区</key>
+				<array>
+					<string>21区 国士无双</string>
+					<string>22区 冰封之心</string>
+					<string>23区 凋零冰晶</string>
+					<string>24区 禁锢寒霜</string>
+					<string>25区 凛冬已至</string>
+					<string>26区 鲜血之舞</string>
+					<string>27区 死亡之吻</string>
+					<string>28区 无相明王</string>
+					<string>29区 七月流火</string>
+					<string>30区 烽火赤壁</string>
+					<string>31区 深渊囚笼</string>
+					<string>32区 进化根源</string>
+					<string>33区 轮回不灭</string>
+					<string>34区 契约奇迹</string>
+					<string>35区 隐匿暗杀</string>
+					<string>36区 调和均衡</string>
+					<string>37区 冥想繁荣</string>
+					<string>38区 禁忌誓言</string>
+					<string>39区 红莲之窟</string>
+					<string>40区 红月追忆</string>
+					<string>63区 超能战警</string>
+				</array>
+			</dict>
+			<dict>
+				<key>41-45区</key>
+				<array>
+					<string>41区 长生信使</string>
+					<string>42区 夺萃狩猎</string>
+					<string>43区 夫子试炼</string>
+					<string>44区 超凡无双</string>
+					<string>45区 白夜梦魔</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>微信-安卓</key>
+		<array>
+			<dict>
+				<key>1-20区</key>
+				<array>
+					<string>1区 鲜血袅雄</string>
+					<string>2区 国士无双</string>
+					<string>3区 太古魔导</string>
+					<string>4区 热烈之斧</string>
+					<string>5区 双面君主</string>
+					<string>6区 万古长明</string>
+					<string>7区 洛神降临</string>
+					<string>8区 王者审判</string>
+					<string>9区 王者惩戒</string>
+					<string>10区 王者守御</string>
+					<string>11区 至尊主权</string>
+					<string>12区 火力压制</string>
+					<string>13区 无敌鲨炮</string>
+					<string>14区 自然意志</string>
+					<string>15区 庄子化蝶</string>
+					<string>16区 蝴蝶效应</string>
+					<string>17区 天人合一</string>
+					<string>18区 磁力屏障</string>
+					<string>19区 霸王护盾</string>
+					<string>20区 机关魔抓</string>
+				</array>
+			</dict>
+			<dict>
+				<key>21-40区</key>
+				<array>
+					<string>21区 暴走熊猫</string>
+					<string>22区 刺客信条</string>
+					<string>23区 石之炼金</string>
+					<string>24区 狂飙突进</string>
+					<string>25区 震慑打击</string>
+					<string>26区 飓风之锤</string>
+					<string>27区 时间沙漏</string>
+					<string>28区 时空爆弹</string>
+					<string>29区 时之波动</string>
+					<string>30区 时光流逝</string>
+					<string>31区 魔音贯耳</string>
+					<string>32区 易水离歌</string>
+					<string>33区 金属风暴</string>
+					<string>34区 巨龙骑士</string>
+					<string>35区 仙境漫游</string>
+					<string>36区 摇滚巨星</string>
+					<string>37区 暗夜贵族</string>
+					<string>38区 优雅恋人</string>
+					<string>39区 火炮千金</string>
+					<string>40区 水果甜心</string>
+				</array>
+			</dict>
+			<dict>
+				<key>41-60区</key>
+				<array>
+					<string>41区 蔷薇恋人</string>
+					<string>42区 热情杀手</string>
+					<string>43区 木偶奇遇</string>
+					<string>44区 福禄兄弟</string>
+					<string>45区 电玩小子</string>
+					<string>46区 鲤鱼之梦</string>
+					<string>47区 英喵野望</string>
+					<string>48区 绅士熊喵</string>
+					<string>49区 爱心护理</string>
+					<string>50区 甜蜜猫娘</string>
+					<string>51区 生化危机</string>
+					<string>52区 未来旅行</string>
+					<string>53区 天使之翼</string>
+					<string>54区 红莲之瞳</string>
+					<string>55区 化身博士</string>
+					<string>56区 白色死神</string>
+					<string>57区 红桃皇后</string>
+					<string>58区 冬白舞会</string>
+					<string>59区 暗鸦之灵</string>
+					<string>60区 海军大将</string>
+				</array>
+			</dict>
+			<dict>
+				<key>61-80区</key>
+				<array>
+					<string>61区 冰雪奇缘</string>
+					<string>62区 暗影之王</string>
+					<string>64区 幽灵船长</string>
+					<string>65区 黄金武士</string>
+					<string>66区 鬼泣武者</string>
+					<string>67区 合金装备</string>
+					<string>68区 大发明家</string>
+					<string>69区 帝国元帅</string>
+					<string>70区 苍穹之光</string>
+					<string>71区 海滩派对</string>
+					<string>72区 东方不败</string>
+					<string>73区 潮流仙人</string>
+					<string>74区 爱与正义</string>
+					<string>75区 超能陆战</string>
+					<string>76区 圣殿之光</string>
+					<string>77区 街头霸王</string>
+					<string>78区 湖中之女</string>
+					<string>79区 活力咆哮</string>
+					<string>80区 寄生守御</string>
+				</array>
+			</dict>
+			<dict>
+				<key>81-93区</key>
+				<array>
+					<string>81区 顽强斗志</string>
+					<string>82区 刺秦之地</string>
+					<string>83区 五福同心</string>
+					<string>84区 真爱至上</string>
+					<string>85区 纯白花嫁</string>
+					<string>86区 拳皇</string>
+					<string>87区 性感猫娘</string>
+					<string>88区 致命诱惑</string>
+					<string>89区 美猴王</string>
+					<string>90区 锦衣卫</string>
+					<string>91区 制裁之刃</string>
+					<string>92区 无限源力</string>
+					<string>93区 纯净苍穹</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>QQ-苹果</key>
+		<array>
+			<dict>
+				<key>1-20区</key>
+				<array>
+					<string>1区 苍天翔龙</string>
+					<string>2区 铁血都督</string>
+					<string>3区 野蛮之锤</string>
+					<string>4区 正义爆轰</string>
+					<string>5区 机关造物</string>
+					<string>6区 名士狂歌</string>
+					<string>7区 致命灵药</string>
+					<string>8区 不死之炎</string>
+					<string>9区 生命主宰</string>
+					<string>10区 反击之镰</string>
+					<string>11区 血之回响</string>
+					<string>12区 死神之镰</string>
+					<string>13区 二天一流</string>
+					<string>14区 永生之血</string>
+					<string>15区 君临天地</string>
+					<string>16区 渴望之血</string>
+					<string>17区 欲望之月</string>
+					<string>18区 运筹帷幄</string>
+					<string>19区 东风来袭</string>
+					<string>20区 谋略法球</string>
+				</array>
+			</dict>
+			<dict>
+				<key>21-40区</key>
+				<array>
+					<string>21区 八卦阵列</string>
+					<string>22区 叹息激流</string>
+					<string>23区 乱世争霸</string>
+					<string>24区 霸道之刃</string>
+					<string>25区 纵横天下</string>
+					<string>26区 浴血袅雄</string>
+					<string>27区 陷阵之志</string>
+					<string>28区 霸王之斩</string>
+					<string>29区 回旋打击</string>
+					<string>30区 影子杀手</string>
+					<string>31区 勇气幻盾</string>
+					<string>32区 复仇箴言</string>
+					<string>33区 激昂猛攻</string>
+					<string>34区 风怒结界</string>
+					<string>35区 突进白刃</string>
+					<string>36区 狂乱奔流</string>
+					<string>37区 崩坏意志</string>
+					<string>38区 贯穿破甲</string>
+					<string>39区 元气再生</string>
+					<string>40区 神速瞬影</string>
+				</array>
+			</dict>
+			<dict>
+				<key>41-59区</key>
+				<array>
+					<string>41区 乱舞心火</string>
+					<string>42区 致命凋零</string>
+					<string>43区 信念绽放</string>
+					<string>44区 野性潜能</string>
+					<string>45区 警戒迷雾</string>
+					<string>46区 生机振奋</string>
+					<string>47区 无畏铁躯</string>
+					<string>48区 庇佑沙漏</string>
+					<string>49区 奇袭冲锋</string>
+					<string>50区 痛苦狙击</string>
+					<string>51区 正义清算</string>
+					<string>52区 风暴滋生</string>
+					<string>53区 灵感复苏</string>
+					<string>54区 传送之扉</string>
+					<string>55区 净化共鸣</string>
+					<string>56区 狂热煞气</string>
+					<string>57区 暴戾气数</string>
+					<string>58区 傲慢戒律</string>
+					<string>59区 阳炎回声</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>QQ-安卓</key>
+		<array>
+			<dict>
+				<key>1-20区</key>
+				<array>
+					<string>1区 王者独尊</string>
+					<string>2区 绝代智谋</string>
+					<string>3区 不羁之风</string>
+					<string>4区 千金重弩</string>
+					<string>5区 死亡绽放</string>
+					<string>6区 最终兵器</string>
+					<string>7区 叛逆吟游</string>
+					<string>8区 暴走机关</string>
+					<string>9区 欲望之月</string>
+					<string>10区 风华徇烂</string>
+					<string>11区 逍遥幻梦</string>
+					<string>12区 恋之微风</string>
+					<string>13区 和平守望</string>
+					<string>14区 苍天龙鸣</string>
+					<string>15区 天翔之龙</string>
+					<string>16区 破云之龙</string>
+					<string>17区 惊雷之龙</string>
+					<string>18区 友情守护</string>
+					<string>19区 豪情突进</string>
+					<string>20区 激情进发</string>
+				</array>
+			</dict>
+			<dict>
+				<key>21-40区</key>
+				<array>
+					<string>21区 正义豪腕</string>
+					<string>22区 治愈微笑</string>
+					<string>23区 绽放之舞</string>
+					<string>24区 甜蜜恋风</string>
+					<string>25区 星华缭乱</string>
+					<string>26区 兼爱非攻</string>
+					<string>27区 和平漫步</string>
+					<string>28区 机关重炮</string>
+					<string>29区 墨守成规</string>
+					<string>30区 活力进发</string>
+					<string>31区 翻滚突袭</string>
+					<string>32区 红莲爆弹</string>
+					<string>33区 终极弩炮</string>
+					<string>34区 诛心剑雨</string>
+					<string>35区 灵魂冲击</string>
+					<string>36区 偶像魅力</string>
+					<string>37区 女王崇拜</string>
+					<string>38区 王朝密令</string>
+					<string>39区 圣光守护</string>
+					<string>40区 誓约之盾</string>
+				</array>
+			</dict>
+			<dict>
+				<key>41-60区</key>
+				<array>
+					<string>41区 回旋打击</string>
+					<string>42区 圣剑裁决</string>
+					<string>43区 迟缓之箭</string>
+					<string>44区 疾风之箭</string>
+					<string>45区 寒冰箭雨</string>
+					<string>46区 惩戒射击</string>
+					<string>47区 勇气意志</string>
+					<string>48区 苍破烈斩</string>
+					<string>49区 突进之刃</string>
+					<string>50区 绽放刀锋</string>
+					<string>51区 残月利刃</string>
+					<string>52区 月光剑舞</string>
+					<string>53区 灼热之月</string>
+					<string>54区 血月之弑</string>
+					<string>55区 疯狂弹幕</string>
+					<string>56区 加农派对</string>
+					<string>57区 机关迷城</string>
+					<string>58区 青莲剑歌</string>
+					<string>59区 神来之笔</string>
+					<string>60区 逆袭之刃</string>
+				</array>
+			</dict>
+			<dict>
+				<key>61-80区</key>
+				<array>
+					<string>61区 不羁豪气</string>
+					<string>62区 搏击拳套</string>
+					<string>63区 吸血之镰</string>
+					<string>64区 秘义之剑</string>
+					<string>65区 风暴巨剑</string>
+					<string>66区 日蚀之锤</string>
+					<string>67区 狂暴双刃</string>
+					<string>68区 凶残之力</string>
+					<string>69区 破魔之刃</string>
+					<string>70区 破灭君主</string>
+					<string>71区 名刀正宗</string>
+					<string>72区 泣血之刃</string>
+					<string>73区 无尽刀锋</string>
+					<string>74区 三圣之力</string>
+					<string>75区 黑色战斧</string>
+					<string>76区 影刃破军</string>
+					<string>77区 咒术典籍</string>
+					<string>78区 炼金护符</string>
+					<string>79区 圣者法典</string>
+					<string>80区 灵魂长卷</string>
+				</array>
+			</dict>
+			<dict>
+				<key>81-100区</key>
+				<array>
+					<string>81区 血族之书</string>
+					<string>82区 光辉之剑</string>
+					<string>83区 小丑面罩</string>
+					<string>84区 进化水晶</string>
+					<string>85区 炽热之拥</string>
+					<string>86区 虚无法杖</string>
+					<string>87区 回响之杖</string>
+					<string>88区 冰霜法杖</string>
+					<string>89区 奇迹幻视</string>
+					<string>90区 巫术法杖</string>
+					<string>91区 时之预言</string>
+					<string>92区 贤者之书</string>
+					<string>93区 海蓝宝石</string>
+					<string>94区 绯红玛瑙</string>
+					<string>95区 抗磨披风</string>
+					<string>96区 生命宝珠</string>
+					<string>97区 杀戳之甲</string>
+					<string>98区 力量腰带</string>
+					<string>99区 熔炼之心</string>
+					<string>100区 神隐斗篷</string>
+				</array>
+			</dict>
+			<dict>
+				<key>101-120区</key>
+				<array>
+					<string>101区 雪山圆盾</string>
+					<string>102区 军团荣耀</string>
+					<string>103区 反伤刺甲</string>
+					<string>104区 红莲斗篷</string>
+					<string>105区 霸者重装</string>
+					<string>106区 敬畏虚空</string>
+					<string>107区 振兴之铠</string>
+					<string>108区 魔女面纱</string>
+					<string>109区 寒冰之心</string>
+					<string>110区 贤者庇护</string>
+					<string>111区 暴烈之甲</string>
+					<string>112区 神速之靴</string>
+					<string>113区 隐忍之足</string>
+					<string>114区 冷静抵抗</string>
+					<string>115区 急速秘法</string>
+					<string>116区 召唤战场</string>
+					<string>117区 通天之塔</string>
+					<string>118区 疾步之靴</string>
+					<string>119区 狩猎宽刃</string>
+					<string>120区 符文大剑</string>
+				</array>
+			</dict>
+			<dict>
+				<key>121-140区</key>
+				<array>
+					<string>121区 巨人之握</string>
+					<string>122区 贪婪之噬</string>
+					<string>123区 追击刀锋</string>
+					<string>124区 巡守利斧</string>
+					<string>125区 游击弯刀</string>
+					<string>126区 幽灵疾步</string>
+					<string>127区 心灵治疗</string>
+					<string>128区 重力眩晕</string>
+					<string>129区 自然净化</string>
+					<string>130区 振奋冲击</string>
+					<string>131区 圣骑王者</string>
+					<string>132区 精灵冰弓</string>
+					<string>133区 魔法大师</string>
+					<string>134区 地狱岩魂</string>
+					<string>135区 万圣前夜</string>
+					<string>136区 忍者炎影</string>
+					<string>137区 未来纪元</string>
+					<string>138区 皇家上将</string>
+					<string>139区 仁德义枪</string>
+					<string>140区 禁血狂兽</string>
+				</array>
+			</dict>
+			<dict>
+				<key>141-160区</key>
+				<array>
+					<string>141区 一骑当千</string>
+					<string>142区 单刀赴会</string>
+					<string>143区 青龙偃月</string>
+					<string>144区 侠客行</string>
+					<string>145区 将进酒</string>
+					<string>146区 强化霰弹</string>
+					<string>147区 双重射击</string>
+					<string>148区 震荡射击</string>
+					<string>149区 万象初新</string>
+					<string>150区 黑暗潜能</string>
+					<string>151区 画地为牢</string>
+					<string>152区 狂意杀戳</string>
+					<string>153区 守护机关</string>
+					<string>154区 崩裂践踏</string>
+					<string>155区 狂兽血性</string>
+					<string>156区 饕餮血统</string>
+					<string>157区 方天画斩</string>
+					<string>158区 贪狼之握</string>
+					<string>159区 魔神降世</string>
+					<string>160区 大圣神威</string>
+				</array>
+			</dict>
+			<dict>
+				<key>161-180区</key>
+				<array>
+					<string>161区 七十二变</string>
+					<string>162区 斗战冲锋</string>
+					<string>163区 如意金箍</string>
+					<string>164区 战争践踏</string>
+					<string>165区 大地震撼</string>
+					<string>166区 横行霸道</string>
+					<string>167区 野性意志</string>
+					<string>168区 语花印</string>
+					<string>169区 落红雨</string>
+					<string>170区 缘心结</string>
+					<string>171区 绽风华</string>
+					<string>172区 齐天大圣</string>
+					<string>173区 精英酋长</string>
+					<string>174区 半神之弓</string>
+					<string>175区 摘星楼</string>
+					<string>176区 王者峡谷</string>
+					<string>177区 长平战场</string>
+					<string>178区 海洋之心</string>
+					<string>179区 白衣执事</string>
+					<string>180区 天鹅之梦</string>
+				</array>
+			</dict>
+			<dict>
+				<key>181-200区</key>
+				<array>
+					<string>181区 大魔术师</string>
+					<string>182区 职棒王牌</string>
+					<string>183区 天魔缭乱</string>
+					<string>184区 紫霞仙子</string>
+					<string>185区 教廷特使</string>
+					<string>186区 我是歌手</string>
+					<string>187区 天堂福音</string>
+					<string>188区 波斯王子</string>
+					<string>189区 荒野镖客</string>
+					<string>190区 西部镖客</string>
+					<string>191区 荣耀王者</string>
+					<string>192区 哥特玫瑰</string>
+					<string>193区 绯红之刃</string>
+					<string>194区 鬼之武者</string>
+					<string>195区 地狱之火</string>
+					<string>196区 天启骑士</string>
+					<string>197区 花好人间</string>
+					<string>198区 大秦宣后</string>
+					<string>199区 万事如意</string>
+					<string>200区 龙腾万里</string>
+				</array>
+			</dict>
+			<dict>
+				<key>201-220区</key>
+				<array>
+					<string>201区 密探之力</string>
+					<string>202区 谍影重重</string>
+					<string>203区 无间刃锋</string>
+					<string>204区 制裁仪式</string>
+					<string>205区 虚空吞没</string>
+					<string>206区 湮灭之锁</string>
+					<string>207区 轮回吞噬</string>
+					<string>208区 飞翔龙炎</string>
+					<string>209区 花蝶之扇</string>
+					<string>210区 必杀忍蜂</string>
+					<string>211区 流刀舞术</string>
+					<string>212区 飞鹰攻击</string>
+					<string>213区 清风之刃</string>
+					<string>214区 飞鹰急袭</string>
+					<string>215区 大唐传奇</string>
+					<string>216区 桃园结义</string>
+					<string>217区 燎原火</string>
+					<string>218区 血之咆哮</string>
+					<string>219区 天之劫</string>
+					<string>220区 不死之王</string>
+				</array>
+			</dict>
+			<dict>
+				<key>221-227区</key>
+				<array>
+					<string>221区 荆棘之心</string>
+					<string>222区 魔女斗篷</string>
+					<string>223区 觉醒水晶</string>
+					<string>224区 新月残像</string>
+					<string>225区 神圣心石</string>
+					<string>226区 死海文书</string>
+					<string>227区 王的铁面</string>
+				</array>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

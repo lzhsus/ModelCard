@@ -28,6 +28,8 @@
 		88516B06203FBC1900A9F133 /* HModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B05203FBC1900A9F133 /* HModelImageController.m */; };
 		88516B09203FFECC00A9F133 /* UIDevice+YADevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */; };
 		88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88516B0B20400F0E00A9F133 /* YAScrollView.m */; };
+		88764FF92048DECC0081161F /* gameServer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88764FF82048DECC0081161F /* gameServer.plist */; };
+		88764FFC2048EC640081161F /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88764FFB2048EC640081161F /* ServerController.m */; };
 		8888800B204639B600009C75 /* TextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888800A204639B600009C75 /* TextFieldCell.m */; };
 		8888800E20463CCD00009C75 /* UITextField+Length.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888800C20463CCD00009C75 /* UITextField+Length.m */; };
 		888880182046700000009C75 /* PickInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 888880172046700000009C75 /* PickInfoView.m */; };
@@ -140,7 +142,6 @@
 		889134822047D6F100767D9F /* GameServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889134812047D6F100767D9F /* GameServerController.m */; };
 		889134852047D70800767D9F /* GameMessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 889134842047D70800767D9F /* GameMessageController.m */; };
 		889134882047E9EE00767D9F /* HeroViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 889134872047E9EE00767D9F /* HeroViewCell.m */; };
-		8891348A2047FD4500767D9F /* gameServerName.json in Resources */ = {isa = PBXBuildFile; fileRef = 889134892047FD4500767D9F /* gameServerName.json */; };
 		88B5989C2043A49100BE6B1A /* VModelImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B5989B2043A49100BE6B1A /* VModelImageController.m */; };
 		88BC6B5E2042A6CE00C2B64D /* ImagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC6B5D2042A6CE00C2B64D /* ImagesView.m */; };
 		88BC6B612042BD8900C2B64D /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BC6B602042BD8900C2B64D /* ImageViewCell.m */; };
@@ -193,6 +194,9 @@
 		88516B08203FFECC00A9F133 /* UIDevice+YADevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+YADevice.m"; sourceTree = "<group>"; };
 		88516B0B20400F0E00A9F133 /* YAScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YAScrollView.m; sourceTree = "<group>"; };
 		88516B0C20400F0E00A9F133 /* YAScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YAScrollView.h; sourceTree = "<group>"; };
+		88764FF82048DECC0081161F /* gameServer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gameServer.plist; sourceTree = "<group>"; };
+		88764FFA2048EC640081161F /* ServerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerController.h; sourceTree = "<group>"; };
+		88764FFB2048EC640081161F /* ServerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerController.m; sourceTree = "<group>"; };
 		88888009204639B600009C75 /* TextFieldCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldCell.h; sourceTree = "<group>"; };
 		8888800A204639B600009C75 /* TextFieldCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextFieldCell.m; sourceTree = "<group>"; };
 		8888800C20463CCD00009C75 /* UITextField+Length.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Length.m"; sourceTree = "<group>"; };
@@ -323,7 +327,6 @@
 		889134842047D70800767D9F /* GameMessageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameMessageController.m; sourceTree = "<group>"; };
 		889134862047E9EE00767D9F /* HeroViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeroViewCell.h; sourceTree = "<group>"; };
 		889134872047E9EE00767D9F /* HeroViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeroViewCell.m; sourceTree = "<group>"; };
-		889134892047FD4500767D9F /* gameServerName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gameServerName.json; sourceTree = "<group>"; };
 		88B5989A2043A49100BE6B1A /* VModelImageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VModelImageController.h; sourceTree = "<group>"; };
 		88B5989B2043A49100BE6B1A /* VModelImageController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VModelImageController.m; sourceTree = "<group>"; };
 		88BC6B5C2042A6CE00C2B64D /* ImagesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagesView.h; sourceTree = "<group>"; };
@@ -607,6 +610,8 @@
 				8891347E2047D6A000767D9F /* GameHeroController.m */,
 				889134802047D6F100767D9F /* GameServerController.h */,
 				889134812047D6F100767D9F /* GameServerController.m */,
+				88764FFA2048EC640081161F /* ServerController.h */,
+				88764FFB2048EC640081161F /* ServerController.m */,
 				889134832047D70800767D9F /* GameMessageController.h */,
 				889134842047D70800767D9F /* GameMessageController.m */,
 			);
@@ -822,7 +827,7 @@
 				888880192046894800009C75 /* Address.plist */,
 				8888801B2046A06F00009C75 /* GameRankList.plist */,
 				8888801D2046A1D300009C75 /* liwushuo.json */,
-				889134892047FD4500767D9F /* gameServerName.json */,
+				88764FF82048DECC0081161F /* gameServer.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -955,6 +960,7 @@
 				889134532047A89D00767D9F /* 10图④ - 10竖图.plist in Resources */,
 				889134682047A89E00767D9F /* number_nine_style_100.plist in Resources */,
 				889134372047A89D00767D9F /* 9图③ - 9竖图.plist in Resources */,
+				88764FF92048DECC0081161F /* gameServer.plist in Resources */,
 				8891345B2047A89D00767D9F /* number_five_style_110.plist in Resources */,
 				8891344D2047A89D00767D9F /* 11图① - 5竖图6方图.plist in Resources */,
 				889134702047A89E00767D9F /* a2Model.plist in Resources */,
@@ -965,7 +971,6 @@
 				8891344C2047A89D00767D9F /* 10图⑥ - 10竖图.plist in Resources */,
 				8891343C2047A89D00767D9F /* number_seven_style_110.plist in Resources */,
 				889134222047A89D00767D9F /* DdModel.plist in Resources */,
-				8891348A2047FD4500767D9F /* gameServerName.json in Resources */,
 				889134652047A89E00767D9F /* 8图② - 8竖图.plist in Resources */,
 				889134402047A89D00767D9F /* 12图② - 7竖图5横图.plist in Resources */,
 				8891346C2047A89E00767D9F /* 9图④ - 9竖图.plist in Resources */,
@@ -1062,6 +1067,7 @@
 				889133B320479B6900767D9F /* TenToThirteen.m in Sources */,
 				88516B0D20400F0F00A9F133 /* YAScrollView.m in Sources */,
 				8888800E20463CCD00009C75 /* UITextField+Length.m in Sources */,
+				88764FFC2048EC640081161F /* ServerController.m in Sources */,
 				2281AEAD203EB29B00412003 /* ModelCard.m in Sources */,
 				889134852047D70800767D9F /* GameMessageController.m in Sources */,
 				889134882047E9EE00767D9F /* HeroViewCell.m in Sources */,

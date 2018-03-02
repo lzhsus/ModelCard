@@ -53,13 +53,13 @@
                 _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-1-1",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市-青山湖区",@[@"1",@"1"], nil];
                 break;
             case ModelTypeWangZhe:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"oneyian",@"男",@"荣耀王者",@"橘右京-诸葛亮-宫本武藏",@"50区-痛苦狙击",@"哈哈哈哈", nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"oneyian",@"男",@"荣耀王者",@"橘右京,诸葛亮,宫本武藏",@"50区 痛苦狙击",@"哈哈哈哈", nil];
                 break;
             case ModelTypeYanYuan:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市",@"15079244845",@[@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市-青山湖区",@"15079244845",@[@"1"], nil];
                 break;
             default:
-                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"熊猫",@"100W",@"oneyian",@"100W",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市",@[@"1"], nil];
+                _contentList = [[NSMutableArray alloc]initWithObjects:@"安",@"熊猫",@"100W",@"oneyian",@"100W",@"男",@"2018-01-01",@"165",@"52",@"胸围80 腰围60 臀围80",@"38",@"江西省-南昌市-青山湖区",@[@"1"], nil];
                 break;
         }
     }
@@ -82,6 +82,7 @@
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, Width, Height-NavigationTop) style:UITableViewStylePlain];
     tableView.backgroundColor = [UIColor colorHex:@"#3A3538"];
     tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    tableView.separatorColor = [UIColor colorWithRed:0.16 green:0.16 blue:0.17 alpha:1.00];
     tableView.delegate = self;
     tableView.dataSource = self;
     [tableView registerClass:[ModelInfoCell class] forCellReuseIdentifier:@"ModelInfoCell"];
@@ -431,18 +432,36 @@
         case 101://常用英雄
         {
             GameHeroController *hero = [[GameHeroController alloc]init];
+            hero.subHeros = [RACSubject subject];
+            [hero.subHeros subscribeNext:^(id  _Nullable x) {
+                @strongify(self);
+                cell.detailTextLabel.text = x;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
             [self.navigationController pushViewController:hero animated:YES];
         }
             break;
         case 102://游戏区服
         {
             GameServerController *server = [[GameServerController alloc]init];
+            server.subName = [RACSubject subject];
+            [server.subName subscribeNext:^(id  _Nullable x) {
+                @strongify(self);
+                cell.detailTextLabel.text = x;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
             [self.navigationController pushViewController:server animated:YES];
         }
             break;
         case 103://常用语
         {
             GameMessageController *mesage = [[GameMessageController alloc]init];
+            mesage.subMessage = [RACSubject subject];
+            [mesage.subMessage subscribeNext:^(id  _Nullable x) {
+                @strongify(self);
+                cell.detailTextLabel.text = x;
+                [self.contentList replaceObjectAtIndex:indexPath.row withObject:cell.detailTextLabel.text];
+            }];
             [self.navigationController pushViewController:mesage animated:YES];
         }
             break;

@@ -7,84 +7,72 @@
 //
 
 #import "GameServerController.h"
+#import "SegmentView.h"
+#import "ServerController.h"
 
-@interface GameServerController ()
+@interface GameServerController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) NSArray * serverList;
+@property (nonatomic,strong) NSString * select;
 @end
 
 @implementation GameServerController
 
+-(NSArray *)serverList{
+    if (!_serverList) {
+        NSString *jsonPath = [[NSBundle mainBundle]pathForResource:@"gameServer" ofType:@"plist"];
+        _serverList = [[NSArray alloc]initWithContentsOfFile:jsonPath];
+    }
+    return _serverList;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"游戏区服";
     self.view.backgroundColor = BackgroundColor;
     // Do any additional setup after loading the view.
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+    [button setTitleColor:[UIColor colorHex:@"#E7586E"] forState:UIControlStateNormal];
+    [button setTitle:@"保存" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [button setTitle:@"保存" forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(rightBtn:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithCustomView:button];
+    [self.navigationItem setRightBarButtonItem:right];
     
-    NSString *jsonPath = [[NSBundle mainBundle]pathForResource:@"gameServerName" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:jsonPath];
-    self.serverList = [[NSArray alloc]initWithArray:[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil][@"data"]];
-    
-//    {
-//                    "id":"73",
-//                    "parentId":"0",
-//                    "level":"1",
-//                    "key":null,
-//                    "value":"微信ios",
-//                    "isDelete":"N"
-//                },{
-//                        "id":"77",
-//                        "parentId":"73",
-//                        "level":"2",
-//                        "key":null,
-//                        "value":"1-20区",
-//                        "isDelete":"N"
-//                    },{
-//                            "id":"100",
-//                            "parentId":"77",
-//                            "level":"3",
-//                            "key":"w-1-1",
-//                            "value":"1区 徇烂刀锋",
-//                            "isDelete":"N"
-//                        },
-    
-    NSMutableArray *root = [[NSMutableArray alloc]init];
-    NSMutableArray *typeList = [[NSMutableArray alloc]init];
-    NSMutableArray *serverList = [[NSMutableArray alloc]init];
-    NSMutableArray *nameList = [[NSMutableArray alloc]init];
-    
+    NSMutableArray *titles = [NSMutableArray new];
+    NSMutableArray *viewControllers = [NSMutableArray new];
+    @weakify(self);
     for (NSDictionary *dict in self.serverList) {
-        if ([dict[@"level"] integerValue] == 1) {
-            [typeList addObject:@{@"id":@"73",@"value":@"微信ios"}];
-        }else if ([dict[@"level"] integerValue] == 2){
-            [serverList addObject:@{@"id":@"77",@"parentId":@"73",@"value":@"1-20区"}];
-        }else{
-            [nameList addObject:@{@"parentId":@"77",@"value":@"1区 徇烂刀锋"}];
-        }
+        ServerController *server = [[ServerController alloc]init];
+        server.subName = [RACSubject subject];
+        [server.subName subscribeNext:^(id  _Nullable x) {
+            @strongify(self);
+            self.select = x;
+        }];
+        server.ServerList = [[NSArray alloc]initWithArray:dict[dict.allKeys.firstObject]];
+        [self addChildViewController:server];
+        [titles addObject:dict.allKeys.firstObject];
+        [viewControllers addObject:server];
     }
     
-    for (NSDictionary *type in typeList) {
-        NSInteger tid = [type[@"id"] integerValue];
-        NSMutableArray *subServer = [[NSMutableArray alloc]init];
-        
-        for (NSDictionary *server in serverList) {
-            if ([server[@"parentId"] integerValue] == tid) {
-                NSInteger sid = [type[@"id"] integerValue];
-                NSMutableArray *subName = [[NSMutableArray alloc]init];
-                
-                for (NSDictionary *name in nameList) {
-                    if ([name[@"parentId"] integerValue] == sid) {
-                        [subName addObject:name[@"value"]];
-                    }
-                }
-                [subServer addObject:@{server[@"value"]:subName}];
-            }
-        }
-        [root addObject:@{type[@"value"]:subServer}];
-    }
-    
-    
+    SegmentView * main = [[SegmentView alloc] init];
+    main.backgroundColor = [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.00];
+    main.pageScroll.contentSize = CGSizeMake(Width*self.serverList.count, 0);
+    [self.view addSubview:main];
+    main.frame = CGRectMake(0, 0,Width, Height-NavigationTop);
+    //设置菜单view 的高度
+    main.btnViewHeight = 40;
+    //设置按钮下划线高度
+    main.btnLineHeight = 2;
+    //设置按钮字体大小
+    main.btnFont = 17;
+    main.viewControllers = viewControllers;
+    main.titleArray = titles;
 }
-
+-(void)rightBtn:(UIButton *)sender{
+    if (isStringEmpty(self.select)) return;
+    [self.subName sendNext:self.select];
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

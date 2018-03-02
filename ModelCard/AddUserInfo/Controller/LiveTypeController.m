@@ -70,6 +70,7 @@
     @weakify(self);
     [[save rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self);
+        if (self.selectArray.count == 0) return;
         [self.subLives sendNext:[self.selectArray componentsJoinedByString:@","]];
         [self.navigationController popViewControllerAnimated:YES];
     }];

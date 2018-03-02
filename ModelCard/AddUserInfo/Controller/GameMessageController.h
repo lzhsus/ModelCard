@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GameMessageController : UIViewController
-
+@property (nonatomic,strong) RACSubject * subMessage;
 @end

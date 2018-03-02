@@ -43,7 +43,6 @@
     
     AppDelegate * appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [appDelegate.window addSubview:self.selectImages];
-    NSLog(@"%@",self.modelArray);
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.modelArray.count;

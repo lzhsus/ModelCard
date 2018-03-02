@@ -17,11 +17,11 @@
 - (void)setTitleArray:(NSArray *)titleArray {
     _titleArray = titleArray;
     for (int i = 0; i < titleArray.count; i++) {
-        CGFloat width = [self.titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10;
+        CGFloat width = [titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10;
         titleWidth = width + titleWidth;
     }
+    self.pageScroll.contentSize = CGSizeMake(Width*titleArray.count, 0);
     [self cretBtnView];
-    self.pageScroll.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width*self.titleArray.count, 0);
     [self scrollVc1];
 }
 - (void)setBtnViewHeight:(NSInteger)btnViewHeight {
@@ -51,32 +51,40 @@
     _pageScroll.delegate = self;
     _pageScroll.pagingEnabled = YES;
     _pageScroll.bounces = NO;
-    _pageScroll.frame = CGRectMake(0,self.btnViewHeight, [[UIScreen mainScreen] bounds].size.width, self.bounds.size.height -self.btnViewHeight);
+    _pageScroll.frame = CGRectMake(0,self.btnViewHeight, Width, self.bounds.size.height -self.btnViewHeight);
     _pageScroll.showsHorizontalScrollIndicator = NO;
     
     
 }
 
 - (void)cretBtnView {
-    _btnView.frame = CGRectMake(0, 0,[[UIScreen mainScreen] bounds].size.width,self.btnViewHeight);
+    _btnView.frame = CGRectMake(0, 0,Width,self.btnViewHeight);
+    CGFloat jianJu = (Width - titleWidth)/(self.titleArray.count +1);
     for (int i = 0; i < [self.titleArray count]; i++)  {
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *btn = [[UIButton alloc]init];
         btn.tag = i+10;
         [btn setTitle:self.titleArray[i] forState:UIControlStateNormal];
         if (i == 0) {
-            [btn setTitleColor:[UIColor colorWithRed:0.885 green:0.000 blue:0.039 alpha:1.000] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor colorWithRed:0.91 green:0.35 blue:0.43 alpha:1.00] forState:UIControlStateNormal];
             _seletedBtn = btn;
         } else {
             [btn setTitleColor:[UIColor colorWithRed:0.276 green:0.274 blue:0.277 alpha:1.000] forState:UIControlStateNormal];
         }
+        
         CGFloat width = [self.titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10;
-        CGFloat ScreenWidth = [[UIScreen mainScreen] bounds].size.width ;
-        CGFloat jianJu = (ScreenWidth - titleWidth)/(self.titleArray.count +1);
-        btn.frame = CGRectMake(jianJu+i*(width+jianJu), 0,width,self.btnViewHeight);
+        CGFloat Awidth = 0;
+        //最大4个title
+        if (i == 1) {
+            Awidth = [self.titleArray[0] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10;
+        }else if(i == 2){
+            Awidth = [self.titleArray[1] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10+[self.titleArray[0] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10;
+        }else if(i == 3){
+            Awidth = [self.titleArray[1] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10+[self.titleArray[0] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10+[self.titleArray[2] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:self.btnFont]}].width+10;
+        }
+        btn.frame = CGRectMake(Awidth+jianJu*i+jianJu, 0,width,self.btnViewHeight);
         if (i == 0) {
             self.lineView.frame = CGRectMake(jianJu,self.btnViewHeight-self.btnLineHeight,width,self.btnLineHeight);
         }
-        
         lastBtn = btn;
         [_btnView addSubview:btn];
         
@@ -95,25 +103,24 @@
 - (void)CreatelineView {
     if (!_lineView) {
         _lineView = [[UIView alloc]init];
-        _lineView.backgroundColor = [UIColor colorWithRed:0.885 green:0.000 blue:0.039 alpha:1.000];
+        _lineView.backgroundColor = [UIColor colorWithRed:0.91 green:0.35 blue:0.43 alpha:1.00];
     }
 }
 
 - (void)scrollVc1 {
-    NSLog(@"%ld",self.titleArray.count);
     for (int i = 0; i<self.titleArray.count; i++) {
         UIViewController *vc = self.viewControllers[i];
-        vc.view.frame = CGRectMake(i*[[UIScreen mainScreen] bounds].size.width,0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height-94);
+        vc.view.frame = CGRectMake(i*Width,0, Width, Height-NavigationTop-30);
         [self.pageScroll addSubview:vc.view];
     }
 }
 
 //自己写的方法(按钮的点击方法/自己的方法)
 - (void)btnClick:(UIButton *)sender {
-    
+    [Oneyian postNotification:@"changeView" object:nil];
     [UIView animateWithDuration:0.1 animations:^{
         [_seletedBtn setTitleColor:[UIColor colorWithRed:0.276 green:0.274 blue:0.277 alpha:1.000] forState:UIControlStateNormal];
-        [sender setTitleColor:[UIColor colorWithRed:0.885 green:0.000 blue:0.039 alpha:1.000] forState:UIControlStateNormal];
+        [sender setTitleColor:[UIColor colorWithRed:0.91 green:0.35 blue:0.43 alpha:1.00] forState:UIControlStateNormal];
         CGFloat x = CGRectGetMinX(sender.frame);
         CGFloat width = CGRectGetWidth(sender.frame);
         self.lineView.frame = CGRectMake(x,self.btnViewHeight-self.btnLineHeight, width, self.btnLineHeight);
@@ -127,11 +134,12 @@
 
 #pragma mark - scrollViewDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [Oneyian postNotification:@"changeView" object:nil];
     index = scrollView.contentOffset.x/scrollView.frame.size.width;
     UIButton *btn = (UIButton *)[self.btnView viewWithTag:index+10];
     if (_seletedBtn != btn) {
         [UIView animateWithDuration:0.1 animations:^{
-            [btn setTitleColor:[UIColor colorWithRed:0.885 green:0.000 blue:0.039 alpha:1.000] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor colorWithRed:0.91 green:0.35 blue:0.43 alpha:1.00] forState:UIControlStateNormal];
             [_seletedBtn setTitleColor:[UIColor colorWithRed:0.276 green:0.274 blue:0.277 alpha:1.000] forState:UIControlStateNormal];
             CGFloat x = CGRectGetMinX(btn.frame);
             CGFloat width = CGRectGetWidth(btn.frame);

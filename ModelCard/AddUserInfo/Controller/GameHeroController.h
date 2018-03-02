@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GameHeroController : UIViewController
-
+@property (nonatomic,strong) RACSubject * subHeros;
 @end

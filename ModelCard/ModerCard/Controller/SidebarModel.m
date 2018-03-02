@@ -44,6 +44,7 @@
     [self addChildViewController:SevenToNineVc];
     [self addChildViewController:FiveToSixVc];
     self.viewControllers = [NSArray arrayWithObjects:TenToThirteenVc,SevenToNineVc,FiveToSixVc,nil];
+    
     SegmentView * main = [[SegmentView alloc] init];
     main.pageScroll.contentSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width*3, 0);
     [self.view addSubview:main];
