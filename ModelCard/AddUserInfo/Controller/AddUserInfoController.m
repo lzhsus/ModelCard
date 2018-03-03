@@ -113,7 +113,7 @@
 }
 -(NSMutableArray *)loadContents{
     NSMutableArray *array = [[NSMutableArray alloc]init];
-    
+    //个人信息
     switch (self.modelType) {
         case ModelTypeMoTe:
         {

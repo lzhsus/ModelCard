@@ -94,6 +94,7 @@
         CGRect viewRect =  CGRectMake(AutoWidth([aArray[0] floatValue]), AutoHeight([aArray[1] floatValue]), AutoWidth([aArray[2] floatValue]), AutoHeight([aArray[3] floatValue]));
         
         UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
+        title.tag = 1000+i;
         title.numberOfLines = 0;
         
         switch (i) {
@@ -107,20 +108,19 @@
             {
                 CGFloat fontSize = self.contents.count<4 ? 8:6;
                 NSString *AutoString = @"";
-                NSString *labelText = nil;
+                NSString *labelText = @"";
                 for (int i=0; i<self.contents.count; i++) {
                     if (title.frame.size.width < title.frame.size.height) {
                         AutoString = [NSString stringWithFormat:@"%@\n%@",AutoString,self.contents[i]];
-                        labelText = AutoString;
                     }else{
                         AutoString = [NSString stringWithFormat:@"%@  %@",AutoString,self.contents[i]];
-                        labelText = AutoString;
                         if ([AutoString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}].width + 2*i >= title.frame.size.width) {
                             AutoString = [NSString stringWithFormat:@"%@\n%@",labelText,self.contents[i]];
-                            labelText = AutoString;
                         }
+                        labelText = AutoString;
                     }
                 }
+                labelText = AutoString;
                 if (title.frame.size.width < title.frame.size.height) {
                     title.attributedText = [Oneyian sortingContent:labelText];
                 }else{
@@ -213,6 +213,10 @@
 -(void)edit:(UIButton *)sender{
     self.changeButton.hidden = YES;
     sender.selected = !sender.isSelected;
+    for (int i =0; i<2; i++) {
+        UILabel *label = (UILabel *)[self.BackView viewWithTag:1000+i];
+        label.textColor = sender.isSelected ? [UIColor whiteColor]:[UIColor blackColor];
+    }
     self.BackView.backgroundColor = sender.isSelected ? [UIColor blackColor]:[UIColor whiteColor];
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
