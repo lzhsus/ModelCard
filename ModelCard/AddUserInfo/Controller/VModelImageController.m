@@ -71,7 +71,7 @@
                 break;
             case 1:
             {
-                CGFloat fontSize = self.contents.count<4 ? 8:5;
+                CGFloat fontSize = self.contents.count<4 ? 8:6;
                 NSString *AutoString = @"";
                 NSString *labelText = nil;
                 for (int i=0; i<self.contents.count; i++) {
