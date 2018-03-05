@@ -60,44 +60,31 @@
         CGRect viewRect =  CGRectMake(AutoWidth([aArray[0] floatValue]), AutoHeight([aArray[1] floatValue]), AutoWidth([aArray[2] floatValue]), AutoHeight([aArray[3] floatValue]));
 
         UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
+        if (title.frame.size.width < title.frame.size.height) {//竖
+            title.textAlignment = NSTextAlignmentLeft;
+        }else{
+            title.textAlignment = NSTextAlignmentCenter;
+        }
         title.tag = 1000+i;
         title.numberOfLines = 0;
+        title.text = self.name;
         
-        switch (i) {
-            case 0:
-            {
-                title.text = self.name;
-                title.textAlignment = NSTextAlignmentCenter;
-            }
-                break;
-            case 1:
-            {
-                CGFloat fontSize = self.contents.count<4 ? 8:6;
-                NSString *AutoString = @"";
-                NSString *labelText = @"";
-                for (int i=0; i<self.contents.count; i++) {
-                    if (title.frame.size.width < title.frame.size.height) {
-                        AutoString = [NSString stringWithFormat:@"%@\n%@",AutoString,self.contents[i]];
-                    }else{
-                        AutoString = [NSString stringWithFormat:@"%@  %@",AutoString,self.contents[i]];
-                        if ([AutoString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}].width + 2*i >= title.frame.size.width) {
-                            AutoString = [NSString stringWithFormat:@"%@\n%@",labelText,self.contents[i]];
-                        }
-                        labelText = AutoString;
+        if (i==1) {
+            NSString *AutoString = @"";
+            NSString *labelText = @"";
+            for (int i=0; i<self.contents.count; i++) {
+                if (title.frame.size.width < title.frame.size.height) {
+                    AutoString = [NSString stringWithFormat:@"%@\n%@",labelText,self.contents[i]];
+                }else{
+                    AutoString = [NSString stringWithFormat:@"%@ %@",labelText,self.contents[i]];
+                    if ([AutoString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]}].width + 2*i >= title.frame.size.width) {
+                        AutoString = [NSString stringWithFormat:@"%@\n%@",labelText,self.contents[i]];
                     }
                 }
                 labelText = AutoString;
-                if (title.frame.size.width < title.frame.size.height) {
-                    title.attributedText = [Oneyian sortingContent:labelText];
-                }else{
-                    title.font = [UIFont systemFontOfSize:fontSize];
-                    title.text = labelText;
-                    title.textAlignment = NSTextAlignmentCenter;
-                }
             }
-                break;
-            default:
-                break;
+            title.text = labelText;
+            title.adjustsFontSizeToFitWidth = YES;
         }
         [self.BackView addSubview:title];
     }
