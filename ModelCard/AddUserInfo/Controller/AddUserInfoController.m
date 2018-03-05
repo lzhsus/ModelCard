@@ -27,6 +27,7 @@
 
 @implementation AddUserInfoController
 
+#pragma mark  =========== 测试数据 ==========
 -(NSArray *)titleList{
     if (!_titleList) {
         switch (self.modelType) {
@@ -65,6 +66,7 @@
     }
     return _contentList;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"个人资料";
@@ -91,6 +93,7 @@
     self.tableView = tableView;
     // Do any additional setup after loading the view.
 }
+#pragma mark  =========== 数据筛选传出 ==========
 -(void)rightBtn:(UIButton *)sender{
     //下一步
     NSArray *size = [self loadModelData:self.model[@"SuperViewInfo"][@"size"]];
@@ -121,26 +124,36 @@
             [array addObject:[NSString stringWithFormat:@"W:%@kg",self.contentList[4]]];
             [array addObject:[NSString stringWithFormat:@"S:%@",self.contentList[6]]];
             
-            if ([[self.contentList.lastObject firstObject] isEqualToString:@"1"]) {
-                [array addObject:[NSString stringWithFormat:@"BWH:%@",self.contentList[5]]];
-            }
-            if ([[self.contentList.lastObject lastObject] isEqualToString:@"1"]) {
-                [array addObject:[NSString stringWithFormat:@"B:%@",self.contentList[2]]];
-            }
+            if ([[self.contentList.lastObject firstObject] isEqualToString:@"1"]) [array addObject:[NSString stringWithFormat:@"BWH:%@",self.contentList[5]]];
+            if ([[self.contentList.lastObject lastObject] isEqualToString:@"1"]) [array addObject:[NSString stringWithFormat:@"B:%@",self.contentList[2]]];
         }
             break;
         case ModelTypeWangZhe:
         {
-            
+            [array addObject:[NSString stringWithFormat:@"游戏昵称\n%@",self.contentList[1]]];
+            [array addObject:[NSString stringWithFormat:@"\n排位段位\n%@",self.contentList[3]]];
+            [array addObject:[NSString stringWithFormat:@"\n擅长职业\n%@",self.contentList[4]]];
+            [array addObject:[NSString stringWithFormat:@"\n游戏区服\n%@",self.contentList[5]]];
         }
             break;
         case ModelTypeYanYuan:
         {
-            
+            [array addObject:[NSString stringWithFormat:@"H:%@cm",self.contentList[3]]];
+            [array addObject:[NSString stringWithFormat:@"W:%@kg",self.contentList[4]]];
+            [array addObject:[NSString stringWithFormat:@"BWH:%@",self.contentList[5]]];
+            [array addObject:[NSString stringWithFormat:@"S:%@",self.contentList[6]]];
+            if ([[self.contentList.lastObject firstObject] isEqualToString:@"1"]) [array addObject:[NSString stringWithFormat:@"T:%@",self.contentList[8]]];
         }
             break;
         default:
         {
+            [array addObject:[NSString stringWithFormat:@"直播平台/LIVE\n%@",self.contentList[1]]];
+            [array addObject:[NSString stringWithFormat:@"\n直播粉丝/FANS\n%@",self.contentList[2]]];
+            if ([[self.contentList.lastObject firstObject] isEqualToString:@"1"]) [array addObject:[NSString stringWithFormat:@"\n微博账号/ID\n%@",self.contentList[3]]];
+            [array addObject:[NSString stringWithFormat:@"\n身高/HEIGHT\n%@",self.contentList[7]]];
+            [array addObject:[NSString stringWithFormat:@"\n体重/WEIGHT\n%@",self.contentList[8]]];
+            [array addObject:[NSString stringWithFormat:@"\n三围/BWH\n%@",self.contentList[9]]];
+            
             
         }
             break;
@@ -153,6 +166,7 @@
     NSRange range = [aString rangeOfString:@","];
     return range.location != NSNotFound ? [aString componentsSeparatedByString:@","]:[aString componentsSeparatedByString:@"，"];
 }
+#pragma mark  =========== UITableView ==========
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.titleList.count;
 }
