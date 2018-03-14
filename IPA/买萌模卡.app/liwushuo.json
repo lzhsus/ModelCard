@@ -1,0 +1,350 @@
+{
+    "code": 200,
+    "data": {
+        "categories": [
+            {
+                "id": 1,
+                "name": "坦克",
+                "subcategories": [
+                    {
+                        "icon_url": "白起",
+                         "name": "白起",
+                        
+                    },
+                    {
+                        "icon_url": "程咬金",
+                         "name": "程咬金",
+                         
+                    },
+                    {
+                        "icon_url": "东皇太一",
+                         "name": "东皇太一",
+                    },
+                    {
+                        "icon_url": "廉颇",
+                         
+                        "name": "廉颇",
+                         
+                    },
+                    {
+                        "icon_url": "刘邦",
+                         
+                        "name": "刘邦",
+                         
+                    },
+                    {
+                        "icon_url": "刘婵",
+                         
+                        "name": "刘婵",
+                         
+                    },
+                    {
+                        "icon_url": "牛魔",
+                        
+                        "name": "牛魔",
+                         
+                    }
+                                  ,
+                                  {
+                                  "icon_url": "夏侯惇",
+                                  
+                                  "name": "夏侯惇",
+                                  
+                                  }
+                                  ,
+                                  {
+                                  "icon_url": "项羽",
+                                  
+                                  "name": "项羽",
+                                  
+                                  }
+                                  ,
+                                  {
+                                  "icon_url": "张飞",
+                                  
+                                  "name": "张飞",
+                                  
+                                  }
+                ]
+            },
+            {
+                "id": 2,
+                "name": "战士",
+                "subcategories": [
+                    {
+                        "icon_url": "钟无艳",
+                        
+                        "name": "钟无艳",
+                      
+                    },
+                    {
+                        "icon_url": "老夫子",
+                     
+                        "name": "老夫子",
+                       
+                    },
+                    {
+                        "icon_url": "刘备",
+                        
+                        "name": "刘备",
+                       
+                    },
+                    {
+                        "icon_url": "达摩",
+                     
+                        "name": "达摩",
+                      
+                    },
+                    {
+                        "icon_url": "曹操",
+                        "name": "曹操",
+                    },
+                    {
+                        "icon_url": "亚瑟",
+                        "name": "亚瑟",
+                    },
+                    {
+                        "icon_url": "雅典娜",
+                        "name": "雅典娜",
+                    },
+                    {
+                        "icon_url": "吕布",
+                        "name": "吕布",
+                    },
+                    {
+                        "icon_url": "关羽",
+                        "name": "关羽",
+                    },
+                    {
+                        "icon_url": "典韦",
+                        "name": "典韦",
+                    },
+                    {
+                        "icon_url": "露娜",
+                        "name": "露娜",
+                    }
+                      ,
+                      {
+                      "icon_url": "杨戬",
+                      "name": "杨戬",
+                      }
+                      ,
+                      {
+                      "icon_url": "赵云",
+                      "name": "赵云",
+                      }
+                      ,
+                      {
+                      "icon_url": "宫本武藏",
+                      "name": "宫本武藏",
+                      }
+                      ,
+                      {
+                      "icon_url": "花木兰",
+                      "name": "花木兰",
+                      }
+                      ,
+                      {
+                      "icon_url": "哪吒",
+                      "name": "哪吒",
+                      }
+                      ,
+                      {
+                      "icon_url": "孙悟空",
+                      "name": "孙悟空",
+                      }
+                                  
+                ]
+            },
+            {
+                "id": 3,
+                "name": "刺客",
+                "subcategories": [
+                    {
+                        "icon_url": "韩信",
+                        "name": "韩信",
+                    },
+                    {
+                        "icon_url": "橘右京",
+                        "name": "橘右京",
+                    },
+                    {
+                        "icon_url": "阿轲",
+                        "name": "阿轲",
+                    },
+                    {
+                        "icon_url": "李白",
+                        "name": "李白",
+                    },
+                    {
+                        "icon_url": "兰陵王",
+                        "name": "兰陵王",
+                    },
+                    {
+                        "icon_url": "娜可露露",
+                        "name": "娜可露露",
+                    
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "name": "法师",
+                "subcategories": [
+                    {
+                        "icon_url": "芈月",
+                        "name": "芈月",
+                    },
+                    {
+                        "icon_url": "墨子",
+                        "name": "墨子",
+                    },
+                    {
+                        "icon_url": "钟馗",
+                        "name": "钟馗",
+                    },
+                    {
+                        "icon_url": "不知火舞",
+                        "name": "不知火舞",
+                    },
+                    {
+                        "icon_url": "貂蝉",
+                        "name": "貂蝉",
+                    },
+                    {
+                        "icon_url": "干将莫邪",
+                        "name": "干将莫邪",
+                    },
+                    {
+                        "icon_url": "安琪拉",
+                        "name": "安琪拉",
+                    }
+                                  ,
+                                  {
+                                  "icon_url": "扁鹊",
+                                  "name": "扁鹊",
+                                  },
+                                  {
+                                  "icon_url": "妲己",
+                                  "name": "妲己",
+                                  },
+                                  {
+                                  "icon_url": "姜子牙",
+                                  "name": "姜子牙",
+                                  },
+                                  {
+                                  "icon_url": "甄姬",
+                                  "name": "甄姬",
+                                  },
+                                  {
+                                  "icon_url": "诸葛亮",
+                                  "name": "诸葛亮",
+                                  },
+                                  {
+                                  "icon_url": "王昭君",
+                                  "name": "王昭君",
+                                  },
+                                  {
+                                  "icon_url": "高渐离",
+                                  "name": "高渐离",
+                                  },
+                                  {
+                                  "icon_url": "武则天",
+                                  "name": "武则天",
+                                  },
+                                  {
+                                  "icon_url": "小乔",
+                                  "name": "小乔",
+                                  },
+                                  {
+                                  "icon_url": "嬴政",
+                                  "name": "嬴政",
+                                  },
+                                  {
+                                  "icon_url": "张良",
+                                  "name": "张良",
+                                  },
+                                  {
+                                  "icon_url": "周瑜",
+                                  "name": "周瑜",
+                                  }
+                ]
+            },
+            {
+                "id": 5,
+                "name": "射手",
+                "subcategories": [
+                    {
+                        "icon_url": "后羿",
+                        "name": "后羿",
+                    },
+                    {
+                        "icon_url": "黄忠",
+                        "name": "黄忠",
+                    },
+                    {
+                        "icon_url": "李元芳",
+                        "name": "李元芳",
+                    },
+                    {
+                        "icon_url": "鲁班七号",
+                        "name": "鲁班七号",
+                    },
+                    {
+                        "icon_url": "虞姬",
+                        "name": "虞姬",
+                    },
+                    {
+                        "icon_url": "成吉思汗",
+                        "name": "成吉思汗",
+                    },
+                    {
+                        "icon_url": "狄仁杰",
+                        "name": "狄仁杰",
+                    },
+                    {
+                        "icon_url": "马可波罗",
+                        "name": "马可波罗",
+                    },
+                    {
+                        "icon_url": "孙尚香",
+                        "name": "孙尚香",
+                    }
+                ]
+           
+               },
+               {
+               "id": 6,
+               "name": "辅助",
+               "subcategories": [
+                                 {
+                                 "icon_url": "太乙真人",
+                                 "name": "太乙真人",
+                                 },
+                                 {
+                                 "icon_url": "庄周",
+                                 "name": "庄周",
+                                 },
+                                 {
+                                 "icon_url": "蔡文姬",
+                                 "name": "蔡文姬",
+                                 },
+                                 {
+                                 "icon_url": "孙膑",
+                                 "name": "孙膑",
+                                 },
+                                 {
+                                 "icon_url": "大乔",
+                                 "name": "大乔",
+                                 },
+                                 {
+                                 "icon_url": "鬼谷子",
+                                 "name": "鬼谷子",
+                                 }
+                                ]
+               
+               }
+        ]
+    },
+    "message": "OK"
+}

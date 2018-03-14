@@ -93,10 +93,8 @@
         NSArray *aArray = [self loadModelData:points[i]];
         CGRect viewRect =  CGRectMake(AutoWidth([aArray[0] floatValue]), AutoHeight([aArray[1] floatValue]), AutoWidth([aArray[2] floatValue]), AutoHeight([aArray[3] floatValue]));
         
-        UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(viewRect.origin.x, viewRect.origin.y, viewRect.size.width, viewRect.size.height)];
-        if (title.frame.size.width < title.frame.size.height) {//竖
-            title.textAlignment = NSTextAlignmentLeft;
-        }else{
+        UILabel *title = [[UILabel alloc]initWithFrame:viewRect];
+        if (viewRect.size.width > viewRect.size.height) {//横
             title.textAlignment = NSTextAlignmentCenter;
         }
         title.tag = 1000+i;
@@ -107,11 +105,11 @@
             NSString *AutoString = @"";
             NSString *labelText = @"";
             for (int i=0; i<self.contents.count; i++) {
-                if (title.frame.size.width < title.frame.size.height) {
+                if (viewRect.size.width < viewRect.size.height) {
                     AutoString = [NSString stringWithFormat:@"%@\n%@",labelText,self.contents[i]];
                 }else{
                     AutoString = [NSString stringWithFormat:@"%@ %@",labelText,self.contents[i]];
-                    if ([AutoString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]}].width + 2*i >= title.frame.size.width) {
+                    if ([AutoString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10]}].width + 2*i >= viewRect.size.width) {
                         AutoString = [NSString stringWithFormat:@"%@\n%@",labelText,self.contents[i]];
                     }
                 }
