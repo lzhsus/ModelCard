@@ -19,7 +19,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = 0;
-        self.contentView.backgroundColor = ThemeColor;
+        self.backgroundColor = ThemeColor;
         
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 20, 20)];
         imageView.image = [UIImage imageNamed:@"personal_d"];

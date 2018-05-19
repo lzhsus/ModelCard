@@ -304,14 +304,13 @@
     //根据总分类，将相同功能按 indexType 分离
     switch (self.modelType) {
         case ModelTypeMoTe:
-        case ModelTypeYanYuan:
-        {
+        case ModelTypeYanYuan:{
             indexType = indexPath.row;
-            if (indexType ==8) return;
+            if (indexType == 8 || indexType == 9) return;
         }
             break;
         case ModelTypeWangZhe:{
-            if (indexPath.row ==1 ) return;
+            if (indexPath.row == 1 ) return;
             switch (indexPath.row) {
                 case 2:
                     indexType = 1;
@@ -334,7 +333,7 @@
         }
             break;
         case ModelTypeZhuBo:{
-            if (indexPath.row ==3 ) return;
+            if (indexPath.row == 3 || indexPath.row == 12) return;
             switch (indexPath.row) {
                 case 1:
                     indexType = 100;

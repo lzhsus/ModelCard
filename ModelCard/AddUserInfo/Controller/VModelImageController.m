@@ -67,6 +67,20 @@
         title.numberOfLines = 0;
         title.text = self.name;
         
+        UIColor *color = [UIColor redColor];
+        switch (i) {
+            case 1:
+                color = [UIColor blueColor];
+                break;
+            case 2:
+                color = [UIColor greenColor];
+                break;
+            default:
+                color = [UIColor brownColor];
+                break;
+        }
+        [title makeBorderWidth:i+1 withColor:color];
+        
         if (i==1) {
             NSString *AutoString = @"";
             NSString *labelText = @"";
